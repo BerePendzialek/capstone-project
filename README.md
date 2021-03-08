@@ -1,3 +1,7 @@
+# My capstone project
+
+This is my capstone project. Here I will reinforce what I learned in this 2 months of Web Developer bootcamp at neue fische. Have a look and enjoy! For more details feel free to contact me.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
