@@ -1,0 +1,28 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "Name": "On FTP-Light",
+      "Warmup": {
+        "Duration": "10",
+        "PowerLow": "34",
+        "PowerHigh": "103",
+        "Pace": "0",
+        "Cadence": "90"
+      },
+      "SteadyState": {
+        "Duration": "20",
+        "Power": "137",
+        "Pace": "0",
+        "Cadence": "95"
+      },
+      "Cooldown": {
+        "Duration": "10",
+        "PowerLow": "103",
+        "PowerHigh": "34",
+        "Pace": "0",
+        "Cadence": "90"
+      }
+    }
+  ]
+}
