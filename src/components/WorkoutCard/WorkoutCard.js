@@ -1,44 +1,37 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import showFormatWarmup from '../../services/showFormatWarmup'
+import showFormatIntervalsT from '../../services/showFormatIntervalsT'
+import showFormatCooldown from '../../services/showFormatCooldown'
 
-export default function WorkoutCard({ results }) {
+WorkoutCard.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  totalDuration: PropTypes.number,
+}
+
+export default function WorkoutCard(props) {
+  const { name, description, totalDuration } = props
+
   return (
-    <WorkoutCardGrid>
-      <WorkoutCardTitle>{results.Name}</WorkoutCardTitle>
-      <WorkoutWrapper>
-        <WorkoutDescription>
-          Description: {results.Description} <br />
+    <Grid>
+      <Title>{name}</Title>
+      <Wrapper>
+        <Description>
+          Description: {description} <br />
           <br />
-          Total duration: {results.TotalDuration}
+          Total duration: {totalDuration}
           <br />
-        </WorkoutDescription>
-        <WarmUpSection>
-          {results.Warmup.Duration}min from {results.Warmup.PowerLow} to{' '}
-          {results.Warmup.PowerHigh}W at {results.Warmup.Cadence}rpm
-        </WarmUpSection>
-        <MainSection>
-          {' '}
-          {results.IntervalsT.Repeat}x {results.IntervalsT.OnDuration}min @{' '}
-          {results.IntervalsT.Cadence}rpm, {results.IntervalsT.OnPower}W, <br />
-          {results.IntervalsT.OffDuration}min @ {results.intervalCadenceResting}
-          rpm, {results.IntervalsT.OffPower}W{' '}
-        </MainSection>
-        <CooldownSection>
-          {results.Cooldown.Duration}min from {results.Cooldown.PowerLow} to{' '}
-          {results.Cooldown.PowerHigh}W at {results.Cooldown.Cadence}rpm
-        </CooldownSection>
-      </WorkoutWrapper>
-    </WorkoutCardGrid>
+        </Description>
+        <WarmupSection>{showFormatWarmup(props)}</WarmupSection>
+        <IntervalsTSection>{showFormatIntervalsT(props)}</IntervalsTSection>
+        <CooldownSection>{showFormatCooldown(props)}</CooldownSection>
+      </Wrapper>
+    </Grid>
   )
 }
 
-WorkoutCard.propTypes = {
-  Name: PropTypes.string.isRequired,
-  Description: PropTypes.string.isRequired,
-  TotalDuration: PropTypes.number.isRequired,
-}
-
-const WorkoutCardGrid = styled.section`
+const Grid = styled.section`
   display: grid;
   gap: 5px;
   padding: 20px;
@@ -47,28 +40,28 @@ const WorkoutCardGrid = styled.section`
   width: 100%;
 `
 
-const WorkoutCardTitle = styled.h3`
+const Title = styled.h3`
   text-align: justify;
 `
 
-const WorkoutDescription = styled.div`
+const Description = styled.div`
   text-align: left;
   border: 2px solid lightgray;
   padding: 5px;
 `
 
-const WorkoutWrapper = styled.section`
+const Wrapper = styled.section`
   display: grid;
   gap: 10px;
 `
 
-const WarmUpSection = styled.div`
+const WarmupSection = styled.div`
   text-align: right;
   background: lightblue;
   padding: 5px;
 `
 
-const MainSection = styled.div`
+const IntervalsTSection = styled.div`
   text-align: right;
   background: royalblue;
   padding: 5px;

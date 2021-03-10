@@ -1,9 +1,5 @@
 import WorkoutCard from './WorkoutCard'
-
-export default {
-  title: 'WorkoutCard',
-  component: WorkoutCard,
-}
+import { render, screen } from '@testing-library/react'
 
 const props = {
   name: 'On FTP-Light',
@@ -36,12 +32,13 @@ const props = {
   },
 }
 
-export const Primary = () => <WorkoutCard {...props} />
-
-// const Template = args => <WorkoutCard {...props} />
-
-// export const Primary = Template.bind({})
-
-// Primary.args = {
-//   props: props,
-// }
+describe('WorkoutCard', () => {
+  it('renders a workout´s title, description and duration', () => {
+    render(<WorkoutCard {...props} />)
+    expect(screen.getByText('Sweet Pot')).toBeInTheDocument()
+    expect(
+      screen.getByText('Be ready to work on 90% of FTP')
+    ).toBeInTheDocument()
+    expect(screen.getByText(30)).toBeInTheDocument()
+  })
+})

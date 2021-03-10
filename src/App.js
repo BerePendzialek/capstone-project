@@ -8,7 +8,7 @@ export default function App() {
     <AppLayout>
       <h2> Select your workout:</h2>
       {results.map(results => (
-        <WorkoutCard results={results} />
+        <WorkoutCard key={results.name} {...results} />
       ))}
     </AppLayout>
   )
