@@ -1,52 +1,41 @@
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
 
-export default function WorkoutCard({
-  name,
-  description,
-  totalDuration,
-  warmupDuration,
-  warmupPowerLow,
-  warmupPowerHigh,
-  warmupCadence,
-  cooldownDuration,
-  cooldownPowerLow,
-  cooldownPowerHigh,
-  cooldownCadence,
-  repetitions,
-  onDuration,
-  intervalCadence,
-  onPower,
-  offDuration,
-  intervalCadenceResting,
-  offPower,
-}) {
+export default function WorkoutCard({ results }) {
   return (
     <WorkoutCardGrid>
-      <WorkoutCardTitle>{name}</WorkoutCardTitle>
+      <WorkoutCardTitle>{results.Name}</WorkoutCardTitle>
       <WorkoutWrapper>
         <WorkoutDescription>
-          Description: {description} <br />
+          Description: {results.Description} <br />
           <br />
-          Total duration: {totalDuration}
+          Total duration: {results.TotalDuration}
           <br />
         </WorkoutDescription>
         <WarmUpSection>
-          {warmupDuration}min from {warmupPowerLow} to {warmupPowerHigh}W at{' '}
-          {warmupCadence}rpm
+          {results.Warmup.Duration}min from {results.Warmup.PowerLow} to{' '}
+          {results.Warmup.PowerHigh}W at {results.Warmup.Cadence}rpm
         </WarmUpSection>
         <MainSection>
           {' '}
-          {repetitions}x {onDuration}min @ {intervalCadence}rpm, {onPower}W,{' '}
-          <br />
-          {offDuration}min @ {intervalCadenceResting}rpm, {offPower}W{' '}
+          {results.IntervalsT.Repeat}x {results.IntervalsT.OnDuration}min @{' '}
+          {results.IntervalsT.Cadence}rpm, {results.IntervalsT.OnPower}W, <br />
+          {results.IntervalsT.OffDuration}min @ {results.intervalCadenceResting}
+          rpm, {results.IntervalsT.OffPower}W{' '}
         </MainSection>
         <CooldownSection>
-          {cooldownDuration}min from {cooldownPowerLow} to {cooldownPowerHigh}W
-          at {cooldownCadence}rpm
+          {results.Cooldown.Duration}min from {results.Cooldown.PowerLow} to{' '}
+          {results.Cooldown.PowerHigh}W at {results.Cooldown.Cadence}rpm
         </CooldownSection>
       </WorkoutWrapper>
     </WorkoutCardGrid>
   )
+}
+
+WorkoutCard.propTypes = {
+  Name: PropTypes.string.isRequired,
+  Description: PropTypes.string.isRequired,
+  TotalDuration: PropTypes.number.isRequired,
 }
 
 const WorkoutCardGrid = styled.section`
