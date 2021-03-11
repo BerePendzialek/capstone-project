@@ -8,4 +8,8 @@ export default styled.button`
   color: inherit;
   text-align: center;
   background: transparent;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
 `
