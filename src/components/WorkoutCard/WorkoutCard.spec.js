@@ -1,5 +1,7 @@
 import WorkoutCard from './WorkoutCard'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import Button from '../Button'
 
 const props = {
   name: 'On FTP-Light',
@@ -33,12 +35,20 @@ const props = {
 }
 
 describe('WorkoutCard', () => {
-  it('renders a workout´s title, description and duration', () => {
+  it('renders a workout´s title, description, duration and show/hide button', () => {
     render(<WorkoutCard {...props} />)
     expect(screen.getByText(/On FTP-Light/i)).toBeInTheDocument()
     expect(
       screen.getByText(/Ride right on FTP for a period of time/i)
     ).toBeVisible()
     expect(screen.getByText(/40/)).toBeInTheDocument()
+    expect(screen.getByRole('button')).toBeInTheDocument()
+  })
+
+  it('has a button that calls onClick prop when clicked', () => {
+    const handleClick = jest.fn()
+    render(<Button onClick={handleClick}>Show details</Button>)
+    userEvent.click(screen.getByText(/show details/i))
+    expect(handleClick).toHaveBeenCalled()
   })
 })
