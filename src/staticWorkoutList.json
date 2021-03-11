@@ -1,0 +1,128 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "name": "On FTP-Light",
+      "description": "Ride right on FTP for a period of time.",
+      "totalDuration": 40,
+      "warmup": {
+        "duration": 10,
+        "powerLow": 60,
+        "powerHigh": 120,
+        "pace": 0,
+        "cadence": 90
+      },
+      "intervalsT": {
+        "repeat": 2,
+        "onDuration": 5,
+        "offDuration": 4,
+        "onPower": 180,
+        "offPower": 110,
+        "pace": 0,
+        "cadence": 90,
+        "cadenceResting": 90
+      },
+
+      "cooldown": {
+        "duration": 10,
+        "powerLow": 120,
+        "powerHigh": 60,
+        "pace": 0,
+        "cadence": 90
+      }
+    },
+    {
+      "id": 2,
+      "name": "Sweet Spot Training (SST)",
+      "description": "It will give great bang for buck. Training at around 90 percent of your threshhold (aka the Sweet Spot) is useful because you can spend quite a bit of time there without building up undue amounts of training stress. You can do this workout as much as you'd like and watch your FTP rise over time.",
+      "totalDuration": 50,
+      "warmup": {
+        "duration": 5,
+        "powerLow": 80,
+        "powerHigh": 170,
+        "pace": 0,
+        "cadence": 85
+      },
+
+      "intervalsT": {
+        "repeat": 4,
+        "onDuration": 5,
+        "offDuration": 5,
+        "onPower": 192,
+        "offPower": 176,
+        "pace": 0,
+        "cadence": 90,
+        "cadenceResting": 90
+      },
+      "cooldown": {
+        "duration": 5,
+        "powerLow": 150,
+        "powerHigh": 110,
+        "pace": 0,
+        "cadence": 85
+      }
+    },
+    {
+      "id": 3,
+      "name": "Speed Skills",
+      "description": "Try your highest cadence",
+      "totalDuration": 40,
+      "warmup": {
+        "duration": 5,
+        "powerLow": 60,
+        "powerHigh": 120,
+        "pace": 0,
+        "cadence": 85
+      },
+
+      "intervalsT": {
+        "repeat": 5,
+        "onDuration": 3,
+        "offDuration": 3,
+        "onPower": 140,
+        "offPower": 100,
+        "pace": 0,
+        "cadence": 110,
+        "cadenceResting": 85
+      },
+      "cooldown": {
+        "duration": 5,
+        "powerLow": 100,
+        "powerHigh": 60,
+        "pace": 0,
+        "cadence": 85
+      }
+    },
+    {
+      "id": 4,
+      "name": "Short and slow intervals",
+      "description": "Give it a try to these slow cadence intervals.",
+      "totalDuration": 40,
+      "warmup": {
+        "duration": 5,
+        "powerLow": 60,
+        "powerHigh": 120,
+        "pace": 0,
+        "cadence": 85
+      },
+
+      "intervalsT": {
+        "repeat": 3,
+        "onDuration": 5,
+        "offDuration": 1,
+        "onPower": 170,
+        "offPower": 100,
+        "pace": 0,
+        "cadence": 65,
+        "cadenceResting": 85
+      },
+      "cooldown": {
+        "duration": 5,
+        "powerLow": 100,
+        "powerHigh": 60,
+        "pace": 0,
+        "cadence": 85
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<workout_file>
+  <author/>
+  <name/>
+  <description/>
+  <sportType>bike</sportType>
+  <durationType>time</durationType>
+  <tags/>
+  <workout>
+    <Warmup Duration="600" PowerLow="0.7518248175182481" PowerHigh="0.7518248175182481" pace="0" Cadence="90"/>
+    <SteadyState Duration="600" Power="0.9854014598540146" pace="0" Cadence="95"/>
+    <Cooldown Duration="600" PowerLow="0.7518248175182481" PowerHigh="0.24817518248175183" pace="0" Cadence="85"/>
+  </workout>
+</workout_file>
