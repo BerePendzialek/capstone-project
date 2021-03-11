@@ -19,4 +19,5 @@ const AppLayout = styled.div`
   padding: 2px;
   gap: 10px;
   overflow-y: scroll;
+  color: #fff;
 `

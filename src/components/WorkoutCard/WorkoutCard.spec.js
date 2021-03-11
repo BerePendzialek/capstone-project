@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 
 const props = {
   name: 'On FTP-Light',
-  description: 'Ride right on FTP for a period of time.',
+  description: 'Ride right on FTP for a period of time',
   totalDuration: 40,
   warmup: {
     duration: 10,
@@ -35,10 +35,10 @@ const props = {
 describe('WorkoutCard', () => {
   it('renders a workout´s title, description and duration', () => {
     render(<WorkoutCard {...props} />)
-    expect(screen.getByText('Sweet Pot')).toBeInTheDocument()
+    expect(screen.getByText(/On FTP-Light/i)).toBeInTheDocument()
     expect(
-      screen.getByText('Be ready to work on 90% of FTP')
-    ).toBeInTheDocument()
-    expect(screen.getByText(30)).toBeInTheDocument()
+      screen.getByText(/Ride right on FTP for a period of time/i)
+    ).toBeVisible()
+    expect(screen.getByText(/40/)).toBeInTheDocument()
   })
 })

@@ -36,7 +36,8 @@ const Grid = styled.section`
   gap: 5px;
   padding: 20px;
   border-radius: 5px;
-  background: #cad7f6;
+  border: 2px solid #ee7203;
+  background: transparent;
   width: 100%;
 `
 
@@ -46,7 +47,6 @@ const Title = styled.h3`
 
 const Description = styled.div`
   text-align: left;
-  border: 2px solid lightgray;
   padding: 5px;
 `
 
@@ -57,18 +57,18 @@ const Wrapper = styled.section`
 
 const WarmupSection = styled.div`
   text-align: right;
-  background: lightblue;
+  background: royalblue;
   padding: 5px;
 `
 
 const IntervalsTSection = styled.div`
   text-align: right;
-  background: royalblue;
+  background: #ffc30b;
   padding: 5px;
 `
 
 const CooldownSection = styled.div`
   text-align: right;
-  background: lightskyblue;
+  background: lightgray;
   padding: 5px;
 `

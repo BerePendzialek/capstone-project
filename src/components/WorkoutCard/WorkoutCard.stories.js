@@ -38,10 +38,9 @@ const props = {
 
 export const Primary = () => <WorkoutCard {...props} />
 
+// With template and controls, but did not work
 // const Template = args => <WorkoutCard {...props} />
-
 // export const Primary = Template.bind({})
-
 // Primary.args = {
 //   props: props,
 // }
