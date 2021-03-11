@@ -1,4 +1,5 @@
 export default function showFormatCooldown({ cooldown }) {
-  return `${cooldown.duration}min from ${cooldown.powerLow} to 
-  ${cooldown.powerHigh}W at ${cooldown.cadence}rpm`
+  const { duration, powerLow, powerHigh, cadence } = cooldown
+  return `${duration}min from ${powerLow} to 
+  ${powerHigh}W at ${cadence}rpm`
 }
