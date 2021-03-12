@@ -13,10 +13,22 @@ WorkoutCard.propTypes = {
 }
 
 export default function WorkoutCard(props) {
-  const { name, description, totalDuration } = props
+  const {
+    name,
+    description,
+    totalDuration,
+    warmup,
+    intervalsT,
+    cooldown,
+  } = props
+
   const [isWorkoutSectionsVisible, setIsWorkoutSectionsVisible] = useState(
     false
   )
+
+  const colorSectionW = warmup.powerHigh <= 150 && 'blue'
+  const colorSectionI = intervalsT.onPower > 121 && '#ffc30b'
+  const colorSectionC = cooldown.powerHigh <= 120 && 'salmon'
 
   return (
     <Grid>
@@ -35,9 +47,15 @@ export default function WorkoutCard(props) {
         </Button>
 
         <div hidden={!isWorkoutSectionsVisible}>
-          <WarmupSection>{showFormatWarmup(props)}</WarmupSection>
-          <IntervalsTSection>{showFormatIntervalsT(props)}</IntervalsTSection>
-          <CooldownSection>{showFormatCooldown(props)}</CooldownSection>
+          <WarmupSection background={colorSectionW}>
+            {showFormatWarmup({ warmup })}
+          </WarmupSection>
+          <IntervalsTSection background={colorSectionI}>
+            {showFormatIntervalsT({ intervalsT })}
+          </IntervalsTSection>
+          <CooldownSection background={colorSectionC}>
+            {showFormatCooldown({ cooldown })}
+          </CooldownSection>
         </div>
       </Wrapper>
     </Grid>
@@ -70,18 +88,18 @@ const Wrapper = styled.section`
 
 const WarmupSection = styled.div`
   text-align: right;
-  background: royalblue;
+  background-color: ${props => props.background || 'gray'};
   padding: 5px;
 `
 
 const IntervalsTSection = styled.div`
   text-align: right;
-  background: #ffc30b;
+  background-color: ${props => props.background || 'lightgray'};
   padding: 5px;
 `
 
 const CooldownSection = styled.div`
   text-align: right;
-  background: lightgray;
+  background-color: ${props => props.background || 'lightblue'};
   padding: 5px;
 `
