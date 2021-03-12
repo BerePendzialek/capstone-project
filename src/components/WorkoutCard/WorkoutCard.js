@@ -1,8 +1,10 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import showFormatWarmup from '../../services/showFormatWarmup'
 import showFormatIntervalsT from '../../services/showFormatIntervalsT'
 import showFormatCooldown from '../../services/showFormatCooldown'
+import Button from '../Button'
 
 WorkoutCard.propTypes = {
   name: PropTypes.string,
@@ -12,6 +14,9 @@ WorkoutCard.propTypes = {
 
 export default function WorkoutCard(props) {
   const { name, description, totalDuration } = props
+  const [isWorkoutSectionsVisible, setIsWorkoutSectionsVisible] = useState(
+    false
+  )
 
   return (
     <Grid>
@@ -23,9 +28,17 @@ export default function WorkoutCard(props) {
           Total duration: {totalDuration}
           <br />
         </Description>
-        <WarmupSection>{showFormatWarmup(props)}</WarmupSection>
-        <IntervalsTSection>{showFormatIntervalsT(props)}</IntervalsTSection>
-        <CooldownSection>{showFormatCooldown(props)}</CooldownSection>
+        <Button
+          onClick={() => setIsWorkoutSectionsVisible(!isWorkoutSectionsVisible)}
+        >
+          {isWorkoutSectionsVisible ? 'Hide details' : 'Show details'}
+        </Button>
+
+        <div hidden={!isWorkoutSectionsVisible}>
+          <WarmupSection>{showFormatWarmup(props)}</WarmupSection>
+          <IntervalsTSection>{showFormatIntervalsT(props)}</IntervalsTSection>
+          <CooldownSection>{showFormatCooldown(props)}</CooldownSection>
+        </div>
       </Wrapper>
     </Grid>
   )
