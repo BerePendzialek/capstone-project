@@ -9,7 +9,7 @@ export default function showFormatIntervalsT({ intervalsT }) {
     offPower,
   } = intervalsT
   return `${repeat}x ${onDuration}min @
-          ${cadence}rpm, ${onPower}W,
+          ${cadence}rpm, ${onPower}W, 
           ${offDuration}min @ ${cadenceResting}
           rpm, ${offPower}W`
 }

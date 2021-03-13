@@ -5,6 +5,7 @@ import showFormatWarmup from '../../services/showFormatWarmup'
 import showFormatIntervalsT from '../../services/showFormatIntervalsT'
 import showFormatCooldown from '../../services/showFormatCooldown'
 import Button from '../Button'
+//import colorSections from '../../services/colorSections'
 
 WorkoutCard.propTypes = {
   name: PropTypes.string,
@@ -26,9 +27,27 @@ export default function WorkoutCard(props) {
     false
   )
 
+  // function colorSectionW() {
+  //   const value = warmup.powerHigh
+  //   let colorS
+  //   if ({ value } < 60) {
+  //     colorS = 'grey'
+  //   } else if ({ value } > 61 && { value } < 150) {
+  //     colorS = 'blue'
+  //   } else {
+  //     colorS = 'red'
+  //   }
+  //   return colorS
+  // }
+
   const colorSectionW = warmup.powerHigh <= 150 && 'blue'
-  const colorSectionI = intervalsT.onPower > 121 && '#ffc30b'
-  const colorSectionC = cooldown.powerHigh <= 120 && 'salmon'
+  /* background: linear-gradient(to right,
+    rgba(127, 127, 127, 0.15),
+    rgba(51, 140, 255, 1)
+  ); */
+  const colorSectionI = intervalsT.onPower > 121 && '#ffcc3f'
+  const colorSectionC = cooldown.powerHigh <= 120 && 'lightgrey'
+  //background: linear-gradient(to right, rgba(127,127,127,1), rgba(127,127,127,0.15));
 
   return (
     <Grid>

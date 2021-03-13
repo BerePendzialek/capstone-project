@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
 body {
   margin: 0 auto;
-  background-color: #a55c1b;
+  background-color: white;
 background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);
   font-size: 112.5%;
   font-family: 'Work Sans', sans-serif;
