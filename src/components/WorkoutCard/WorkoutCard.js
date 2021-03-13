@@ -42,7 +42,7 @@ export default function WorkoutCard(props) {
         <Button
           onClick={() => setIsWorkoutSectionsVisible(!isWorkoutSectionsVisible)}
         >
-          {isWorkoutSectionsVisible ? 'Hide details' : 'Show details'}
+          {isWorkoutSectionsVisible ? 'Hide overview' : 'Show overview'}
         </Button>
 
         <div hidden={!isWorkoutSectionsVisible}>
@@ -66,7 +66,7 @@ const Grid = styled.section`
   display: grid;
   margin-left: 0;
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
   background: white;
   border: 2px solid #ee7203;
   border-radius: 0px 60px 60px 0px;
@@ -75,20 +75,21 @@ const Grid = styled.section`
 `
 
 const Title = styled.h3`
-  margin-top: 0;
+  margin: 15px 5px 0 5px;
   text-align: justify;
-  padding: 5px;
+  padding: 2px;
 `
 
 const Teaser = styled.div`
   text-align: left;
   padding: 5px;
+  display: inline-block;
 `
 
 const Description = styled.div`
   text-align: left;
   padding: 5px;
-  margin: 5px 0px 5px 0px;
+  margin: 10px 0px 10px 0px;
 `
 
 const Wrapper = styled.section`
@@ -116,5 +117,6 @@ const CooldownSection = styled.div`
   background: ${props => props.background};
   padding: 5px;
   margin-top: 2px;
+  margin-bottom: 25px;
   border-radius: 5px;
 `
