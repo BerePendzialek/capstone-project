@@ -7,7 +7,7 @@ export default function colorSection(value) {
   } else if (value >= 151 && value <= 179) {
     colorSection = 'var(--color-green)'
   } else if (value >= 180 && value <= 208) {
-    colorSection = 'var(--color-yellow)'
+    colorSection = 'var(--color-yellow-interval)'
   } else if (value >= 209 && value <= 226) {
     colorSection = 'var(--color-orange)'
   } else {
