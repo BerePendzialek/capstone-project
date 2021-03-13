@@ -26,7 +26,7 @@
       "cooldown": {
         "duration": 10,
         "powerLow": 120,
-        "powerHigh": 60,
+        "powerHigh": 50,
         "pace": 0,
         "cadence": 90
       }
@@ -39,7 +39,7 @@
       "warmup": {
         "duration": 5,
         "powerLow": 80,
-        "powerHigh": 170,
+        "powerHigh": 120,
         "pace": 0,
         "cadence": 85
       },
@@ -57,7 +57,7 @@
       "cooldown": {
         "duration": 5,
         "powerLow": 150,
-        "powerHigh": 110,
+        "powerHigh": 55,
         "pace": 0,
         "cadence": 85
       }
@@ -69,7 +69,7 @@
       "totalDuration": 40,
       "warmup": {
         "duration": 5,
-        "powerLow": 60,
+        "powerLow": 50,
         "powerHigh": 120,
         "pace": 0,
         "cadence": 85
@@ -88,7 +88,7 @@
       "cooldown": {
         "duration": 5,
         "powerLow": 100,
-        "powerHigh": 60,
+        "powerHigh": 50,
         "pace": 0,
         "cadence": 85
       }
@@ -119,7 +119,7 @@
       "cooldown": {
         "duration": 5,
         "powerLow": 100,
-        "powerHigh": 60,
+        "powerHigh": 55,
         "pace": 0,
         "cadence": 85
       }

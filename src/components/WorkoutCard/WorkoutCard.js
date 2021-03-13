@@ -5,7 +5,8 @@ import showFormatWarmup from '../../services/showFormatWarmup'
 import showFormatIntervalsT from '../../services/showFormatIntervalsT'
 import showFormatCooldown from '../../services/showFormatCooldown'
 import Button from '../Button'
-//import colorSections from '../../services/colorSections'
+import Icon from 'supercons'
+import colorSection from '../../services/colorSection'
 
 WorkoutCard.propTypes = {
   name: PropTypes.string,
@@ -27,36 +28,16 @@ export default function WorkoutCard(props) {
     false
   )
 
-  // function colorSectionW() {
-  //   const value = warmup.powerHigh
-  //   let colorS
-  //   if ({ value } < 60) {
-  //     colorS = 'grey'
-  //   } else if ({ value } > 61 && { value } < 150) {
-  //     colorS = 'blue'
-  //   } else {
-  //     colorS = 'red'
-  //   }
-  //   return colorS
-  // }
-
-  const colorSectionW = warmup.powerHigh <= 150 && 'blue'
-  /* background: linear-gradient(to right,
-    rgba(127, 127, 127, 0.15),
-    rgba(51, 140, 255, 1)
-  ); */
-  const colorSectionI = intervalsT.onPower > 121 && '#ffcc3f'
-  const colorSectionC = cooldown.powerHigh <= 120 && 'lightgrey'
-  //background: linear-gradient(to right, rgba(127,127,127,1), rgba(127,127,127,0.15));
-
   return (
     <Grid>
-      <Title>{name}</Title>
+      <Title>
+        {name} <br />
+      </Title>
       <Wrapper>
         <Description>
-          Description: {description} <br />
+          <Icon glyph="clock" size={25} /> {totalDuration} Min. <br />
           <br />
-          Total duration: {totalDuration}
+          <Icon glyph="docs" size={25} /> {description} <br />
           <br />
         </Description>
         <Button
@@ -66,13 +47,13 @@ export default function WorkoutCard(props) {
         </Button>
 
         <div hidden={!isWorkoutSectionsVisible}>
-          <WarmupSection background={colorSectionW}>
+          <WarmupSection background={colorSection(warmup.powerHigh)}>
             {showFormatWarmup({ warmup })}
           </WarmupSection>
-          <IntervalsTSection background={colorSectionI}>
+          <IntervalsTSection background={colorSection(intervalsT.onPower)}>
             {showFormatIntervalsT({ intervalsT })}
           </IntervalsTSection>
-          <CooldownSection background={colorSectionC}>
+          <CooldownSection background={colorSection(cooldown.powerHigh)}>
             {showFormatCooldown({ cooldown })}
           </CooldownSection>
         </div>
@@ -83,16 +64,21 @@ export default function WorkoutCard(props) {
 
 const Grid = styled.section`
   display: grid;
-  gap: 5px;
+  gap: 20px;
   padding: 20px;
-  border-radius: 5px;
-  border: 2px solid #ee7203;
+  border-radius: 40px;
+  border: 2px solid #a60d29;
   background: transparent;
   width: 100%;
 `
 
 const Title = styled.h3`
+  margin-top: 0;
   text-align: justify;
+  border: 2px solid #a60d29;
+  border-radius: 0px 0px 0px 20px;
+  color: black;
+  padding: 10px;
 `
 
 const Description = styled.div`
@@ -107,18 +93,23 @@ const Wrapper = styled.section`
 
 const WarmupSection = styled.div`
   text-align: right;
-  background-color: ${props => props.background || 'gray'};
+  background: ${props => props.background};
   padding: 5px;
+  border-radius: 5px;
 `
 
 const IntervalsTSection = styled.div`
   text-align: right;
-  background-color: ${props => props.background || 'lightgray'};
+  background: ${props => props.background};
   padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
 `
 
 const CooldownSection = styled.div`
   text-align: right;
-  background-color: ${props => props.background || 'lightblue'};
+  background: ${props => props.background};
   padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
 `

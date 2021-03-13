@@ -1,14 +1,13 @@
 import styled from 'styled-components/macro'
 
 export default styled.button`
-  border: 1px solid orange;
-  width: 30%;
-  padding: 8px;
+  border: 1px solid grey;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
   text-decoration: none;
-  color: inherit;
   text-align: center;
-  background: transparent;
-  color: white;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-size: 1em;

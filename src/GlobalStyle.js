@@ -2,6 +2,17 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
 
+:root {
+    --color-blue: linear-gradient(to right,
+    rgba(127, 127, 127, 0.15),
+    rgba(51, 140, 255, 1));
+    --color-grey: linear-gradient(to right, rgba(127,127,127,1), rgba(127,127,127,0.15));
+    --color-yellow: #ffcc3f;
+    --color-red: #a60d29;
+    --color-green: #59bf59;
+    --color-orange: #ff6639;
+  }
+
 
 * {
   box-sizing: border-box;
@@ -9,8 +20,7 @@ export default createGlobalStyle`
 
 body {
   margin: 0 auto;
-  background-color: white;
-background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);
+  background-color: #ebeded;
   font-size: 112.5%;
   font-family: 'Work Sans', sans-serif;
   padding: 10px;
