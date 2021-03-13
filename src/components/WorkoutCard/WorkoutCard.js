@@ -33,13 +33,12 @@ export default function WorkoutCard(props) {
       <Title>
         {name} <br />
       </Title>
+      <Teaser>
+        <Icon glyph="clock" size={24} /> {totalDuration} Min <br />
+        <Icon glyph="info" size={24} /> Level: Intermediate <br />
+      </Teaser>
+
       <Wrapper>
-        <Description>
-          <Icon glyph="clock" size={25} /> {totalDuration} Min. <br />
-          <br />
-          <Icon glyph="docs" size={25} /> {description} <br />
-          <br />
-        </Description>
         <Button
           onClick={() => setIsWorkoutSectionsVisible(!isWorkoutSectionsVisible)}
         >
@@ -47,6 +46,7 @@ export default function WorkoutCard(props) {
         </Button>
 
         <div hidden={!isWorkoutSectionsVisible}>
+          <Description>{description}</Description>
           <WarmupSection background={colorSection(warmup.powerHigh)}>
             {showFormatWarmup({ warmup })}
           </WarmupSection>
@@ -64,31 +64,36 @@ export default function WorkoutCard(props) {
 
 const Grid = styled.section`
   display: grid;
+  margin-left: 0;
   gap: 20px;
   padding: 20px;
-  border-radius: 40px;
-  border: 2px solid #a60d29;
-  background: transparent;
+  background: white;
+  border: 2px solid #ee7203;
+  border-radius: 0px 60px 60px 0px;
+  color: black;
   width: 100%;
 `
 
 const Title = styled.h3`
   margin-top: 0;
   text-align: justify;
-  border: 2px solid #a60d29;
-  border-radius: 0px 0px 0px 20px;
-  color: black;
-  padding: 10px;
+  padding: 5px;
+`
+
+const Teaser = styled.div`
+  text-align: left;
+  padding: 5px;
 `
 
 const Description = styled.div`
   text-align: left;
   padding: 5px;
+  margin: 5px 0px 5px 0px;
 `
 
 const Wrapper = styled.section`
   display: grid;
-  gap: 10px;
+  gap: 2px;
 `
 
 const WarmupSection = styled.div`

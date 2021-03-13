@@ -20,11 +20,12 @@ export default createGlobalStyle`
 
 body {
   margin: 0 auto;
-  background-color: #ebeded;
+  background: white;
   font-size: 112.5%;
   font-family: 'Work Sans', sans-serif;
   padding: 10px;
   max-width: 600px;
+  color: black;
 }
 
 
