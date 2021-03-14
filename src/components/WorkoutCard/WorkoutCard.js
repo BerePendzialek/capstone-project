@@ -6,7 +6,7 @@ import showFormatIntervalsT from '../../services/showFormatIntervalsT'
 import showFormatCooldown from '../../services/showFormatCooldown'
 import Button from '../Button'
 import Icon from 'supercons'
-import colorSection from '../../services/colorSection'
+import { colorSection, colorSectionInterval } from '../../services/colorSection'
 
 WorkoutCard.propTypes = {
   name: PropTypes.string,
@@ -50,7 +50,9 @@ export default function WorkoutCard(props) {
           <WarmupSection background={colorSection(warmup.powerHigh)}>
             {showFormatWarmup({ warmup })}
           </WarmupSection>
-          <IntervalsTSection background={colorSection(intervalsT.onPower)}>
+          <IntervalsTSection
+            background={colorSectionInterval(intervalsT.onPower)}
+          >
             {showFormatIntervalsT({ intervalsT })}
           </IntervalsTSection>
           <CooldownSection background={colorSection(cooldown.powerHigh)}>

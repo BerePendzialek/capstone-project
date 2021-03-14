@@ -3,10 +3,11 @@ import { createGlobalStyle } from 'styled-components'
 export default createGlobalStyle`
 
 :root {
-    --color-blue: linear-gradient(to right,
+    --color-grey: #7f7f7f;
+    --color-blue-rampUp: linear-gradient(to right,
     rgba(127, 127, 127, 0.15),
     rgba(51, 140, 255, 1));
-    --color-grey: linear-gradient(to right, rgba(127,127,127,1), rgba(127,127,127,0.15));
+    --color-grey-rampDown: linear-gradient(to right, rgba(127,127,127,1), rgba(127,127,127,0.15));
     --color-yellow-interval: linear-gradient(to bottom, rgba(255,204,63,1), rgba(127,127,127,0.15));
     --color-yellow: #ffcc3f;
     --color-red: #a60d29;
