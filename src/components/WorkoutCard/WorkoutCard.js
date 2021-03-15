@@ -1,12 +1,16 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import showFormatWarmup from '../../services/showFormatWarmup'
-import showFormatIntervalsT from '../../services/showFormatIntervalsT'
-import showFormatCooldown from '../../services/showFormatCooldown'
+
+import {
+  ShowFormatWarmup,
+  ShowFormatIntervalsT,
+  ShowFormatCooldown,
+} from './ShowFormatFromSections'
+
 import Button from '../Button'
 import Icon from 'supercons'
-import { colorSection, colorSectionInterval } from '../../services/colorSection'
+import { selectColor, selectColorByInterval } from '../../services/selectColor'
 
 WorkoutCard.propTypes = {
   name: PropTypes.string,
@@ -47,16 +51,16 @@ export default function WorkoutCard(props) {
 
         <div hidden={!isWorkoutSectionsVisible}>
           <Description>{description}</Description>
-          <WarmupSection background={colorSection(warmup.powerHigh)}>
-            {showFormatWarmup({ warmup })}
+          <WarmupSection background={selectColor(warmup.powerHigh)}>
+            <ShowFormatWarmup warmup={warmup} />
           </WarmupSection>
           <IntervalsTSection
-            background={colorSectionInterval(intervalsT.onPower)}
+            background={selectColorByInterval(intervalsT.onPower)}
           >
-            {showFormatIntervalsT({ intervalsT })}
+            <ShowFormatIntervalsT intervalsT={intervalsT} />
           </IntervalsTSection>
-          <CooldownSection background={colorSection(cooldown.powerHigh)}>
-            {showFormatCooldown({ cooldown })}
+          <CooldownSection background={selectColor(cooldown.powerHigh)}>
+            <ShowFormatCooldown cooldown={cooldown} />
           </CooldownSection>
         </div>
       </Wrapper>

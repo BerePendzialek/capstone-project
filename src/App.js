@@ -21,6 +21,8 @@ const AppLayout = styled.div`
   overflow-y: scroll;
 `
 const Heading = styled.h2`
+  font-family: 'Tahoma';
+  font-weight: 600;
   text-transform: uppercase;
   -webkit-text-stroke: 0.1rem currentcolor;
   -webkit-text-fill-color: transparent;

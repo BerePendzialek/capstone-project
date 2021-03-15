@@ -13,6 +13,11 @@ export default createGlobalStyle`
     --color-red: #a60d29;
     --color-green: #59bf59;
     --color-orange: #ff6639;
+    --color-blue-interval: linear-gradient(to bottom,
+    rgba(51, 140, 255, 1), rgba(127, 127, 127, 0.15)
+    ); 
+    --color-green-interval: linear-gradient(to bottom,  rgba(89, 191, 89, 1),
+    rgba(51, 140, 255, 1)); 
   }
 
 
@@ -24,7 +29,7 @@ body {
   margin: 0 auto;
   background: white;
   font-size: 112.5%;
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Work Sans', 'Tahoma', sans-serif;
   padding: 10px;
   max-width: 600px;
   color: black;
