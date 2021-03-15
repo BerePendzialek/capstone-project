@@ -1,18 +1,38 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+
+:root {
+    --color-grey: #7f7f7f;
+    --color-blue-rampUp: linear-gradient(to right,
+    rgba(127, 127, 127, 0.15),
+    rgba(51, 140, 255, 1));
+    --color-grey-rampDown: linear-gradient(to right, rgba(127,127,127,1), rgba(127,127,127,0.15));
+    --color-yellow-interval: linear-gradient(to bottom, rgba(255,204,63,1), rgba(127,127,127,0.15));
+    --color-yellow: #ffcc3f;
+    --color-red: #a60d29;
+    --color-green: #59bf59;
+    --color-orange: #ff6639;
+    --color-blue-interval: linear-gradient(to bottom,
+    rgba(51, 140, 255, 1), rgba(127, 127, 127, 0.15)
+    ); 
+    --color-green-interval: linear-gradient(to bottom,  rgba(89, 191, 89, 1),
+    rgba(51, 140, 255, 1)); 
+  }
+
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0 auto;
-  background-color: #a55c1b;
-background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);
+  background: white;
   font-size: 112.5%;
-  font-family: sans-serif;
+  font-family: 'Work Sans', 'Tahoma', sans-serif;
   padding: 10px;
   max-width: 600px;
+  color: black;
 }
 
 

@@ -1,15 +1,17 @@
 import styled from 'styled-components/macro'
 
 export default styled.button`
-  border: 1px solid orange;
-  width: 30%;
-  padding: 8px;
+  border: 0.5px solid var(--color-grey);
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
   text-decoration: none;
-  color: inherit;
+  text-transform: uppercase;
   text-align: center;
-  background: transparent;
-  color: white;
+  color: #ffa500;
+  background: white;
   cursor: pointer;
   display: inline-block;
-  font-size: 1em;
+  font-size: 0.8em;
+  font-weight: 400;
 `
