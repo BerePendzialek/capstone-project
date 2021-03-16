@@ -35,8 +35,7 @@ function ShowFormatCooldown({ cooldown }) {
   const { duration, powerLow, powerHigh, cadence } = cooldown
   return (
     <div>
-      {duration}min from {powerLow} to
-      {powerHigh}W at {cadence}rpm`
+      {duration}min from {powerLow} to {powerHigh}W at {cadence}rpm
     </div>
   )
 }

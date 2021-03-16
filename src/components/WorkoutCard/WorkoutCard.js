@@ -64,6 +64,10 @@ export default function WorkoutCard(props) {
           </CooldownSection>
         </div>
       </Wrapper>
+
+      <SelectButton>
+        Select this workout on <Icon glyph="enter" size={24} />
+      </SelectButton>
     </Grid>
   )
 }
@@ -125,4 +129,7 @@ const CooldownSection = styled.div`
   margin-top: 2px;
   margin-bottom: 25px;
   border-radius: 5px;
+`
+const SelectButton = styled(Button)`
+  width: 50%;
 `
