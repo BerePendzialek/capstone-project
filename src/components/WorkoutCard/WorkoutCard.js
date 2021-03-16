@@ -1,6 +1,7 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import {
   ShowFormatWarmup,
@@ -65,7 +66,7 @@ export default function WorkoutCard(props) {
         </div>
       </Wrapper>
 
-      <SelectButton>
+      <SelectButton as={Link} to="/music">
         Select this workout on <Icon glyph="enter" size={24} />
       </SelectButton>
     </Grid>

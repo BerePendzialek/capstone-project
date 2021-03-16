@@ -12,7 +12,6 @@ export default function WorkoutPage() {
       {results.map(results => (
         <WorkoutCard key={results.name} {...results} />
       ))}
-      <Button>Next</Button>
     </Grid>
   )
 }
