@@ -11,9 +11,7 @@ export default function App() {
         <Route exact path="/">
           <WorkoutPage />
         </Route>
-        <Route path="/music">
-          <MusicPage />
-        </Route>
+        <Route path="/music" render={props => <MusicPage {...props} />} />
       </Switch>
     </AppLayout>
   )

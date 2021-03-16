@@ -1,5 +1,4 @@
 import { results } from '../staticWorkoutList.json'
-import Button from '../Button'
 import WorkoutCard from '../WorkoutCard'
 import React from 'react'
 import styled from 'styled-components/macro'
@@ -9,8 +8,8 @@ export default function WorkoutPage() {
     <Grid>
       <Heading> Select your workout:</Heading>
 
-      {results.map(results => (
-        <WorkoutCard key={results.name} {...results} />
+      {results.map(workout => (
+        <WorkoutCard key={workout.name} workout={workout} {...results} />
       ))}
     </Grid>
   )

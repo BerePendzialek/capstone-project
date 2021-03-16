@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import {
   ShowFormatWarmup,
@@ -27,7 +27,7 @@ export default function WorkoutCard(props) {
     warmup,
     intervalsT,
     cooldown,
-  } = props
+  } = props.workout
 
   const [isWorkoutSectionsVisible, setIsWorkoutSectionsVisible] = useState(
     false
@@ -66,12 +66,18 @@ export default function WorkoutCard(props) {
         </div>
       </Wrapper>
 
-      <SelectButton as={Link} to="/music">
-        Select this workout on <Icon glyph="enter" size={24} />
+      <SelectButton
+        as={NavLink}
+        to={{ pathname: '/music', workout: props.workout }}
+      >
+        Select this workout
+        <Icon glyph="enter" size={24} />
       </SelectButton>
     </Grid>
   )
 }
+
+/* <SelectButton as={Link} to="/music"> */
 
 const Grid = styled.section`
   display: grid;
