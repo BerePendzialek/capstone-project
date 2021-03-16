@@ -1,12 +1,20 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-
-import WorkoutPage from './components/WorkoutPage/WorkoutPage'
+import { Route, Switch } from 'react-router-dom'
+import WorkoutPage from './components/WorkoutPage'
+import MusicPage from './components/MusicPage'
 
 export default function App() {
   return (
     <AppLayout>
-      <WorkoutPage />
+      <Switch>
+        <Route exact path="/">
+          <WorkoutPage />
+        </Route>
+        <Route path="/music">
+          <MusicPage />
+        </Route>
+      </Switch>
     </AppLayout>
   )
 }
