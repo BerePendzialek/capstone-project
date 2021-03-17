@@ -5,6 +5,9 @@ import {
   ShowFormatCooldown,
 } from '../WorkoutCard/ShowFormatFromSections'
 import { selectColor, selectColorByInterval } from '../../services/selectColor'
+import Button from '../Button'
+import Icon from 'supercons'
+import { NavLink } from 'react-router-dom'
 
 export default function MusicPage({ location }) {
   const { name, warmup, intervalsT, cooldown } = location.workout
@@ -30,6 +33,11 @@ export default function MusicPage({ location }) {
           </CooldownSection>
         </div>
       </Wrapper>
+
+      <BackButton as={NavLink} to={{ pathname: '/' }}>
+        <Icon glyph="back" size={24} />
+        Back
+      </BackButton>
     </Grid>
   )
 }
@@ -80,4 +88,6 @@ const CooldownSection = styled.div`
   border-radius: 5px;
 `
 
-// <p> {name} </p>
+const BackButton = styled(Button)`
+  width: 50%;
+`
