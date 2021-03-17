@@ -1,8 +1,9 @@
 import WorkoutCard from './WorkoutCard'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { MemoryRouter } from 'react-router-dom/cjs/react-router-dom.min'
 
-const props = {
+const workout = {
   name: 'On FTP-Light',
   description: 'Ride right on FTP for a period of time',
   totalDuration: 40,
@@ -34,20 +35,37 @@ const props = {
 }
 
 describe('WorkoutCard', () => {
-  it('renders a workout´s title, description, duration and show/hide button', () => {
-    render(<WorkoutCard {...props} />)
+  it('renders a workout´s title, description, duration, show/hide button and select', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <WorkoutCard workout={workout} />
+      </MemoryRouter>
+    )
     expect(screen.getByText(/On FTP-Light/i)).toBeInTheDocument()
     expect(
       screen.getByText(/Ride right on FTP for a period of time/i)
-    ).toBeVisible()
+    ).toBeInTheDocument()
     expect(screen.getByText(/40/)).toBeInTheDocument()
     expect(screen.getByRole('button')).toBeInTheDocument()
   })
 
   it('has a button that renders a description when clicked', () => {
-    render(<WorkoutCard {...props} />)
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <WorkoutCard workout={workout} />
+      </MemoryRouter>
+    )
     const button = screen.getByRole('button')
     userEvent.click(button)
     expect(screen.queryByText(/warmup/i)).not.toBeInTheDocument()
+  })
+
+  it('has a button that links to the music page on click', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <WorkoutCard workout={workout} />
+      </MemoryRouter>
+    )
+    expect(screen.getByText(/select/i)).toBeInTheDocument()
   })
 })

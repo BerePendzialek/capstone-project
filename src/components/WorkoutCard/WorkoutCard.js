@@ -19,7 +19,7 @@ WorkoutCard.propTypes = {
   totalDuration: PropTypes.number,
 }
 
-export default function WorkoutCard(props) {
+export default function WorkoutCard({ workout }) {
   const {
     name,
     description,
@@ -27,7 +27,7 @@ export default function WorkoutCard(props) {
     warmup,
     intervalsT,
     cooldown,
-  } = props.workout
+  } = workout
 
   const [isWorkoutSectionsVisible, setIsWorkoutSectionsVisible] = useState(
     false
@@ -66,18 +66,13 @@ export default function WorkoutCard(props) {
         </div>
       </Wrapper>
 
-      <SelectButton
-        as={NavLink}
-        to={{ pathname: '/music', workout: props.workout }}
-      >
+      <SelectButton as={NavLink} to={{ pathname: '/music', workout: workout }}>
         Select this workout
         <Icon glyph="enter" size={24} />
       </SelectButton>
     </Grid>
   )
 }
-
-/* <SelectButton as={Link} to="/music"> */
 
 const Grid = styled.section`
   display: grid;

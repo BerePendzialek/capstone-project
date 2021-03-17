@@ -5,7 +5,7 @@ export default {
   component: WorkoutCard,
 }
 
-const props = {
+const workout = {
   name: 'On FTP-Light',
   description: 'Ride right on FTP for a period of time.',
   totalDuration: 40,
@@ -36,11 +36,4 @@ const props = {
   },
 }
 
-export const Primary = () => <WorkoutCard {...props} />
-
-// With template and controls, but did not work
-// const Template = args => <WorkoutCard {...props} />
-// export const Primary = Template.bind({})
-// Primary.args = {
-//   props: props,
-// }
+export const Primary = () => <WorkoutCard workout={workout} />
