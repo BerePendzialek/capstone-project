@@ -1,57 +1,25 @@
 import styled from 'styled-components/macro'
-import PropTypes from 'prop-types'
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
-
 import {
   ShowFormatWarmup,
   ShowFormatIntervalsT,
   ShowFormatCooldown,
-} from './ShowFormatFromSections'
-
+} from '../WorkoutCard/ShowFormatFromSections'
+import { selectColor, selectColorByInterval } from '../../services/selectColor'
 import Button from '../Button'
 import Icon from 'supercons'
-import { selectColor, selectColorByInterval } from '../../services/selectColor'
+import { NavLink } from 'react-router-dom'
 
-WorkoutCard.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  totalDuration: PropTypes.number,
-}
-
-export default function WorkoutCard({ workout }) {
-  const {
-    name,
-    description,
-    totalDuration,
-    warmup,
-    intervalsT,
-    cooldown,
-  } = workout
-
-  const [isWorkoutSectionsVisible, setIsWorkoutSectionsVisible] = useState(
-    false
-  )
+export default function MusicPage({ location }) {
+  const { name, warmup, intervalsT, cooldown } = location.workout
 
   return (
     <Grid>
       <Title>
         {name} <br />
       </Title>
-      <Teaser>
-        <Icon glyph="clock" size={24} /> {totalDuration} Min <br />
-        <Icon glyph="info" size={24} /> Level: Intermediate <br />
-      </Teaser>
 
       <Wrapper>
-        <Button
-          onClick={() => setIsWorkoutSectionsVisible(!isWorkoutSectionsVisible)}
-        >
-          {isWorkoutSectionsVisible ? 'Hide overview' : 'Show overview'}
-        </Button>
-
-        <div hidden={!isWorkoutSectionsVisible}>
-          <Description>{description}</Description>
+        <div>
           <WarmupSection background={selectColor(warmup.powerHigh)}>
             <ShowFormatWarmup warmup={warmup} />
           </WarmupSection>
@@ -66,14 +34,13 @@ export default function WorkoutCard({ workout }) {
         </div>
       </Wrapper>
 
-      <SelectButton as={NavLink} to={{ pathname: '/music', workout: workout }}>
-        Select this workout
-        <Icon glyph="enter" size={24} />
-      </SelectButton>
+      <BackButton as={NavLink} to={{ pathname: '/' }}>
+        <Icon glyph="back" size={24} />
+        Back
+      </BackButton>
     </Grid>
   )
 }
-
 const Grid = styled.section`
   display: grid;
   margin-left: 0;
@@ -90,18 +57,6 @@ const Title = styled.h3`
   margin: 15px 5px 0 5px;
   text-align: justify;
   padding: 2px;
-`
-
-const Teaser = styled.div`
-  text-align: left;
-  padding: 5px;
-  display: inline-block;
-`
-
-const Description = styled.div`
-  text-align: left;
-  padding: 5px;
-  margin: 10px 0px 10px 0px;
 `
 
 const Wrapper = styled.section`
@@ -132,6 +87,7 @@ const CooldownSection = styled.div`
   margin-bottom: 25px;
   border-radius: 5px;
 `
-const SelectButton = styled(Button)`
+
+const BackButton = styled(Button)`
   width: 50%;
 `

@@ -1,4 +1,5 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { MemoryRouter } from 'react-router-dom/cjs/react-router-dom.min'
 import GlobalStyle from '../src/GlobalStyle'
 
 export const parameters = {
@@ -12,8 +13,10 @@ export const parameters = {
 export const decorators =[
   Story => (
     <>
-      <GlobalStyle />
+      <MemoryRouter initialEntries={['/']}>
+        <GlobalStyle />
       <Story />
+      </MemoryRouter> 
     </>
   ),
 ] 
