@@ -1,0 +1,212 @@
+{
+  "data": [
+    {
+      "track_id": 1,
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
+            },
+            "href": "https://api.spotify.com/v1/artists/1Xyo4u8uXC1ZmMpatF05PJ",
+            "id": "1Xyo4u8uXC1ZmMpatF05PJ",
+            "name": "The Weeknd",
+            "type": "artist",
+            "uri": "spotify:artist:1Xyo4u8uXC1ZmMpatF05PJ"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/4yP0hdKOZPNshxUOjY0cZj"
+        },
+        "href": "https://api.spotify.com/v1/albums/4yP0hdKOZPNshxUOjY0cZj",
+        "id": "4yP0hdKOZPNshxUOjY0cZj",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b2738863bc11d2aa12b54f5aeb36",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
+            "width": 64
+          }
+        ],
+        "name": "After Hours",
+        "release_date": "2020-03-20",
+        "release_date_precision": "day",
+        "total_tracks": 14,
+        "type": "album",
+        "uri": "spotify:album:4yP0hdKOZPNshxUOjY0cZj"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ"
+          },
+          "href": "https://api.spotify.com/v1/artists/1Xyo4u8uXC1ZmMpatF05PJ",
+          "id": "1Xyo4u8uXC1ZmMpatF05PJ",
+          "name": "The Weeknd",
+          "type": "artist",
+          "uri": "spotify:artist:1Xyo4u8uXC1ZmMpatF05PJ"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 200040,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "USUG11904206"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b"
+      },
+      "href": "https://api.spotify.com/v1/tracks/0VjIjW4GlUZAMYd2vXMi3b",
+      "id": "0VjIjW4GlUZAMYd2vXMi3b",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Blinding Lights",
+      "popularity": 96,
+      "preview_url": null,
+      "track_number": 9,
+      "type": "track",
+      "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+      "audio_features": [
+        {
+          "danceability": 0.514,
+          "energy": 0.73,
+          "key": 1,
+          "loudness": -5.934,
+          "mode": 1,
+          "speechiness": 0.0598,
+          "acousticness": 0.00146,
+          "instrumentalness": 0.0000954,
+          "liveness": 0.0897,
+          "valence": 0.334,
+          "tempo": 171.005,
+          "type": "audio_features",
+          "id": "0VjIjW4GlUZAMYd2vXMi3b",
+          "uri": "spotify:track:0VjIjW4GlUZAMYd2vXMi3b",
+          "track_href": "https://api.spotify.com/v1/tracks/0VjIjW4GlUZAMYd2vXMi3b",
+          "analysis_url": "https://api.spotify.com/v1/audio-analysis/0VjIjW4GlUZAMYd2vXMi3b",
+          "duration_ms": 200040,
+          "time_signature": 4
+        }
+      ]
+    },
+    {
+      "track_id": 2,
+      "album": {
+        "album_type": "album",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/30ut8L4gmEz4vNr1zNhpbh"
+            },
+            "href": "https://api.spotify.com/v1/artists/30ut8L4gmEz4vNr1zNhpbh",
+            "id": "30ut8L4gmEz4vNr1zNhpbh",
+            "name": "Ida Corr",
+            "type": "artist",
+            "uri": "spotify:artist:30ut8L4gmEz4vNr1zNhpbh"
+          }
+        ],
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/4nLyl2aEgi2qQrcPiFlmD7"
+        },
+        "href": "https://api.spotify.com/v1/albums/4nLyl2aEgi2qQrcPiFlmD7",
+        "id": "4nLyl2aEgi2qQrcPiFlmD7",
+        "images": [
+          {
+            "height": 640,
+            "url": "https://i.scdn.co/image/ab67616d0000b273568636ad464813b16a94292a",
+            "width": 640
+          },
+          {
+            "height": 300,
+            "url": "https://i.scdn.co/image/ab67616d00001e02568636ad464813b16a94292a",
+            "width": 300
+          },
+          {
+            "height": 64,
+            "url": "https://i.scdn.co/image/ab67616d00004851568636ad464813b16a94292a",
+            "width": 64
+          }
+        ],
+        "name": "Singled Out",
+        "release_date": "2013-05-03",
+        "release_date_precision": "day",
+        "total_tracks": 14,
+        "type": "album",
+        "uri": "spotify:album:4nLyl2aEgi2qQrcPiFlmD7"
+      },
+      "artists": [
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/30ut8L4gmEz4vNr1zNhpbh"
+          },
+          "href": "https://api.spotify.com/v1/artists/30ut8L4gmEz4vNr1zNhpbh",
+          "id": "30ut8L4gmEz4vNr1zNhpbh",
+          "name": "Ida Corr",
+          "type": "artist",
+          "uri": "spotify:artist:30ut8L4gmEz4vNr1zNhpbh"
+        },
+        {
+          "external_urls": {
+            "spotify": "https://open.spotify.com/artist/7dc6hUwyuIhrZdh80eaCEE"
+          },
+          "href": "https://api.spotify.com/v1/artists/7dc6hUwyuIhrZdh80eaCEE",
+          "id": "7dc6hUwyuIhrZdh80eaCEE",
+          "name": "Fedde Le Grand",
+          "type": "artist",
+          "uri": "spotify:artist:7dc6hUwyuIhrZdh80eaCEE"
+        }
+      ],
+      "disc_number": 1,
+      "duration_ms": 151983,
+      "explicit": false,
+      "external_ids": {
+        "isrc": "DKUCA0700015"
+      },
+      "external_urls": {
+        "spotify": "https://open.spotify.com/track/4LjfIjS8iweFCPdKxLnEoV"
+      },
+      "href": "https://api.spotify.com/v1/tracks/4LjfIjS8iweFCPdKxLnEoV",
+      "id": "4LjfIjS8iweFCPdKxLnEoV",
+      "is_local": false,
+      "is_playable": true,
+      "name": "Let Me Think About It",
+      "popularity": 63,
+      "preview_url": "https://p.scdn.co/mp3-preview/a46fc92903028c99aee79150ca2286013862183d?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number": 5,
+      "type": "track",
+      "uri": "spotify:track:4LjfIjS8iweFCPdKxLnEoV",
+      "audio_features": [
+        {
+          "danceability": 0.762,
+          "energy": 0.754,
+          "key": 0,
+          "loudness": -3.425,
+          "mode": 0,
+          "speechiness": 0.046,
+          "acousticness": 0.00022,
+          "instrumentalness": 0.0665,
+          "liveness": 0.146,
+          "valence": 0.715,
+          "tempo": 129.026,
+          "type": "audio_features",
+          "id": "4LjfIjS8iweFCPdKxLnEoV",
+          "uri": "spotify:track:4LjfIjS8iweFCPdKxLnEoV",
+          "track_href": "https://api.spotify.com/v1/tracks/4LjfIjS8iweFCPdKxLnEoV",
+          "analysis_url": "https://api.spotify.com/v1/audio-analysis/4LjfIjS8iweFCPdKxLnEoV",
+          "duration_ms": 151983,
+          "time_signature": 4
+        }
+      ]
+    }
+  ]
+}
