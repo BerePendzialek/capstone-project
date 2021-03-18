@@ -63,13 +63,13 @@ const Wrapper = styled.section`
   display: grid;
   gap: 2px;
 `
-
 const WarmupSection = styled.section`
   text-align: right;
   background: ${props => props.background};
   padding: 5px;
   border-radius: 5px;
 `
+
 
 const IntervalsTSection = styled.section`
   text-align: right;
@@ -79,7 +79,9 @@ const IntervalsTSection = styled.section`
   border-radius: 5px;
 `
 
+
 const CooldownSection = styled.section`
+
   text-align: right;
   background: ${props => props.background};
   padding: 5px;
