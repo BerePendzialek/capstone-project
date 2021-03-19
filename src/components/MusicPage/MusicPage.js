@@ -14,6 +14,12 @@ export default function MusicPage({ location }) {
 
   return (
     <Grid>
+      <Heading> Select your music:</Heading>
+
+      <Filter>
+        <p>Lets filter</p>
+      </Filter>
+
       <Title>
         {name} <br />
       </Title>
@@ -53,10 +59,24 @@ const Grid = styled.section`
   width: 100%;
 `
 
+const Heading = styled.h2`
+  font-family: 'Tahoma';
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.1rem currentcolor;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  display: inline-block;
+`
+
 const Title = styled.h3`
   margin: 15px 5px 0 5px;
   text-align: justify;
   padding: 2px;
+`
+
+const Filter = styled.section`
+  display: grid;
 `
 
 const Wrapper = styled.section`
