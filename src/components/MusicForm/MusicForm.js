@@ -1,18 +1,25 @@
 import styled from 'styled-components/macro'
-import setEnergy from '../../services/setEnergy'
+import convertEnergy from '../../services/convertEnergy'
 import { data } from '../tracksShort.json'
 
 export default function MusicForm({ onCreatePlaylist }) {
+  const energyCategory = Array.from(
+    new Set(data.map(({ energy }) => convertEnergy(energy)))
+  )
+  // Array mit [ "More Power", "Relax" ]
+
+  const genreCategory = Array.from(
+    new Set(data.map(({ genre }) => <option>{genre}</option>))
+  )
+
   return (
     <Form data-testid="form" onSubmit={handleSubmit}>
       <Label>
         Energy
         <SelectInput required name="energy" data-testid="energy-select">
           <option value="">... Please choose an option</option>
-          {data.map(({ energy, track_id }) => (
-            <option key={track_id} data-testid={setEnergy(energy)}>
-              {setEnergy(energy)}{' '}
-            </option>
+          {energyCategory.map(categoryItem => (
+            <option>{categoryItem}</option>
           ))}
         </SelectInput>
       </Label>
@@ -21,11 +28,7 @@ export default function MusicForm({ onCreatePlaylist }) {
         Genre
         <SelectInput name="genre" data-testid="genre-select">
           <option value="">... Please choose an option</option>
-          {data.map(({ genre, track_id }) => (
-            <option key={track_id} data-testid={genre}>
-              {genre}{' '}
-            </option>
-          ))}
+          {genreCategory}
         </SelectInput>
       </Label>
     </Form>
