@@ -16,7 +16,12 @@ export default function MusicPage() {
     <Grid>
       <Heading> Select your music:</Heading>
 
-      <MusicForm />
+      <MusicForm></MusicForm>
+
+      <CardGrid>
+        <p>View of the selected workout, here</p>
+      </CardGrid>
+
       {/* 
       <Title>
         {name} <br />
@@ -42,10 +47,17 @@ export default function MusicPage() {
         <Icon glyph="back" size={24} />
         Back
       </BackButton>
+      <Button>Get my Playlist! </Button>
     </Grid>
   )
 }
+
 const Grid = styled.section`
+  display: grid;
+  gap: 20px;
+`
+
+const CardGrid = styled.section`
   display: grid;
   margin-left: 0;
   gap: 20px;
