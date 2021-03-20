@@ -6,11 +6,8 @@ export default function MusicForm({ onCreatePlaylist }) {
   const energyCategory = Array.from(
     new Set(data.map(({ energy }) => convertEnergy(energy)))
   )
-  // Array mit [ "More Power", "Relax" ]
 
-  const genreCategory = Array.from(
-    new Set(data.map(({ genre }) => <option>{genre}</option>))
-  )
+  const genreCategory = Array.from(new Set(data.map(({ genre }) => genre)))
 
   return (
     <Form data-testid="form" onSubmit={handleSubmit}>
@@ -28,7 +25,9 @@ export default function MusicForm({ onCreatePlaylist }) {
         Genre
         <SelectInput name="genre" data-testid="genre-select">
           <option value="">... Please choose an option</option>
-          {genreCategory}
+          {genreCategory.map(categoryItem => (
+            <option>{categoryItem}</option>
+          ))}
         </SelectInput>
       </Label>
     </Form>
