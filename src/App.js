@@ -3,6 +3,7 @@ import styled from 'styled-components/macro'
 import { Route, Switch } from 'react-router-dom'
 import WorkoutPage from './components/WorkoutPage'
 import MusicPage from './components/MusicPage'
+import PlaylistPage from './components/PlaylistPage'
 
 export default function App() {
   return (
@@ -12,6 +13,9 @@ export default function App() {
           <WorkoutPage />
         </Route>
         <Route path="/music" render={props => <MusicPage {...props} />} />
+        <Route path="/playlist">
+          <PlaylistPage />
+        </Route>
       </Switch>
     </AppLayout>
   )

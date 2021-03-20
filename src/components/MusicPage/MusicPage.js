@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import Icon from 'supercons'
 
 // import {
 //   ShowFormatWarmup,
@@ -7,7 +8,7 @@ import styled from 'styled-components/macro'
 // } from '../WorkoutCard/ShowFormatFromSections'
 // import { selectColor, selectColorByInterval } from '../../services/selectColor'
 import Button from '../Button'
-import Icon from 'supercons'
+
 import { NavLink } from 'react-router-dom'
 import MusicForm from '../MusicForm'
 
@@ -47,7 +48,11 @@ export default function MusicPage() {
         <Icon glyph="back" size={24} />
         Back
       </BackButton>
-      <Button>Get my Playlist! </Button>
+      <Button as={NavLink} to={{ pathname: '/playlist' }}>
+        {' '}
+        Get my Playlist! 
+        <Icon glyph="enter" size={24} />{' '}
+      </Button>
     </Grid>
   )
 }
