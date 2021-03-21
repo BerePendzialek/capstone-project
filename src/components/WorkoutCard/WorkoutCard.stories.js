@@ -1,7 +1,7 @@
 import WorkoutCard from './WorkoutCard'
 
 export default {
-  title: 'WorkoutCard',
+  title: 'Components',
   component: WorkoutCard,
 }
 
@@ -36,4 +36,4 @@ const workout = {
   },
 }
 
-export const Primary = () => <WorkoutCard workout={workout} />
+export const PrimaryWorkoutCard = () => <WorkoutCard workout={workout} />

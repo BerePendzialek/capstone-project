@@ -1,7 +1,7 @@
 import WorkoutCard from './WorkoutCard'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { MemoryRouter } from 'react-router-dom/cjs/react-router-dom.min'
+import { MemoryRouter } from 'react-router-dom'
 
 const workout = {
   name: 'On FTP-Light',

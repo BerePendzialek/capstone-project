@@ -17,11 +17,11 @@ export default function MusicPage() {
     <Grid>
       <Heading> Select your music:</Heading>
 
-      <MusicForm></MusicForm>
-
       <CardGrid>
         <p>View of the selected workout, here</p>
       </CardGrid>
+
+      <MusicForm />
 
       {/* 
       <Title>
@@ -48,11 +48,6 @@ export default function MusicPage() {
         <Icon glyph="back" size={24} />
         Back
       </BackButton>
-      <Button as={NavLink} to={{ pathname: '/playlist' }}>
-        {' '}
-        Get my Playlist! 
-        <Icon glyph="enter" size={24} />{' '}
-      </Button>
     </Grid>
   )
 }

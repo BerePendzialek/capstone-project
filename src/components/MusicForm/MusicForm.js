@@ -1,6 +1,9 @@
 import styled from 'styled-components/macro'
 import convertEnergy from '../../services/convertEnergy'
 import { data } from '../tracksShort.json'
+import Button from '../Button'
+import Icon from 'supercons'
+import { NavLink } from 'react-router-dom'
 
 export default function MusicForm({ onCreatePlaylist }) {
   const energyCategory = Array.from(
@@ -16,20 +19,26 @@ export default function MusicForm({ onCreatePlaylist }) {
         <SelectInput required name="energy" data-testid="energy-select">
           <option value="">... Please choose an option</option>
           {energyCategory.map(categoryItem => (
-            <option>{categoryItem}</option>
+            <option data-testid={categoryItem}>{categoryItem}</option>
           ))}
         </SelectInput>
       </Label>
 
       <Label>
         Genre
-        <SelectInput name="genre" data-testid="genre-select">
+        <SelectInput required name="genre" data-testid="genre-select">
           <option value="">... Please choose an option</option>
           {genreCategory.map(categoryItem => (
-            <option>{categoryItem}</option>
+            <option data-testid={categoryItem}>{categoryItem}</option>
           ))}
         </SelectInput>
       </Label>
+
+      <Button as={NavLink} to={{ pathname: '/playlist' }}>
+        {' '}
+        Get my Playlist! 
+        <Icon glyph="enter" size={24} />{' '}
+      </Button>
     </Form>
   )
 
