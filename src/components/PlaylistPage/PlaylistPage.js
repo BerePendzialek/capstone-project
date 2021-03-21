@@ -7,15 +7,17 @@ export default function PlaylistPage() {
   return (
     <Grid>
       <Heading>Your playlist:</Heading>
-      Under construction!
-      <BackButton as={NavLink} to={{ pathname: '/music' }}>
-        <Icon glyph="back" size={24} />
-        Back
-      </BackButton>
-      <BackButton as={NavLink} to={{ pathname: '/' }}>
-        <Icon glyph="home" size={24} />
-        Start new
-      </BackButton>
+      and here is where the magic happens! <br />
+      <Wrapper>
+        <BackButton as={NavLink} to={{ pathname: '/music' }}>
+          <Icon glyph="back" size={24} />
+          Back
+        </BackButton>
+        <BackButton as={NavLink} to={{ pathname: '/' }}>
+          <Icon glyph="home" size={24} />
+          New
+        </BackButton>
+      </Wrapper>
     </Grid>
   )
 }
@@ -34,7 +36,12 @@ const Heading = styled.h2`
   white-space: nowrap;
   display: inline-block;
 `
+const Wrapper = styled.span`
+  display: flex;
+  justify-content: space-between;
+`
 
 const BackButton = styled(Button)`
-  width: 50%;
+  width: 40%;
+  border-radius: 5px;
 `

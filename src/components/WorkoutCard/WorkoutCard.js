@@ -48,6 +48,7 @@ export default function WorkoutCard({ workout }) {
           onClick={() => setIsWorkoutSectionsVisible(!isWorkoutSectionsVisible)}
         >
           {isWorkoutSectionsVisible ? 'Hide overview' : 'Show overview'}
+          <Icon glyph="down-caret" size={24} />
         </Button>
 
         <div hidden={!isWorkoutSectionsVisible}>
@@ -133,5 +134,9 @@ const CooldownSection = styled.section`
   border-radius: 5px;
 `
 const SelectButton = styled(Button)`
-  width: 50%;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
 `

@@ -34,11 +34,11 @@ export default function MusicForm({ onCreatePlaylist }) {
         </SelectInput>
       </Label>
 
-      <Button as={NavLink} to={{ pathname: '/playlist' }}>
+      <PlaylistButton as={NavLink} to={{ pathname: '/playlist' }}>
         {' '}
         Get my Playlist! 
         <Icon glyph="enter" size={24} />{' '}
-      </Button>
+      </PlaylistButton>
     </Form>
   )
 
@@ -74,4 +74,13 @@ const SelectInput = styled.select`
   padding-top: 5px;
   font-size: 0.8em;
   width: 100%;
+  border-radius: 5px;
+  margin-top: 10px;
+`
+const PlaylistButton = styled(Button)`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
 `
