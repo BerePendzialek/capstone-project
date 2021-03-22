@@ -31,7 +31,7 @@ describe('MusicForm', () => {
     const callback = jest.fn()
     render(
       <MemoryRouter initialEntries={['/music']}>
-        (<MusicForm onSubmit={callback} onCreatePlaylist={callback} />)
+        (<MusicForm onCreatePlaylist={callback} />)
       </MemoryRouter>
     )
     userEvent.selectOptions(screen.getByTestId('energy-select'), ['Relax'])

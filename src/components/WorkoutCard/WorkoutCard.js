@@ -44,12 +44,20 @@ export default function WorkoutCard({ workout }) {
       </Teaser>
 
       <Wrapper>
-        <Button
+        <OverviewButton
           onClick={() => setIsWorkoutSectionsVisible(!isWorkoutSectionsVisible)}
         >
-          {isWorkoutSectionsVisible ? 'Hide overview' : 'Show overview'}
-          <Icon glyph="down-caret" size={24} />
-        </Button>
+          {isWorkoutSectionsVisible ? (
+            <OverviewWrapper>
+              {' '}
+              Hide overview <Icon glyph="up-caret" size={24} />
+            </OverviewWrapper>
+          ) : (
+            <OverviewWrapper>
+              Show overview <Icon glyph="down-caret" size={24} />
+            </OverviewWrapper>
+          )}
+        </OverviewButton>
 
         <div hidden={!isWorkoutSectionsVisible}>
           <Description>{description}</Description>
@@ -109,6 +117,11 @@ const Wrapper = styled.section`
   display: grid;
   gap: 2px;
 `
+const OverviewWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
 
 const WarmupSection = styled.section`
   text-align: right;
@@ -133,10 +146,10 @@ const CooldownSection = styled.section`
   margin-bottom: 25px;
   border-radius: 5px;
 `
+const OverviewButton = styled(Button)`
+  width: 90%;
+`
+
 const SelectButton = styled(Button)`
   width: 90%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
 `
