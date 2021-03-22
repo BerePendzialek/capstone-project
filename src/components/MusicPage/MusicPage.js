@@ -1,4 +1,6 @@
 import styled from 'styled-components/macro'
+import Icon from 'supercons'
+
 import {
   ShowFormatWarmup,
   ShowFormatIntervalsT,
@@ -6,33 +8,41 @@ import {
 } from '../WorkoutCard/ShowFormatFromSections'
 import { selectColor, selectColorByInterval } from '../../services/selectColor'
 import Button from '../Button'
-import Icon from 'supercons'
+
 import { NavLink } from 'react-router-dom'
+import MusicForm from '../MusicForm'
 
 export default function MusicPage({ location }) {
   const { name, warmup, intervalsT, cooldown } = location.workout
 
   return (
     <Grid>
-      <Title>
-        {name} <br />
-      </Title>
+      <Heading> Select your music:</Heading>
 
-      <Wrapper>
-        <div>
-          <WarmupSection background={selectColor(warmup.powerHigh)}>
-            <ShowFormatWarmup warmup={warmup} />
-          </WarmupSection>
-          <IntervalsTSection
-            background={selectColorByInterval(intervalsT.onPower)}
-          >
-            <ShowFormatIntervalsT intervalsT={intervalsT} />
-          </IntervalsTSection>
-          <CooldownSection background={selectColor(cooldown.powerHigh)}>
-            <ShowFormatCooldown cooldown={cooldown} />
-          </CooldownSection>
-        </div>
-      </Wrapper>
+      <MusicForm />
+
+      <CardGrid>
+        <Title>
+          Your selected workout:
+          <br /> {name}
+        </Title>
+
+        <Wrapper>
+          <div>
+            <WarmupSection background={selectColor(warmup.powerHigh)}>
+              <ShowFormatWarmup warmup={warmup} />
+            </WarmupSection>
+            <IntervalsTSection
+              background={selectColorByInterval(intervalsT.onPower)}
+            >
+              <ShowFormatIntervalsT intervalsT={intervalsT} />
+            </IntervalsTSection>
+            <CooldownSection background={selectColor(cooldown.powerHigh)}>
+              <ShowFormatCooldown cooldown={cooldown} />
+            </CooldownSection>
+          </div>
+        </Wrapper>
+      </CardGrid>
 
       <BackButton as={NavLink} to={{ pathname: '/' }}>
         <Icon glyph="back" size={24} />
@@ -41,19 +51,35 @@ export default function MusicPage({ location }) {
     </Grid>
   )
 }
+
 const Grid = styled.section`
+  display: grid;
+  gap: 20px;
+`
+
+const CardGrid = styled.section`
   display: grid;
   margin-left: 0;
   gap: 20px;
   padding: 10px;
   background: white;
-  border: 2px solid #ee7203;
+
   border-radius: 0px 60px 60px 0px;
   color: black;
   width: 100%;
 `
 
-const Title = styled.h3`
+const Heading = styled.h2`
+  font-family: 'Tahoma';
+  font-weight: 600;
+  text-transform: uppercase;
+  -webkit-text-stroke: 0.1rem currentcolor;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  display: inline-block;
+`
+
+const Title = styled.h4`
   margin: 15px 5px 0 5px;
   text-align: justify;
   padding: 2px;
@@ -62,6 +88,7 @@ const Title = styled.h3`
 const Wrapper = styled.section`
   display: grid;
   gap: 2px;
+  font-size: 0.8rem;
 `
 
 const WarmupSection = styled.section`
@@ -89,5 +116,5 @@ const CooldownSection = styled.section`
 `
 
 const BackButton = styled(Button)`
-  width: 50%;
+  width: 25%;
 `

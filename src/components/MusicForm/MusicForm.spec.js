@@ -1,0 +1,42 @@
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import MusicForm from './MusicForm'
+import { MemoryRouter } from 'react-router-dom'
+
+describe('MusicForm', () => {
+  it('renders a form with two inputs and a button as link', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <MusicForm />
+      </MemoryRouter>
+    )
+
+    expect(screen.getByLabelText('Energy')).toBeInTheDocument()
+    expect(screen.getByLabelText('Genre')).toBeInTheDocument()
+    expect(screen.getByRole('link')).toBeInTheDocument()
+  })
+
+  it('renders two required input fields', () => {
+    render(
+      <MemoryRouter initialEntries={['/music']}>
+        <MusicForm />
+      </MemoryRouter>
+    )
+
+    expect(screen.getByLabelText('Energy')).toBeRequired()
+    expect(screen.getByLabelText('Genre')).toBeRequired()
+  })
+
+  it('selects the right option', () => {
+    const callback = jest.fn()
+    render(
+      <MemoryRouter initialEntries={['/music']}>
+        (<MusicForm onCreatePlaylist={callback} />)
+      </MemoryRouter>
+    )
+    userEvent.selectOptions(screen.getByTestId('energy-select'), ['Relax'])
+    expect(screen.getByTestId('Relax').selected).toBe(true)
+  })
+
+  it.todo('calls onSubmit with form data')
+})

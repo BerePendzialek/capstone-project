@@ -1,10 +1,10 @@
 import Button from './Button'
 
 export default {
-  title: 'Button',
+  title: 'Components',
   component: Button,
 }
 
 const Template = args => <Button> Show details </Button>
 
-export const Primary = Template.bind({})
+export const PrimaryButton = Template.bind({})
