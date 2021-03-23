@@ -3,7 +3,7 @@ import Button from '../Button'
 import Icon from 'supercons'
 import { NavLink } from 'react-router-dom'
 
-export default function PlaylistPage() {
+export default function PlaylistPage(playlist) {
   return (
     <Grid>
       <Heading>Your playlist:</Heading>

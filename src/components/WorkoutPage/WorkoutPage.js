@@ -9,7 +9,7 @@ export default function WorkoutPage() {
       <Heading> Select your workout:</Heading>
 
       {results.map(workout => (
-        <WorkoutCard key={workout.name} workout={workout} {...results} />
+        <WorkoutCard key={workout.name} workout={workout} />
       ))}
     </Grid>
   )

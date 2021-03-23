@@ -12,14 +12,17 @@ import Button from '../Button'
 import { NavLink } from 'react-router-dom'
 import MusicForm from '../MusicForm'
 
-export default function MusicPage({ location }) {
+export default function MusicPage({ location, onCreatePlaylist }) {
   const { name, warmup, intervalsT, cooldown } = location.workout
 
   return (
     <Grid>
       <Heading> Select your music:</Heading>
 
-      <MusicForm />
+      <MusicForm
+        workout={location.workout}
+        onCreatePlaylist={onCreatePlaylist}
+      />
 
       <CardGrid>
         <Title>

@@ -1,9 +1,9 @@
-export default function setEnergy(energy) {
-  var setEnergy
+export default function convertEnergy(energy) {
+  var energyCategory
   if (energy <= 0.699) {
-    setEnergy = 'Relax'
+    energyCategory = 'Relax'
   } else {
-    setEnergy = 'More Power'
+    energyCategory = 'More Power'
   }
-  return setEnergy
+  return energyCategory
 }

@@ -5,7 +5,7 @@ import Button from '../Button'
 import Icon from 'supercons'
 import { NavLink } from 'react-router-dom'
 
-export default function MusicForm({ onCreatePlaylist }) {
+export default function MusicForm({ onCreatePlaylist, workout }) {
   const energyCategory = Array.from(
     new Set(data.map(({ energy }) => convertEnergy(energy)))
   )
@@ -47,10 +47,13 @@ export default function MusicForm({ onCreatePlaylist }) {
     const form = event.target
     const { energy, genre } = form.elements
 
-    onCreatePlaylist({
-      energy: energy.value,
-      genre: genre.value,
-    })
+    onCreatePlaylist(
+      {
+        energy: energy.value,
+        genre: genre.value,
+      },
+      workout
+    )
     form.reset()
     energy.focus()
   }
