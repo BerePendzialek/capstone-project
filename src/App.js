@@ -4,11 +4,13 @@ import { Route, Switch } from 'react-router-dom'
 import WorkoutPage from './components/WorkoutPage'
 import MusicPage from './components/MusicPage'
 import PlaylistPage from './components/PlaylistPage'
-//import staticWorkoutList from './components/staticWorkoutList.json'
-//import tracksShort from './components/tracksShort.json'
+//import { results } from './components/staticWorkoutList.json'
+import { data } from './components/tracksShort.json'
+import convertTempoToCadence from './services/convertTempoToCadence'
 
 export default function App() {
   const [playlist, setPlaylist] = useState([])
+  const [duration, setDuration] = useState(0)
 
   return (
     <AppLayout>
@@ -30,6 +32,16 @@ export default function App() {
   )
 
   function createPlaylist(values, workout) {
+    // array with rpm songs, convertion using function
+    const convertSongsTempoToCadence = data.map(({ tempo }) =>
+      convertTempoToCadence(tempo)
+    )
+
+    // Match by cadence, array
+    const warmupSongSelection = convertSongsTempoToCadence.filter(
+      song => song.tempo === workout.warmup.cadence
+    )
+
     setPlaylist()
   }
 }
