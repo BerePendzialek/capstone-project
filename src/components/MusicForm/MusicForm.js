@@ -3,7 +3,7 @@ import convertEnergy from '../../services/convertEnergy'
 import data from '../tracksShort.json'
 import Button from '../Button'
 import Icon from 'supercons'
-import { NavLink, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 export default function MusicForm({ onCreatePlaylist, workout }) {
   const energyCategory = Array.from(
@@ -33,12 +33,10 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
           ))}
         </SelectInput>
       </Label>
-      <button>submit</button>
-      {/* <PlaylistButton as={NavLink} to={{ pathname: '/playlist' }}>
-        {' '}
+      <PlaylistButton>
         Get my Playlist! 
         <Icon glyph="enter" size={24} />{' '}
-      </PlaylistButton> */}
+      </PlaylistButton>
     </Form>
   )
 

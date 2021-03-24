@@ -31,7 +31,6 @@ export default function App() {
   )
 
   function createPlaylist(values, workout) {
-    console.log(values)
     // 1) Match warmup cadence of the workout with tempo of song
     // convert warmup section cadence in to tempo, using formula
     // e.g. the workout has a cadence of 90 and now will have a tempo of 180.
@@ -66,6 +65,8 @@ export default function App() {
       const songTempo = Math.floor(song.tempo)
       if (songTempo >= warmupRangeMin && songTempo <= warmupRangeMax) {
         return song
+      } else {
+        return console.log('No songs for this search')
       }
     })
 
@@ -76,7 +77,10 @@ export default function App() {
       const songTempo = Math.floor(song.tempo)
       // filter by tempo range
       if (songTempo >= intervalsTRangeMin && songTempo <= intervalsTRangeMax) {
+        // TODO include consider the energy and genre values!
         return song
+      } else {
+        return console.log('No songs for this search')
       }
     })
 
@@ -87,6 +91,8 @@ export default function App() {
       const songTempo = Math.floor(song.tempo)
       if (songTempo >= cooldownRangeMin && songTempo <= cooldownRangeMax) {
         return song
+      } else {
+        return console.log('No songs for this search')
       }
     })
 
