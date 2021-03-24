@@ -20,7 +20,7 @@
         "onPower": 180,
         "offPower": 110,
         "pace": 0,
-        "cadence": 90,
+        "cadence": 100,
         "cadenceResting": 90,
         "total_interval_duration_ms": 1080000
       },
