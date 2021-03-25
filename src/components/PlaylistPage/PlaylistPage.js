@@ -2,12 +2,17 @@ import styled from 'styled-components/macro'
 import Button from '../Button'
 import Icon from 'supercons'
 import { NavLink } from 'react-router-dom'
+import SongCard from '../SongCard'
+import data from '../tracksShort.json'
 
 export default function PlaylistPage(playlist) {
   return (
     <Grid>
-      <Heading>Your playlist:</Heading>
       and here is where the magic happens! <br />
+      <Heading>Your playlist:</Heading>
+      {data.map(song => (
+        <SongCard songInfo={song} />
+      ))}
       <Wrapper>
         <BackButton as={NavLink} to={{ pathname: '/music' }}>
           <Icon glyph="back" size={24} />
