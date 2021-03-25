@@ -9,7 +9,8 @@ import convertCadenceTempo from '../../services/convertCadenceTempo'
 
 export default function App() {
   const [playlist, setPlaylist] = useState([])
-  const [duration, setDuration] = useState(0)
+  //const [warmupSelectedSongs, setWarmupSelectedSongs] = useState([])
+  // const [duration, setDuration] = useState(0)
 
   return (
     <AppLayout>
@@ -77,7 +78,7 @@ export default function App() {
       const songTempo = Math.floor(song.tempo)
       // filter by tempo range
       if (songTempo >= intervalsTRangeMin && songTempo <= intervalsTRangeMax) {
-        // TODO include consider the energy and genre values!
+        // TODO consider the energy and genre values!
         return song
       } else {
         return console.log('No songs for this search')
@@ -103,13 +104,23 @@ export default function App() {
     // 2) Show a number of songs according to the duration of a section
     // get warmup duration_ms (values are now in ms, later to be presented in minutes and seconds)
 
-    // from filtered songs (step 1): select enough songs to fill the warmup duration time
+    const warmupDuration = workout.warmup.duration_ms
+    let counter = 0
 
-    // display the X songs that can match the warmup section,
-    // e.g. it has a 10 minute duration and a cadence of 90, now tempo of 180.
+    const warmupSongs = warmupAllSongs.reduce((acc, cur) => {
+      if (counter <= warmupDuration) {
+        counter = counter + cur.duration_ms
+        acc.push(cur)
+      }
+      return acc
+    }, [])
+    console.log(counter)
+    console.log(warmupSongs)
 
-    setPlaylist()
+    //createSongCollection()
   }
+
+  //setPlaylist()
 }
 
 const AppLayout = styled.div`
@@ -118,3 +129,17 @@ const AppLayout = styled.div`
   gap: 10px;
   overflow-y: scroll;
 `
+
+// while (counter_playlistWarmupDurationStart_ms <= warmupDuration) {
+//   warmupAllSongs.forEach(song => {
+//     counter_playlistWarmupDurationStart_ms + song.duration_ms
+//     setWarmupSelectedSongs(...warmupSelectedSongs, song)
+
+//durationWarmupIncludedSongs
+// include a new song from the warmupAllSongs
+// durationWarmupIncludedSongs++
+// increase the counter with the duration of the included track to the playlist
+//counter_playlistWarmupDurationStart_ms += durationWarmupIncludedSongs // from filtered songs (step 1): select enough songs to fill the warmup duration time
+
+// display the X songs that can match the warmup section,
+// e.g. it has a 10 minute duration and a cadence of 90, now tempo of 180.

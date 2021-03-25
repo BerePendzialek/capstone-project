@@ -10,7 +10,7 @@
         "powerLow": 60,
         "powerHigh": 120,
         "pace": 0,
-        "cadence": 400,
+        "cadence": 90,
         "duration_ms": 600000
       },
       "intervalsT": {
