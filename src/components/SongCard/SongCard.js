@@ -8,7 +8,6 @@ export default function SongCard({ songInfo }) {
       <ImageWrapper>
         <img src={images} alt={artist_name} />
       </ImageWrapper>
-
       <SongInfo>
         <SongName>{name}</SongName>
         <SongArtist>{artist_name}</SongArtist>
@@ -21,15 +20,23 @@ export default function SongCard({ songInfo }) {
 const Grid = styled.section`
   display: flex;
   gap: 20px;
-  border: 2px solid gray;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 0.8em;
+  width: 90%;
+  align-items: center;
 `
 
 const ImageWrapper = styled.div`
-  width: 25%;
+  width: 30%;
+  vertical-align: middle;
+  overflow: hidden;
+  padding: 5px;
 `
 
 const SongInfo = styled.div`
-  width: 75%;
+  width: 70%;
+  padding: 5px;
 `
 
 const SongName = styled.div``

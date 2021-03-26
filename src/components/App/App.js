@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { Route, Switch } from 'react-router-dom'
 import WorkoutPage from '../WorkoutPage'
 import MusicPage from '../MusicPage'
 import PlaylistPage from '../PlaylistPage'
 import data from '../tracksShort.json'
+import { rangeMin, rangeMax } from '../../services/cadenceRange'
 import convertCadenceTempo from '../../services/convertCadenceTempo'
+import roundedTempo from '../../services/roundedTempo'
+import SongCard from '../SongCard/SongCard'
 
 export default function App() {
+  const { push } = useHistory()
   const [playlist, setPlaylist] = useState([])
-  //const [warmupSelectedSongs, setWarmupSelectedSongs] = useState([])
-  // const [duration, setDuration] = useState(0)
 
   return (
     <AppLayout>
@@ -32,11 +35,6 @@ export default function App() {
   )
 
   function createPlaylist(values, workout) {
-    // 1) Match warmup cadence of the workout with tempo of song
-    // convert warmup section cadence in to tempo, using formula
-    // e.g. the workout has a cadence of 90 and now will have a tempo of 180.
-    // The songs have a tempo of shown like this 184.874. Problems by comparing?
-
     const newWorkout = {
       ...workout,
       warmup: {
@@ -53,74 +51,31 @@ export default function App() {
       },
     }
 
-    // Filter songs
-    // both workout section and songs have now a tempo that can be compared
-    // not just a plain filter like match workout cadence and song tempo (song.tempo === workout.warmup.tempo)
-    // But a filter like within a range. E.g if the tempo of a workout is 180,
-    // filter songs with tempo betweeen 170 - 190
+    const allSongsForWarmup = data.filter(
+      song =>
+        roundedTempo(song.tempo) >= rangeMin(newWorkout.warmup.cadence) &&
+        roundedTempo(song.tempo) <= rangeMax(newWorkout.warmup.cadence)
+    )
 
-    const warmupRangeMin = newWorkout.warmup.cadence - 10
-    const warmupRangeMax = newWorkout.warmup.cadence + 10
+    const allSongsForIntervalsT = data.filter(
+      song =>
+        roundedTempo(song.tempo) >= rangeMin(newWorkout.intervalsT.cadence) &&
+        roundedTempo(song.tempo) <= rangeMax(newWorkout.intervalsT.cadence)
+    )
 
-    const warmupAllSongs = data.filter(song => {
-      const songTempo = Math.floor(song.tempo)
-      if (songTempo >= warmupRangeMin && songTempo <= warmupRangeMax) {
-        return song
-      } else {
-        return console.log('No songs for this search')
-      }
-    })
+    const allSongsForCooldown = data.filter(
+      song =>
+        roundedTempo(song.tempo) >= rangeMin(newWorkout.cooldown.cadence) &&
+        roundedTempo(song.tempo) <= rangeMax(newWorkout.cooldown.cadence)
+    )
 
-    const intervalsTRangeMin = newWorkout.intervalsT.cadence - 10
-    const intervalsTRangeMax = newWorkout.intervalsT.cadence + 10
+    console.log(allSongsForWarmup)
+    console.log(allSongsForIntervalsT)
+    console.log(allSongsForCooldown)
 
-    const intervalsTAllSongs = data.filter(song => {
-      const songTempo = Math.floor(song.tempo)
-      // filter by tempo range
-      if (songTempo >= intervalsTRangeMin && songTempo <= intervalsTRangeMax) {
-        // TODO consider the energy and genre values!
-        return song
-      } else {
-        return console.log('No songs for this search')
-      }
-    })
-
-    const cooldownRangeMin = newWorkout.cooldown.cadence - 10
-    const cooldownRangeMax = newWorkout.cooldown.cadence + 10
-
-    const cooldownAllSongs = data.filter(song => {
-      const songTempo = Math.floor(song.tempo)
-      if (songTempo >= cooldownRangeMin && songTempo <= cooldownRangeMax) {
-        return song
-      } else {
-        return console.log('No songs for this search')
-      }
-    })
-
-    console.log(warmupAllSongs)
-    console.log(intervalsTAllSongs)
-    console.log(cooldownAllSongs)
-
-    // 2) Show a number of songs according to the duration of a section
-    // get warmup duration_ms (values are now in ms, later to be presented in minutes and seconds)
-
-    const warmupDuration = workout.warmup.duration_ms
-    let counter = 0
-
-    const warmupSongs = warmupAllSongs.reduce((acc, cur) => {
-      if (counter <= warmupDuration) {
-        counter = counter + cur.duration_ms
-        acc.push(cur)
-      }
-      return acc
-    }, [])
-    console.log(counter)
-    console.log(warmupSongs)
-
-    //createSongCollection()
+    //setPlaylist(allSongsForWarmup.map(card => <SongCard songInfo={card} />))
+    push('/playlist')
   }
-
-  //setPlaylist()
 }
 
 const AppLayout = styled.div`
@@ -129,17 +84,3 @@ const AppLayout = styled.div`
   gap: 10px;
   overflow-y: scroll;
 `
-
-// while (counter_playlistWarmupDurationStart_ms <= warmupDuration) {
-//   warmupAllSongs.forEach(song => {
-//     counter_playlistWarmupDurationStart_ms + song.duration_ms
-//     setWarmupSelectedSongs(...warmupSelectedSongs, song)
-
-//durationWarmupIncludedSongs
-// include a new song from the warmupAllSongs
-// durationWarmupIncludedSongs++
-// increase the counter with the duration of the included track to the playlist
-//counter_playlistWarmupDurationStart_ms += durationWarmupIncludedSongs // from filtered songs (step 1): select enough songs to fill the warmup duration time
-
-// display the X songs that can match the warmup section,
-// e.g. it has a 10 minute duration and a cadence of 90, now tempo of 180.
