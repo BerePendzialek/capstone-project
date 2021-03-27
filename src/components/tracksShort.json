@@ -1,6 +1,6 @@
 [
   {
-    "track_id": "0VjIjW4GlUZAMYd2vXMi3b",
+    "id": "0VjIjW4GlUZAMYd2vXMi3b",
     "artist_name": "The Weeknd",
     "images": "https://i.scdn.co/image/ab67616d000048518863bc11d2aa12b54f5aeb36",
     "album_name": "After Hours",
@@ -15,7 +15,7 @@
   },
 
   {
-    "track_id": "4LjfIjS8iweFCPdKxLnEoV",
+    "id": "4LjfIjS8iweFCPdKxLnEoV",
     "artist_name": "Ida Corr",
     "album_name": "Singled Out",
     "images": "https://i.scdn.co/image/ab67616d00004851568636ad464813b16a94292a",
@@ -26,11 +26,11 @@
     "energy": 0.754,
     "tempo": 129.026,
     "duration_ms": 151983,
-    "genre": "Alternative rock"
+    "genre": "Pop"
   },
 
   {
-    "track_id": "2W5QKy3nTxAsPnGTrwFt0E",
+    "id": "2W5QKy3nTxAsPnGTrwFt0E",
     "artist_name": "Family Force 5",
     "images": "https://i.scdn.co/image/ab67616d00004851ba048c846213c9baa098719f",
     "album_name": "III.V",
@@ -44,7 +44,7 @@
     "genre": "Alternative rock"
   },
   {
-    "track_id": "60eOMEt3WNVX1m1jmApmnX",
+    "id": "60eOMEt3WNVX1m1jmApmnX",
     "artist_name": "Portugal. The Man",
     "images": "https://i.scdn.co/image/ab67616d00004851af52c228c9619ff6298b08cd",
     "album_name": "Woodstock",
@@ -58,7 +58,7 @@
     "genre": "Alternative rock"
   },
   {
-    "track_id": "0fgYMqTTvjO3BS6Zv9CjOC",
+    "id": "0fgYMqTTvjO3BS6Zv9CjOC",
     "artist_name": "Matthew Good",
     "images": "https://i.scdn.co/image/ab67616d00004851261fea2280f3b2fc2b0486c1",
     "album_name": "Moving Walls",
@@ -73,7 +73,7 @@
   },
 
   {
-    "track_id": "4YHdzUoLJdcwOdaMA5xYkx",
+    "id": "4YHdzUoLJdcwOdaMA5xYkx",
     "artist_name": "L7",
     "images": "https://i.scdn.co/image/ab67616d00004851155aafa81daec4d36cdc4600",
     "album_name": "Scatter the Rats",
@@ -88,7 +88,7 @@
   },
 
   {
-    "track_id": "1MLGcIWTQDvo93YgpNDWEF",
+    "id": "1MLGcIWTQDvo93YgpNDWEF",
     "artist_name": "Thousand Yard Stare",
     "images": "https://i.scdn.co/image/ab67616d00004851b08e2c2fa93b59c26c282748",
     "album_name": "The Panglossian Momentum",
@@ -237,7 +237,7 @@
   },
 
   {
-    "track_id": 16,
+    "id": "6jt7QNpuvFuaJ2ylMTTHIO",
 
     "artist_name": "Out of My Hair",
 
@@ -252,8 +252,6 @@
     "danceability": 0.572,
 
     "tempo": 178.255,
-
-    "id": "6jt7QNpuvFuaJ2ylMTTHIO",
 
     "duration_ms": 311200,
     "genre": "Alternative rock"

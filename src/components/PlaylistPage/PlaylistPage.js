@@ -4,12 +4,22 @@ import Icon from 'supercons'
 import { NavLink } from 'react-router-dom'
 import Playlist from '../Playlist'
 
-export default function PlaylistPage(playlist) {
+export default function PlaylistPage(
+  playlist,
+  warmupSongs,
+  intervalsTSongs,
+  cooldownSongs
+) {
   return (
     <Grid>
       <Heading>Your playlist:</Heading>
       and here is where the magic happens! <br />
-      <Playlist playlist={playlist}></Playlist>
+      <Playlist
+        playlist={playlist}
+        warmupSongs={warmupSongs}
+        intervalsTSongs={intervalsTSongs}
+        cooldownSongs={cooldownSongs}
+      ></Playlist>
       <Wrapper>
         <BackButton as={NavLink} to={{ pathname: '/music' }}>
           <Icon glyph="back" size={24} />

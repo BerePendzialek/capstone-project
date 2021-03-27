@@ -9,10 +9,12 @@ import data from '../tracksShort.json'
 import { rangeMin, rangeMax } from '../../services/cadenceRange'
 import convertCadenceTempo from '../../services/convertCadenceTempo'
 import roundedTempo from '../../services/roundedTempo'
-import SongCard from '../SongCard/SongCard'
 
 export default function App() {
   const { push } = useHistory()
+  const [warmupSongs, setWarmupSongs] = useState([])
+  const [intervalsTSongs, setIntervalsTSongs] = useState([])
+  const [cooldownSongs, setCooldownSongs] = useState([])
   const [playlist, setPlaylist] = useState([])
 
   return (
@@ -28,7 +30,12 @@ export default function App() {
           )}
         />
         <Route path="/playlist">
-          <PlaylistPage playlist={playlist} />
+          <PlaylistPage
+            playlist={playlist}
+            warmupSongs={warmupSongs}
+            intervalsTSongs={intervalsTSongs}
+            cooldownSongs={cooldownSongs}
+          />
         </Route>
       </Switch>
     </AppLayout>
@@ -54,26 +61,32 @@ export default function App() {
     const allSongsForWarmup = data.filter(
       song =>
         roundedTempo(song.tempo) >= rangeMin(newWorkout.warmup.cadence) &&
-        roundedTempo(song.tempo) <= rangeMax(newWorkout.warmup.cadence)
+        roundedTempo(song.tempo) <= rangeMax(newWorkout.warmup.cadence) &&
+        song.genre === values.genre
     )
 
     const allSongsForIntervalsT = data.filter(
       song =>
         roundedTempo(song.tempo) >= rangeMin(newWorkout.intervalsT.cadence) &&
-        roundedTempo(song.tempo) <= rangeMax(newWorkout.intervalsT.cadence)
+        roundedTempo(song.tempo) <= rangeMax(newWorkout.intervalsT.cadence) &&
+        song.genre === values.genre
     )
 
     const allSongsForCooldown = data.filter(
       song =>
         roundedTempo(song.tempo) >= rangeMin(newWorkout.cooldown.cadence) &&
-        roundedTempo(song.tempo) <= rangeMax(newWorkout.cooldown.cadence)
+        roundedTempo(song.tempo) <= rangeMax(newWorkout.cooldown.cadence) &&
+        song.genre === values.genre
     )
 
     console.log(allSongsForWarmup)
     console.log(allSongsForIntervalsT)
     console.log(allSongsForCooldown)
 
-    //setPlaylist(allSongsForWarmup.map(card => <SongCard songInfo={card} />))
+    setWarmupSongs(allSongsForWarmup)
+    setIntervalsTSongs(allSongsForIntervalsT)
+    setCooldownSongs(allSongsForCooldown)
+    setPlaylist()
     push('/playlist')
   }
 }
