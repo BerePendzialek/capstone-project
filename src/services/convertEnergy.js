@@ -1,5 +1,5 @@
 export default function convertEnergy(energy) {
-  var energyCategory
+  let energyCategory
   if (energy <= 0.699) {
     energyCategory = 'Relax'
   } else {

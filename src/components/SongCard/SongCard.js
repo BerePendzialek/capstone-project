@@ -11,7 +11,7 @@ export default function SongCard({ songInfo }) {
       </ImageWrapper>
       <SongInfo>
         <SongName>{name}</SongName>
-        <SongArtist>{artist_name}</SongArtist>
+        {artist_name}
         <SongDuration>{prettyMilliseconds(duration)}</SongDuration>
       </SongInfo>
     </Grid>
@@ -52,8 +52,6 @@ const SongInfo = styled.div`
 const SongName = styled.div`
   color: #ee7203;
 `
-
-const SongArtist = styled.div``
 
 const SongDuration = styled.div`
   color: #7a8495;

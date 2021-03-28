@@ -19,7 +19,7 @@ export default function PlaylistPage({
         warmupSongs={warmupSongs}
         intervalsTSongs={intervalsTSongs}
         cooldownSongs={cooldownSongs}
-      ></Playlist>
+      />
       Playlist duration can exceed or be under the workout duration <br />
       <Wrapper>
         <BackButton as={NavLink} to={{ pathname: '/music' }}>
