@@ -33,7 +33,9 @@ export default function Playlist({
 
 const PlaylistGrid = styled.section``
 
-const WarmupWrapper = styled.div``
+const WarmupWrapper = styled.div`
+  display: grid;
+`
 
 const IntervalsTWrapper = styled.div``
 

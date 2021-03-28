@@ -10,11 +10,10 @@ import { rangeMin, rangeMax } from '../../services/cadenceRange'
 import convertCadenceTempo from '../../services/convertCadenceTempo'
 import roundedTempo from '../../services/roundedTempo'
 import { results } from '../staticWorkoutList.json'
-import useLocalStorage from '../hooks/useLocalStorage'
 
 export default function App() {
   const { push } = useHistory()
-  const [workout, setWorkout] = useLocalStorage('workout', [])
+
   const [warmupSongs, setWarmupSongs] = useState([])
   const [intervalsTSongs, setIntervalsTSongs] = useState([])
   const [cooldownSongs, setCooldownSongs] = useState([])
@@ -29,11 +28,7 @@ export default function App() {
         <Route
           path="/music"
           render={props => (
-            <MusicPage
-              {...props}
-              workout={workout}
-              onCreatePlaylist={createPlaylist}
-            />
+            <MusicPage {...props} onCreatePlaylist={createPlaylist} />
           )}
         />
 
