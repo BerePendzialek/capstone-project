@@ -42,6 +42,7 @@ export default function App() {
   )
 
   function createPlaylist(values, workout) {
+    // convert workout from cadence to tempo
     const newWorkout = {
       ...workout,
       warmup: {
@@ -58,6 +59,8 @@ export default function App() {
       },
     }
 
+    // WarmupSongs
+
     const allSongsForWarmup = data.filter(
       song =>
         roundedTempo(song.tempo) >= rangeMin(newWorkout.warmup.cadence) &&
@@ -65,13 +68,55 @@ export default function App() {
         song.genre === values.genre
     )
 
+    // shuffle the array before working with it
+
+    const shuffledWarmupSongs = allSongsForWarmup.sort(
+      () => 0.5 - Math.random()
+    )
+
+    // exact for the duration
+    let counterW = 0
+    const warmupSongsTotal = shuffledWarmupSongs.reduce((acc, cur) => {
+      const warmup_duration = workout.warmup.duration_ms
+      if (counterW <= warmup_duration) {
+        const nextTimeSum = counterW + cur.duration_ms
+        if (nextTimeSum <= warmup_duration) {
+          counterW = counterW + cur.duration_ms
+          acc.push(cur)
+        }
+      }
+      return acc
+    }, [])
+
+    // IntervalsT Songs
     const allSongsForIntervalsT = data.filter(
       song =>
         roundedTempo(song.tempo) >= rangeMin(newWorkout.intervalsT.cadence) &&
         roundedTempo(song.tempo) <= rangeMax(newWorkout.intervalsT.cadence) &&
         song.genre === values.genre
     )
+    // shuffle the array before working with it
 
+    const shuffledIntervalsTSongs = allSongsForIntervalsT.sort(
+      () => 0.5 - Math.random()
+    )
+
+    // exact for the duration
+    let counterI = 0
+
+    const intervalsTSongsTotal = shuffledIntervalsTSongs.reduce((acc, cur) => {
+      const intervalsT_duration = workout.intervalsT.total_interval_duration_ms
+      if (counterI <= intervalsT_duration) {
+        const nextTimeSum = counterI + cur.duration_ms
+        if (nextTimeSum <= intervalsT_duration) {
+          counterI = counterI + cur.duration_ms
+          acc.push(cur)
+        }
+      }
+      return acc
+    }, [])
+
+    // Cooldown songs
     const allSongsForCooldown = data.filter(
       song =>
         roundedTempo(song.tempo) >= rangeMin(newWorkout.cooldown.cadence) &&
@@ -79,13 +124,29 @@ export default function App() {
         song.genre === values.genre
     )
 
-    console.log(allSongsForWarmup)
-    console.log(allSongsForIntervalsT)
-    console.log(allSongsForCooldown)
+    // shuffle the array before working with it
 
-    setWarmupSongs(allSongsForWarmup)
-    setIntervalsTSongs(allSongsForIntervalsT)
-    setCooldownSongs(allSongsForCooldown)
+    const shuffledCooldownSongs = allSongsForCooldown.sort(
+      () => 0.5 - Math.random()
+    )
+
+    // exact for the duration
+    let counterC = 0
+    const cooldownSongsTotal = shuffledCooldownSongs.reduce((acc, cur) => {
+      const cooldown_duration = workout.cooldown.duration_ms
+      if (counterC <= cooldown_duration) {
+        const nextTimeSum = counterC + cur.duration_ms
+        if (nextTimeSum <= cooldown_duration) {
+          counterC = counterC + cur.duration_ms
+          acc.push(cur)
+        }
+      }
+      return acc
+    }, [])
+
+    setWarmupSongs(warmupSongsTotal)
+    setIntervalsTSongs(intervalsTSongsTotal)
+    setCooldownSongs(cooldownSongsTotal)
     setPlaylist()
     push('/playlist')
   }

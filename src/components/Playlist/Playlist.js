@@ -1,25 +1,31 @@
 import styled from 'styled-components/macro'
-//import SongCard from '../SongCard/SongCard'
+import SongCard from '../SongCard/SongCard'
 
-export default function Playlist(
+export default function Playlist({
   playlist,
   warmupSongs,
   intervalsTSongs,
-  cooldownSongs
-) {
+  cooldownSongs,
+}) {
   return (
-    <PlaylistGrid playlist={playlist}>
-      <WarmupWrapper warmupSongs={warmupSongs}>
+    <PlaylistGrid>
+      <WarmupWrapper>
         <p>Warmup songs:</p>
-        {/* {playlist.map(playlist => (
-          <SongCard songInfo={playlist} />
-        ))} */}
+        {warmupSongs.map(songInfo => (
+          <SongCard songInfo={songInfo} />
+        ))}
       </WarmupWrapper>
-      <IntervalsTWrapper intervalsTSongs={intervalsTSongs}>
+      <IntervalsTWrapper>
         <p>Interval songs:</p>
+        {intervalsTSongs.map(songInfo => (
+          <SongCard songInfo={songInfo} />
+        ))}
       </IntervalsTWrapper>
-      <CooldownWrapper cooldownSongs={cooldownSongs}>
+      <CooldownWrapper>
         <p>Cooldown songs:</p>
+        {cooldownSongs.map(songInfo => (
+          <SongCard songInfo={songInfo} />
+        ))}
       </CooldownWrapper>
     </PlaylistGrid>
   )
