@@ -6,10 +6,10 @@ import Icon from 'supercons'
 import { useHistory } from 'react-router-dom'
 
 export default function MusicForm({ onCreatePlaylist, workout }) {
+  const { push } = useHistory()
   const energyCategory = Array.from(
     new Set(data.map(({ energy }) => convertEnergy(energy)))
   )
-  const { push } = useHistory()
   const genreCategory = Array.from(new Set(data.map(({ genre }) => genre)))
 
   return (

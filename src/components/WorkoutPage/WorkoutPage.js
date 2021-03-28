@@ -1,9 +1,8 @@
-import { results } from '../staticWorkoutList.json'
 import WorkoutCard from '../WorkoutCard'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function WorkoutPage() {
+export default function WorkoutPage({ results }) {
   return (
     <Grid>
       <Heading> Select your workout:</Heading>
