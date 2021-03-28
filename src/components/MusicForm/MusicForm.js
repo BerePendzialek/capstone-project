@@ -1,15 +1,15 @@
 import styled from 'styled-components/macro'
 import convertEnergy from '../../services/convertEnergy'
-import { data } from '../tracksShort.json'
+import data from '../tracksShort.json'
 import Button from '../Button'
 import Icon from 'supercons'
-import { NavLink } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
-export default function MusicForm({ onCreatePlaylist }) {
+export default function MusicForm({ onCreatePlaylist, workout }) {
+  const { push } = useHistory()
   const energyCategory = Array.from(
     new Set(data.map(({ energy }) => convertEnergy(energy)))
   )
-
   const genreCategory = Array.from(new Set(data.map(({ genre }) => genre)))
 
   return (
@@ -33,9 +33,7 @@ export default function MusicForm({ onCreatePlaylist }) {
           ))}
         </SelectInput>
       </Label>
-
-      <PlaylistButton as={NavLink} to={{ pathname: '/playlist' }}>
-        {' '}
+      <PlaylistButton>
         Get my Playlist! 
         <Icon glyph="enter" size={24} />{' '}
       </PlaylistButton>
@@ -47,12 +45,16 @@ export default function MusicForm({ onCreatePlaylist }) {
     const form = event.target
     const { energy, genre } = form.elements
 
-    onCreatePlaylist({
-      energy: energy.value,
-      genre: genre.value,
-    })
+    onCreatePlaylist(
+      {
+        energy: energy.value,
+        genre: genre.value,
+      },
+      workout
+    )
     form.reset()
     energy.focus()
+    push('/playlist')
   }
 }
 

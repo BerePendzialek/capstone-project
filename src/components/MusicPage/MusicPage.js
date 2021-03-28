@@ -1,25 +1,26 @@
 import styled from 'styled-components/macro'
 import Icon from 'supercons'
-
+import Button from '../Button'
+import { NavLink } from 'react-router-dom'
+import MusicForm from '../MusicForm'
 import {
   ShowFormatWarmup,
   ShowFormatIntervalsT,
   ShowFormatCooldown,
 } from '../WorkoutCard/ShowFormatFromSections'
 import { selectColor, selectColorByInterval } from '../../services/selectColor'
-import Button from '../Button'
 
-import { NavLink } from 'react-router-dom'
-import MusicForm from '../MusicForm'
-
-export default function MusicPage({ location }) {
+export default function MusicPage({ location, onCreatePlaylist }) {
   const { name, warmup, intervalsT, cooldown } = location.workout
 
   return (
     <Grid>
       <Heading> Select your music:</Heading>
 
-      <MusicForm />
+      <MusicForm
+        workout={location.workout}
+        onCreatePlaylist={onCreatePlaylist}
+      />
 
       <CardGrid>
         <Title>

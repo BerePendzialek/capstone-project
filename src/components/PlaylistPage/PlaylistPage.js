@@ -2,12 +2,25 @@ import styled from 'styled-components/macro'
 import Button from '../Button'
 import Icon from 'supercons'
 import { NavLink } from 'react-router-dom'
+import Playlist from '../Playlist'
 
-export default function PlaylistPage() {
+export default function PlaylistPage({
+  playlist,
+  warmupSongs,
+  intervalsTSongs,
+  cooldownSongs,
+}) {
   return (
     <Grid>
       <Heading>Your playlist:</Heading>
-      and here is where the magic happens! <br />
+      Songs for your next workout <br />
+      <Playlist
+        playlist={playlist}
+        warmupSongs={warmupSongs}
+        intervalsTSongs={intervalsTSongs}
+        cooldownSongs={cooldownSongs}
+      />
+      Playlist duration can exceed or be under the workout duration <br />
       <Wrapper>
         <BackButton as={NavLink} to={{ pathname: '/music' }}>
           <Icon glyph="back" size={24} />
