@@ -24,16 +24,10 @@ export default function PlaylistPage({
           cooldownSongs={cooldownSongs}
         />
         Playlist duration can exceed or be under the workout duration <br />
-        <Wrapper>
-          <BackButton as={NavLink} to={{ pathname: '/music' }}>
-            <Icon glyph="back" size={24} />
-            Back
-          </BackButton>
-          <BackButton as={NavLink} to={{ pathname: '/' }}>
-            <Icon glyph="home" size={24} />
-            New
-          </BackButton>
-        </Wrapper>
+        <BackButton as={NavLink} to={{ pathname: '/music' }}>
+          <Icon glyph="back" size={24} />
+          Back
+        </BackButton>
       </Grid>
     </div>
   )
@@ -73,12 +67,7 @@ const Heading = styled.div`
   display: inline-block;
 `
 
-const Wrapper = styled.span`
-  display: flex;
-  justify-content: space-between;
-`
-
 const BackButton = styled(Button)`
-  width: 40%;
+  width: 25%;
   border-radius: 5px;
 `

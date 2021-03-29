@@ -10,6 +10,9 @@ import { rangeMin, rangeMax } from '../../services/cadenceRange'
 import convertCadenceTempo from '../../services/convertCadenceTempo'
 import roundedTempo from '../../services/roundedTempo'
 import { results } from '../staticWorkoutList.json'
+import Navigation from '../Navigation/Navigation'
+import HomePage from '../HomePage/HomePage'
+import FavoritesPage from '../FavoritesPage'
 
 export default function App() {
   const { push } = useHistory()
@@ -23,6 +26,9 @@ export default function App() {
     <AppLayout>
       <Switch>
         <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/workout">
           <WorkoutPage results={results} />
         </Route>
         <Route
@@ -40,7 +46,15 @@ export default function App() {
             cooldownSongs={cooldownSongs}
           />
         </Route>
+        <Route path="/favorites">
+          <FavoritesPage />
+        </Route>
       </Switch>
+      <Footer>
+        <Route exact path={['/workout', '/music', '/playlist', '/favorites']}>
+          <Navigation />
+        </Route>
+      </Footer>
     </AppLayout>
   )
 
@@ -147,4 +161,10 @@ const AppLayout = styled.div`
   padding: 2px;
   gap: 10px;
   overflow-y: scroll;
+`
+const Footer = styled.footer`
+  bottom: 10px;
+  left: 0;
+  position: fixed;
+  right: 0;
 `

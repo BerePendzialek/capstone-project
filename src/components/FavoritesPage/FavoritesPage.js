@@ -1,18 +1,17 @@
-import WorkoutCard from '../WorkoutCard'
-import Header from '../Header'
-import React from 'react'
+import Icon from 'supercons'
 import styled from 'styled-components/macro'
+import Header from '../Header'
 
-export default function WorkoutPage({ results }) {
+export default function FavoritesPage() {
   return (
     <div>
-      <HeaderStyled>Workout</HeaderStyled>
+      <HeaderStyled>Favorites</HeaderStyled>
       <Grid>
-        <Heading> Select your workout:</Heading>
-
-        {results.map(workout => (
-          <WorkoutCard key={workout.name} workout={workout} />
-        ))}
+        <Heading>
+          {' '}
+          Soon you´ll be able to save your favorite playlists
+          <Icon glyph="like" size={24} />
+        </Heading>
       </Grid>
     </div>
   )
@@ -23,11 +22,9 @@ const HeaderStyled = styled(Header)`
   top: 0;
   left: 0;
 `
-
-const Grid = styled.div`
+const Grid = styled.section`
   display: grid;
-  padding: 2px;
-  gap: 10px;
+  gap: 20px;
   overflow-y: scroll;
   &::before {
     content: '';
@@ -38,7 +35,7 @@ const Grid = styled.div`
   &::after {
     content: '';
     display: block;
-    height: 85px;
+    height: 58px;
     width: 100%;
   }
   &::-webkit-scrollbar {
