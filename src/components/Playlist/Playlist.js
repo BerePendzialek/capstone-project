@@ -31,12 +31,18 @@ export default function Playlist({
   )
 }
 
-const PlaylistGrid = styled.section``
+const PlaylistGrid = styled.section`
+  display: grid;
+`
 
 const WarmupWrapper = styled.div`
   display: grid;
 `
 
-const IntervalsTWrapper = styled.div``
+const IntervalsTWrapper = styled.div`
+  display: grid;
+`
 
-const CooldownWrapper = styled.div``
+const CooldownWrapper = styled.div`
+  display: grid;
+`

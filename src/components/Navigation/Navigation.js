@@ -9,7 +9,7 @@ export default function Navigation() {
         <NaviLink exact to="/">
           <Icon glyph="home" size={24} />
         </NaviLink>
-        <NaviLink exact to="/favorites">
+        <NaviLink exact to="/favorites" data-testid="favorites">
           <Icon glyph="like" size={24} />
         </NaviLink>
       </NaviBar>
