@@ -1,32 +1,54 @@
 import WorkoutCard from '../WorkoutCard'
+import Header from '../Header'
 import React from 'react'
 import styled from 'styled-components/macro'
 
 export default function WorkoutPage({ results }) {
   return (
-    <Grid>
-      <Heading> Select your workout:</Heading>
+    <div>
+      <HeaderStyled>Workout</HeaderStyled>
+      <Grid>
+        <Heading> Select your workout:</Heading>
 
-      {results.map(workout => (
-        <WorkoutCard key={workout.name} workout={workout} />
-      ))}
-    </Grid>
+        {results.map(workout => (
+          <WorkoutCard key={workout.name} workout={workout} />
+        ))}
+      </Grid>
+    </div>
   )
 }
+
+const HeaderStyled = styled(Header)`
+  position: fixed;
+  top: 0;
+  left: 0;
+`
 
 const Grid = styled.div`
   display: grid;
   padding: 2px;
   gap: 10px;
   overflow-y: scroll;
+  &::before {
+    content: '';
+    display: block;
+    height: 58px;
+    width: 100%;
+  }
+  &::after {
+    content: '';
+    display: block;
+    height: 58px;
+    width: 100%;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
-const Heading = styled.h2`
+const Heading = styled.div`
   font-family: 'Tahoma';
-  font-weight: 600;
-  text-transform: uppercase;
-  -webkit-text-stroke: 0.1rem currentcolor;
-  -webkit-text-fill-color: transparent;
-  white-space: nowrap;
+  font-weight: 300;
+  font-size: 20px;
   display: inline-block;
 `

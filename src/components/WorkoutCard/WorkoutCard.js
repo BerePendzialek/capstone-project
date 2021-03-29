@@ -89,7 +89,7 @@ const Grid = styled.section`
   gap: 20px;
   padding: 10px;
   background: white;
-  border: 2px solid #ee7203;
+  box-shadow: 0 0 8px #1019331f;
   border-radius: 0px 60px 60px 0px;
   color: black;
   width: 100%;

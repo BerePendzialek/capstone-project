@@ -9,53 +9,79 @@ import {
   ShowFormatCooldown,
 } from '../WorkoutCard/ShowFormatFromSections'
 import { selectColor, selectColorByInterval } from '../../services/selectColor'
+import Header from '../Header'
 
 export default function MusicPage({ location, onCreatePlaylist }) {
   const { name, warmup, intervalsT, cooldown } = location.workout
 
   return (
-    <Grid>
-      <Heading> Select your music:</Heading>
+    <div>
+      <HeaderStyled>Music</HeaderStyled>
 
-      <MusicForm
-        workout={location.workout}
-        onCreatePlaylist={onCreatePlaylist}
-      />
+      <Grid>
+        <Heading> Select your music:</Heading>
 
-      <CardGrid>
-        <Title>
-          Your selected workout:
-          <br /> {name}
-        </Title>
+        <MusicForm
+          workout={location.workout}
+          onCreatePlaylist={onCreatePlaylist}
+        />
 
-        <Wrapper>
-          <div>
-            <WarmupSection background={selectColor(warmup.powerHigh)}>
-              <ShowFormatWarmup warmup={warmup} />
-            </WarmupSection>
-            <IntervalsTSection
-              background={selectColorByInterval(intervalsT.onPower)}
-            >
-              <ShowFormatIntervalsT intervalsT={intervalsT} />
-            </IntervalsTSection>
-            <CooldownSection background={selectColor(cooldown.powerHigh)}>
-              <ShowFormatCooldown cooldown={cooldown} />
-            </CooldownSection>
-          </div>
-        </Wrapper>
-      </CardGrid>
+        <CardGrid>
+          <Title>
+            Your selected workout:
+            <br /> {name}
+          </Title>
 
-      <BackButton as={NavLink} to={{ pathname: '/' }}>
-        <Icon glyph="back" size={24} />
-        Back
-      </BackButton>
-    </Grid>
+          <Wrapper>
+            <div>
+              <WarmupSection background={selectColor(warmup.powerHigh)}>
+                <ShowFormatWarmup warmup={warmup} />
+              </WarmupSection>
+              <IntervalsTSection
+                background={selectColorByInterval(intervalsT.onPower)}
+              >
+                <ShowFormatIntervalsT intervalsT={intervalsT} />
+              </IntervalsTSection>
+              <CooldownSection background={selectColor(cooldown.powerHigh)}>
+                <ShowFormatCooldown cooldown={cooldown} />
+              </CooldownSection>
+            </div>
+          </Wrapper>
+        </CardGrid>
+
+        <BackButton as={NavLink} to={{ pathname: '/' }}>
+          <Icon glyph="back" size={24} />
+          Back
+        </BackButton>
+      </Grid>
+    </div>
   )
 }
 
+const HeaderStyled = styled(Header)`
+  position: fixed;
+  top: 0;
+  left: 0;
+`
 const Grid = styled.section`
   display: grid;
   gap: 20px;
+  overflow-y: scroll;
+  &::before {
+    content: '';
+    display: block;
+    height: 58px;
+    width: 100%;
+  }
+  &::after {
+    content: '';
+    display: block;
+    height: 58px;
+    width: 100%;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const CardGrid = styled.section`
@@ -64,19 +90,15 @@ const CardGrid = styled.section`
   gap: 20px;
   padding: 10px;
   background: white;
-
   border-radius: 0px 60px 60px 0px;
   color: black;
   width: 100%;
 `
 
-const Heading = styled.h2`
+const Heading = styled.div`
   font-family: 'Tahoma';
-  font-weight: 600;
-  text-transform: uppercase;
-  -webkit-text-stroke: 0.1rem currentcolor;
-  -webkit-text-fill-color: transparent;
-  white-space: nowrap;
+  font-weight: 300;
+  font-size: 20px;
   display: inline-block;
 `
 
