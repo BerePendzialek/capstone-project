@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro'
+import Header from '../Header'
 import Button from '../Button'
 import Icon from 'supercons'
 import { NavLink } from 'react-router-dom'
@@ -11,44 +12,67 @@ export default function PlaylistPage({
   cooldownSongs,
 }) {
   return (
-    <Grid>
-      <Heading>Your playlist:</Heading>
-      Songs for your next workout <br />
-      <Playlist
-        playlist={playlist}
-        warmupSongs={warmupSongs}
-        intervalsTSongs={intervalsTSongs}
-        cooldownSongs={cooldownSongs}
-      />
-      Playlist duration can exceed or be under the workout duration <br />
-      <Wrapper>
-        <BackButton as={NavLink} to={{ pathname: '/music' }}>
-          <Icon glyph="back" size={24} />
-          Back
-        </BackButton>
-        <BackButton as={NavLink} to={{ pathname: '/' }}>
-          <Icon glyph="home" size={24} />
-          New
-        </BackButton>
-      </Wrapper>
-    </Grid>
+    <div>
+      <HeaderStyled>Playlist</HeaderStyled>
+
+      <Grid>
+        <Heading>Songs for your next workout:</Heading>
+        <Playlist
+          playlist={playlist}
+          warmupSongs={warmupSongs}
+          intervalsTSongs={intervalsTSongs}
+          cooldownSongs={cooldownSongs}
+        />
+        Playlist duration can exceed or be under the workout duration <br />
+        <Wrapper>
+          <BackButton as={NavLink} to={{ pathname: '/music' }}>
+            <Icon glyph="back" size={24} />
+            Back
+          </BackButton>
+          <BackButton as={NavLink} to={{ pathname: '/' }}>
+            <Icon glyph="home" size={24} />
+            New
+          </BackButton>
+        </Wrapper>
+      </Grid>
+    </div>
   )
 }
+
+const HeaderStyled = styled(Header)`
+  position: fixed;
+  top: 0;
+  left: 0;
+`
 
 const Grid = styled.section`
   display: grid;
   gap: 20px;
+  overflow-y: scroll;
+  &::before {
+    content: '';
+    display: block;
+    height: 58px;
+    width: 100%;
+  }
+  &::after {
+    content: '';
+    display: block;
+    height: 58px;
+    width: 100%;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
-const Heading = styled.h2`
+const Heading = styled.div`
   font-family: 'Tahoma';
-  font-weight: 600;
-  text-transform: uppercase;
-  -webkit-text-stroke: 0.1rem currentcolor;
-  -webkit-text-fill-color: transparent;
-  white-space: nowrap;
+  font-weight: 300;
+  font-size: 20px;
   display: inline-block;
 `
+
 const Wrapper = styled.span`
   display: flex;
   justify-content: space-between;
