@@ -3,16 +3,16 @@ import Icon from 'supercons'
 import Button from '../Button'
 import { NavLink } from 'react-router-dom'
 import MusicForm from '../MusicForm'
-import {
-  ShowFormatWarmup,
-  ShowFormatIntervalsT,
-  ShowFormatCooldown,
-} from '../WorkoutCard/ShowFormatFromSections'
-import { selectColor, selectColorByInterval } from '../../services/selectColor'
+// import {
+//   ShowFormatWarmup,
+//   ShowFormatIntervalsT,
+//   ShowFormatCooldown,
+// } from '../WorkoutCard/ShowFormatFromSections'
+// import { selectColor, selectColorByInterval } from '../../services/selectColor'
 import Header from '../Header'
 
 export default function MusicPage({ onCreatePlaylist, selectedWorkout }) {
-  const { name, warmup, intervalsT, cooldown } = selectedWorkout
+  //const { name, warmup, intervalsT, cooldown } = selectedWorkout
 
   return (
     <section>
@@ -26,7 +26,7 @@ export default function MusicPage({ onCreatePlaylist, selectedWorkout }) {
           onCreatePlaylist={onCreatePlaylist}
         />
 
-        <CardGrid>
+        {/* <CardGrid>
           <Title>
             Your selected workout:
             <br /> {name}
@@ -47,7 +47,7 @@ export default function MusicPage({ onCreatePlaylist, selectedWorkout }) {
               </CooldownSection>
             </div>
           </Wrapper>
-        </CardGrid>
+        </CardGrid> */}
 
         <BackButton as={NavLink} to={{ pathname: '/' }}>
           <Icon glyph="back" size={24} />
@@ -80,59 +80,11 @@ const Grid = styled.section`
     width: 100%;
   }
 `
-
-const CardGrid = styled.section`
-  display: grid;
-  margin-left: 0;
-  gap: 20px;
-  padding: 10px;
-  background: white;
-  border-radius: 0px 60px 60px 0px;
-  color: black;
-  width: 100%;
-`
-
 const Heading = styled.div`
   font-family: 'Tahoma';
   font-weight: 300;
   font-size: 20px;
   display: inline-block;
-`
-
-const Title = styled.h4`
-  margin: 15px 5px 0 5px;
-  text-align: justify;
-  padding: 2px;
-`
-
-const Wrapper = styled.section`
-  display: grid;
-  gap: 2px;
-  font-size: 0.8rem;
-`
-
-const WarmupSection = styled.section`
-  text-align: right;
-  background: ${props => props.background};
-  padding: 5px;
-  border-radius: 5px;
-`
-
-const IntervalsTSection = styled.section`
-  text-align: right;
-  background: ${props => props.background};
-  padding: 5px;
-  margin-top: 2px;
-  border-radius: 5px;
-`
-
-const CooldownSection = styled.section`
-  text-align: right;
-  background: ${props => props.background};
-  padding: 5px;
-  margin-top: 2px;
-  margin-bottom: 25px;
-  border-radius: 5px;
 `
 
 const BackButton = styled(Button)`
