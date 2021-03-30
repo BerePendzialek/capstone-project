@@ -9,24 +9,24 @@ export default function Playlist({
 }) {
   return (
     <PlaylistGrid>
-      <WarmupWrapper>
+      <SectionWrapper>
         <p>Warmup songs:</p>
         {warmupSongs.map(songInfo => (
           <SongCard songInfo={songInfo} />
         ))}
-      </WarmupWrapper>
-      <IntervalsTWrapper>
+      </SectionWrapper>
+      <SectionWrapper>
         <p>Interval songs:</p>
         {intervalsTSongs.map(songInfo => (
           <SongCard songInfo={songInfo} />
         ))}
-      </IntervalsTWrapper>
-      <CooldownWrapper>
+      </SectionWrapper>
+      <SectionWrapper>
         <p>Cooldown songs:</p>
         {cooldownSongs.map(songInfo => (
           <SongCard songInfo={songInfo} />
         ))}
-      </CooldownWrapper>
+      </SectionWrapper>
     </PlaylistGrid>
   )
 }
@@ -35,14 +35,6 @@ const PlaylistGrid = styled.section`
   display: grid;
 `
 
-const WarmupWrapper = styled.div`
-  display: grid;
-`
-
-const IntervalsTWrapper = styled.div`
-  display: grid;
-`
-
-const CooldownWrapper = styled.div`
+const SectionWrapper = styled.div`
   display: grid;
 `

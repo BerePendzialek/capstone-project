@@ -15,7 +15,7 @@ export default function MusicPage({ location, onCreatePlaylist }) {
   const { name, warmup, intervalsT, cooldown } = location.workout
 
   return (
-    <div>
+    <section>
       <HeaderStyled>Music</HeaderStyled>
 
       <Grid>
@@ -54,7 +54,7 @@ export default function MusicPage({ location, onCreatePlaylist }) {
           Back
         </BackButton>
       </Grid>
-    </div>
+    </section>
   )
 }
 

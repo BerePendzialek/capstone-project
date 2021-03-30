@@ -12,7 +12,7 @@ export default function PlaylistPage({
   cooldownSongs,
 }) {
   return (
-    <div>
+    <section>
       <HeaderStyled>Playlist</HeaderStyled>
 
       <Grid>
@@ -29,7 +29,7 @@ export default function PlaylistPage({
           Back
         </BackButton>
       </Grid>
-    </div>
+    </section>
   )
 }
 

@@ -5,7 +5,7 @@ import styled from 'styled-components/macro'
 
 export default function WorkoutPage({ results }) {
   return (
-    <div>
+    <section>
       <HeaderStyled>Workout</HeaderStyled>
       <Grid>
         <Heading> Select your workout:</Heading>
@@ -14,7 +14,7 @@ export default function WorkoutPage({ results }) {
           <WorkoutCard key={workout.name} workout={workout} />
         ))}
       </Grid>
-    </div>
+    </section>
   )
 }
 

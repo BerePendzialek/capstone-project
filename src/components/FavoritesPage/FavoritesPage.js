@@ -4,7 +4,7 @@ import Header from '../Header'
 
 export default function FavoritesPage() {
   return (
-    <div>
+    <section>
       <HeaderStyled>Favorites</HeaderStyled>
       <Grid>
         <Heading>
@@ -13,7 +13,7 @@ export default function FavoritesPage() {
           <Icon glyph="like" size={24} />
         </Heading>
       </Grid>
-    </div>
+    </section>
   )
 }
 

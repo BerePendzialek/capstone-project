@@ -1,7 +1,7 @@
 import SongCard from './SongCard'
 
 export default {
-  title: 'Components',
+  title: 'Components/SongCard',
   component: SongCard,
 }
 

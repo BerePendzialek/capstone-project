@@ -1,13 +1,13 @@
 import Header from './Header'
 
 export default {
-  title: 'Components',
+  title: 'Components/Header',
   component: Header,
 }
 
-const DefaultHeader = args => <Header {...args}> Favorites </Header>
+const Template = args => <Header {...args}> Favorites </Header>
 
-export const PrimaryHeader = DefaultHeader.bind({})
+export const PrimaryHeader = Template.bind({})
 
 PrimaryHeader.args = {
   title: 'Favorites',
