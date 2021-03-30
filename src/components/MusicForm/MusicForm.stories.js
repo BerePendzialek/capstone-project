@@ -2,13 +2,13 @@ import MusicForm from './MusicForm'
 import { action } from '@storybook/addon-actions'
 
 export default {
-  title: 'Components',
+  title: 'Components/MusicForm',
   component: MusicForm,
 }
 
-const DefaultMusicForm = args => <MusicForm {...args} />
+const Template = args => <MusicForm {...args} />
 
-export const PrimaryMusicForm = DefaultMusicForm.bind({})
+export const PrimaryMusicForm = Template.bind({})
 
 PrimaryMusicForm.args = {
   handleSubmit: action('onSubmit'),

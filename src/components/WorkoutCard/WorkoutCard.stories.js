@@ -1,7 +1,7 @@
 import WorkoutCard from './WorkoutCard'
 
 export default {
-  title: 'Components',
+  title: 'Components/WorkoutCard',
   component: WorkoutCard,
 }
 
