@@ -9,5 +9,7 @@ test('renders the provisory heading of the app', () => {
     </MemoryRouter>
   )
   //render(<App />)
-  expect(screen.getByText(/select your workout/i)).toBeInTheDocument()
+  expect(
+    screen.getByText(/welcome to this playlist generator/i)
+  ).toBeInTheDocument()
 })

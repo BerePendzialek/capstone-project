@@ -1,6 +1,12 @@
 # My capstone project
 
-This is my capstone project. Here I will reinforce what I learned in this 2 months of Web Developer bootcamp at neue fische. Have a look and enjoy! For more details feel free to contact me.
+This is my capstone project.
+My app is a playlist generator for road bike cyclists.
+The user can choose from a selection of Zwift bike workouts and set a few criteria regarding the desired music.
+With these, the app will generate a music playlist with songs that match the intensity of the selected workout.
+So no need for dull indoor bike workouts anymore, get your playlist and start boosting your performance.
+
+Have a look and enjoy! For more details feel free to contact me.
 
 # Getting Started with Create React App
 

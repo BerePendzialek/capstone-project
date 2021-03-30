@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Bici+Mu",
+  "name": "My app is a playlist generator for road bike cyclists using zwift",
   "icons": [
     {
       "src": "favicon.ico",
