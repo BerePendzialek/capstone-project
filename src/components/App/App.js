@@ -16,7 +16,7 @@ import FavoritesPage from '../FavoritesPage'
 
 export default function App() {
   const { push } = useHistory()
-
+  const [selectedWorkout, setSelectedWorkout] = useState({})
   const [warmupSongs, setWarmupSongs] = useState([])
   const [intervalsTSongs, setIntervalsTSongs] = useState([])
   const [cooldownSongs, setCooldownSongs] = useState([])
@@ -29,12 +29,16 @@ export default function App() {
           <HomePage />
         </Route>
         <Route path="/workout">
-          <WorkoutPage results={results} />
+          <WorkoutPage results={results} onSelectWorkout={selectWorkout} />
         </Route>
         <Route
           path="/music"
           render={props => (
-            <MusicPage {...props} onCreatePlaylist={createPlaylist} />
+            <MusicPage
+              {...props}
+              onCreatePlaylist={createPlaylist}
+              selectedWorkout={selectedWorkout}
+            />
           )}
         />
 
@@ -57,6 +61,11 @@ export default function App() {
       </Footer>
     </AppLayout>
   )
+
+  function selectWorkout(workout) {
+    const selectedWorkout = results.find(result => result.id === workout.id)
+    setSelectedWorkout(selectedWorkout)
+  }
 
   function createPlaylist(values, workout) {
     const newWorkout = {

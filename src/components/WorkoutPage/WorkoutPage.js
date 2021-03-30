@@ -3,7 +3,7 @@ import Header from '../Header'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function WorkoutPage({ results }) {
+export default function WorkoutPage({ results, onSelectWorkout }) {
   return (
     <section>
       <HeaderStyled>Workout</HeaderStyled>
@@ -11,7 +11,11 @@ export default function WorkoutPage({ results }) {
         <Heading> Select your workout:</Heading>
 
         {results.map(workout => (
-          <WorkoutCard key={workout.name} workout={workout} />
+          <WorkoutCard
+            key={workout.name}
+            workout={workout}
+            onSelectWorkout={onSelectWorkout}
+          />
         ))}
       </Grid>
     </section>
@@ -41,14 +45,11 @@ const Grid = styled.div`
     height: 85px;
     width: 100%;
   }
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `
 
 const Heading = styled.div`
   font-family: 'Tahoma';
-  font-weight: 300;
+
   font-size: 20px;
   display: inline-block;
 `

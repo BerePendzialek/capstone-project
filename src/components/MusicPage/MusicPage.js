@@ -11,8 +11,8 @@ import {
 import { selectColor, selectColorByInterval } from '../../services/selectColor'
 import Header from '../Header'
 
-export default function MusicPage({ location, onCreatePlaylist }) {
-  const { name, warmup, intervalsT, cooldown } = location.workout
+export default function MusicPage({ onCreatePlaylist, selectedWorkout }) {
+  const { name, warmup, intervalsT, cooldown } = selectedWorkout
 
   return (
     <section>
@@ -22,7 +22,7 @@ export default function MusicPage({ location, onCreatePlaylist }) {
         <Heading> Select your music:</Heading>
 
         <MusicForm
-          workout={location.workout}
+          workout={selectedWorkout}
           onCreatePlaylist={onCreatePlaylist}
         />
 
@@ -78,9 +78,6 @@ const Grid = styled.section`
     display: block;
     height: 58px;
     width: 100%;
-  }
-  &::-webkit-scrollbar {
-    display: none;
   }
 `
 

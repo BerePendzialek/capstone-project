@@ -9,8 +9,7 @@ const HeaderStyle = styled.div`
   width: 100%;
   border-radius: 0 0 70px 70px;
   font-size: 1.6em;
-  font-weight: 400px;
-  letter-spacing: 0.05em;
+  font-weight: 400;
   place-items: center;
   text-transform: uppercase;
 `
