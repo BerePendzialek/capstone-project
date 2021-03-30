@@ -3,7 +3,7 @@ import Header from '../Header'
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export default function WorkoutPage({ results }) {
+export default function WorkoutPage({ results, onSelectWorkout }) {
   return (
     <div>
       <HeaderStyled>Workout</HeaderStyled>
@@ -11,7 +11,11 @@ export default function WorkoutPage({ results }) {
         <Heading> Select your workout:</Heading>
 
         {results.map(workout => (
-          <WorkoutCard key={workout.name} workout={workout} />
+          <WorkoutCard
+            key={workout.name}
+            workout={workout}
+            onSelectWorkout={onSelectWorkout}
+          />
         ))}
       </Grid>
     </div>

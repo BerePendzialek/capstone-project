@@ -19,7 +19,7 @@ WorkoutCard.propTypes = {
   totalDuration: PropTypes.number,
 }
 
-export default function WorkoutCard({ workout }) {
+export default function WorkoutCard({ workout, onSelectWorkout }) {
   const {
     name,
     description,
@@ -75,7 +75,11 @@ export default function WorkoutCard({ workout }) {
         </div>
       </Wrapper>
 
-      <SelectButton as={NavLink} to={{ pathname: '/music', workout: workout }}>
+      <SelectButton
+        as={NavLink}
+        to="/music"
+        onClick={() => onSelectWorkout(workout)}
+      >
         Select this workout
         <Icon glyph="enter" size={24} />
       </SelectButton>
