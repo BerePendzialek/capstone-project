@@ -4,6 +4,7 @@ import Icon from 'supercons'
 
 export default function Navigation() {
   return (
+
     <Wrapper>
       <Bar>
         <Link exact to="/">
@@ -18,12 +19,15 @@ export default function Navigation() {
 }
 
 const Wrapper = styled.section`
+
   display: grid;
   place-items: center;
   width: 100%;
 `
 
+
 const Bar = styled.nav`
+
   background: linear-gradient(200deg, #ffa500 0%, #739ebb 60%);
   border-radius: 28px;
   box-shadow: 0 0 2px #1019331f;
@@ -34,7 +38,9 @@ const Bar = styled.nav`
   padding: 10px 50px 8px;
 `
 
+
 const Link = styled(NavLink)`
+
   width: 28px;
   &:focus {
     outline: none;

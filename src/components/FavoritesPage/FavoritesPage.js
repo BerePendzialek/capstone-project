@@ -4,6 +4,7 @@ import Header from '../Header'
 
 export default function FavoritesPage() {
   return (
+
     <section>
       <HeaderStyled>Favorites</HeaderStyled>
       <Grid>
@@ -14,6 +15,9 @@ export default function FavoritesPage() {
         </Heading>
       </Grid>
     </section>
+
+ 
+
   )
 }
 

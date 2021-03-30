@@ -6,7 +6,9 @@ import Header from '../Header'
 
 export default function HomePage() {
   return (
+
     <section>
+
       <HeaderStyled>Welcome to this playlist generator</HeaderStyled>
 
       <Grid>
@@ -15,7 +17,9 @@ export default function HomePage() {
           <Icon glyph="enter" size={24} />
         </NextButton>
       </Grid>
+
     </section>
+
   )
 }
 
