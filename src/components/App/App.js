@@ -48,7 +48,7 @@ export default function App() {
             warmupSongs={warmupSongs}
             intervalsTSongs={intervalsTSongs}
             cooldownSongs={cooldownSongs}
-            //selectedWorkout={selectedWorkout}
+            selectedWorkout={selectedWorkout}
           />
         </Route>
         <Route path="/favorites">

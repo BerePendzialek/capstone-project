@@ -10,6 +10,7 @@ export default function PlaylistPage({
   warmupSongs,
   intervalsTSongs,
   cooldownSongs,
+  selectedWorkout,
 }) {
   return (
     <section>
@@ -22,6 +23,7 @@ export default function PlaylistPage({
           warmupSongs={warmupSongs}
           intervalsTSongs={intervalsTSongs}
           cooldownSongs={cooldownSongs}
+          selectedWorkout={selectedWorkout}
         />
         Playlist duration can exceed or be under the workout duration <br />
         <BackButton as={NavLink} to={{ pathname: '/music' }}>

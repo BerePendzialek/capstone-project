@@ -3,17 +3,10 @@ import Icon from 'supercons'
 import Button from '../Button'
 import { NavLink } from 'react-router-dom'
 import MusicForm from '../MusicForm'
-// import {
-//   ShowFormatWarmup,
-//   ShowFormatIntervalsT,
-//   ShowFormatCooldown,
-// } from '../WorkoutCard/ShowFormatFromSections'
-// import { selectColor, selectColorByInterval } from '../../services/selectColor'
+
 import Header from '../Header'
 
 export default function MusicPage({ onCreatePlaylist, selectedWorkout }) {
-  //const { name, warmup, intervalsT, cooldown } = selectedWorkout
-
   return (
     <section>
       <HeaderStyled>Music</HeaderStyled>
@@ -25,29 +18,6 @@ export default function MusicPage({ onCreatePlaylist, selectedWorkout }) {
           workout={selectedWorkout}
           onCreatePlaylist={onCreatePlaylist}
         />
-
-        {/* <CardGrid>
-          <Title>
-            Your selected workout:
-            <br /> {name}
-          </Title>
-
-          <Wrapper>
-            <div>
-              <WarmupSection background={selectColor(warmup.powerHigh)}>
-                <ShowFormatWarmup warmup={warmup} />
-              </WarmupSection>
-              <IntervalsTSection
-                background={selectColorByInterval(intervalsT.onPower)}
-              >
-                <ShowFormatIntervalsT intervalsT={intervalsT} />
-              </IntervalsTSection>
-              <CooldownSection background={selectColor(cooldown.powerHigh)}>
-                <ShowFormatCooldown cooldown={cooldown} />
-              </CooldownSection>
-            </div>
-          </Wrapper>
-        </CardGrid> */}
 
         <BackButton as={NavLink} to={{ pathname: '/' }}>
           <Icon glyph="back" size={24} />

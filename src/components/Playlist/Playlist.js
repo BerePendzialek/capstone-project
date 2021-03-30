@@ -1,55 +1,48 @@
 import styled from 'styled-components/macro'
 import SongCard from '../SongCard/SongCard'
-// import {
-//   ShowFormatWarmup,
-//   ShowFormatIntervalsT,
-//   ShowFormatCooldown,
-// } from '../WorkoutCard/ShowFormatFromSections'
-// import { selectColor, selectColorByInterval } from '../../services/selectColor'
+import {
+  ShowFormatWarmup,
+  ShowFormatIntervalsT,
+  ShowFormatCooldown,
+} from '../WorkoutCard/ShowFormatFromSections'
+import { selectColor, selectColorByInterval } from '../../services/selectColor'
 
 export default function Playlist({
   playlist,
   warmupSongs,
   intervalsTSongs,
   cooldownSongs,
-  //selectedWorkout
+  selectedWorkout,
 }) {
-  //const { name, warmup, intervalsT, cooldown } = selectedWorkout
+  const { name, warmup, intervalsT, cooldown } = selectedWorkout
   return (
     <PlaylistGrid>
-      {/* <Title>
-            Your selected workout:
-            <br /> {name}
-          </Title> */}
-
-      {/* <WarmupSection background={selectColor(warmup.powerHigh)}>
-                <ShowFormatWarmup warmup={warmup} />
-              </WarmupSection> */}
-
+      <Title>
+        Your selected workout:
+        <br /> {name}
+      </Title>{' '}
+      */}
+      <WarmupSection background={selectColor(warmup.powerHigh)}>
+        <ShowFormatWarmup warmup={warmup} />
+      </WarmupSection>
       <SectionWrapper>
         <p>Warmup songs:</p>
         {warmupSongs.map(songInfo => (
           <SongCard songInfo={songInfo} />
         ))}
       </SectionWrapper>
-
-      {/* <IntervalsTSection
-                background={selectColorByInterval(intervalsT.onPower)}
-              >
-                <ShowFormatIntervalsT intervalsT={intervalsT} />
-              </IntervalsTSection> */}
-
+      <IntervalsTSection background={selectColorByInterval(intervalsT.onPower)}>
+        <ShowFormatIntervalsT intervalsT={intervalsT} />
+      </IntervalsTSection>
       <SectionWrapper>
         <p>Interval songs:</p>
         {intervalsTSongs.map(songInfo => (
           <SongCard songInfo={songInfo} />
         ))}
       </SectionWrapper>
-
-      {/* <CooldownSection background={selectColor(cooldown.powerHigh)}>
-                <ShowFormatCooldown cooldown={cooldown} />
-              </CooldownSection> */}
-
+      <CooldownSection background={selectColor(cooldown.powerHigh)}>
+        <ShowFormatCooldown cooldown={cooldown} />
+      </CooldownSection>
       <SectionWrapper>
         <p>Cooldown songs:</p>
         {cooldownSongs.map(songInfo => (
@@ -67,58 +60,33 @@ const PlaylistGrid = styled.section`
 const SectionWrapper = styled.div`
   display: grid;
 `
-// const CardGrid = styled.section`
-//   display: grid;
-//   margin-left: 0;
-//   gap: 20px;
-//   padding: 10px;
-//   background: white;
-//   border-radius: 0px 60px 60px 0px;
-//   color: black;
-//   width: 100%;
-// `
 
-// const Title = styled.h4`
-//   margin: 15px 5px 0 5px;
-//   text-align: justify;
-//   padding: 2px;
-// `
+const Title = styled.h4`
+  margin: 15px 5px 0 5px;
+  text-align: justify;
+  padding: 2px;
+`
 
-// const Wrapper = styled.section`
-//   display: grid;
-//   gap: 2px;
-//   font-size: 0.8rem;
-// `
+const WarmupSection = styled.section`
+  text-align: right;
+  background: ${props => props.background};
+  padding: 5px;
+  border-radius: 5px;
+`
 
-// const WarmupSection = styled.section`
-//   text-align: right;
-//   background: ${props => props.background};
-//   padding: 5px;
-//   border-radius: 5px;
-// `
+const IntervalsTSection = styled.section`
+  text-align: right;
+  background: ${props => props.background};
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+`
 
-// const IntervalsTSection = styled.section`
-//   text-align: right;
-//   background: ${props => props.background};
-//   padding: 5px;
-//   margin-top: 2px;
-//   border-radius: 5px;
-// `
-
-// const CooldownSection = styled.section`
-//   text-align: right;
-//   background: ${props => props.background};
-//   padding: 5px;
-//   margin-top: 2px;
-//   margin-bottom: 25px;
-//   border-radius: 5px;
-// `
-
-{
-  /* <CardGrid>
-         
-          <Wrapper>
-          
-          </Wrapper>
-        </CardGrid> */
-}
+const CooldownSection = styled.section`
+  text-align: right;
+  background: ${props => props.background};
+  padding: 5px;
+  margin-top: 2px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+`
