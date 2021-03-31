@@ -10,8 +10,8 @@ export default function HomePage() {
         <Logo>ZwiftLy</Logo>
         <Content>
           <p>
-            Get your playlist for Zwift workouts <br></br> and start boosting
-            your performance{' '}
+            Get your tailor-made playlist for Zwift workouts <br></br> and start
+            boosting your performance{' '}
           </p>
           <NextButton as={NavLink} to={{ pathname: '/workout' }}>
             Next
@@ -25,25 +25,27 @@ export default function HomePage() {
 
 const Wrapper = styled.section`
   background: var(--color-main-gradient);
-  //url('./zwift.png') no-repeat !important;
   height: 100vh;
-  padding: 0 !important;
+  left: 0;
+  //url('./zwift.png') no-repeat !important;
 `
 const Grid = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
   height: 100vh;
   padding: 0 44px;
   place-content: center;
 `
 
 const Logo = styled.div`
-  position: fixed;
   border-radius: 0;
+  font-size: 1.5em;
   top: 80px;
   left: 0;
   height: 10px;
   text-align: center;
+  place-self: center;
+  width: 90%;
 `
 const Content = styled.div`
   justify-self: center;
@@ -56,8 +58,5 @@ const Content = styled.div`
   }
 `
 const NextButton = styled(Button)`
-  width: 25%;
-  position: fixed;
-  bottom: 150px;
-  left: 0;
+  width: 30%;
 `

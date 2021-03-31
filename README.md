@@ -1,6 +1,6 @@
 # My capstone project
 
-This is my capstone project.
+ZwiftLy is my capstone project.
 My app is a playlist generator for road bike cyclists.
 The user can choose from a selection of Zwift bike workouts and set a few criteria regarding the desired music.
 With these, the app will generate a music playlist with songs that match the intensity of the selected workout.
