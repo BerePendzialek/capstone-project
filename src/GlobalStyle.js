@@ -18,6 +18,10 @@ export default createGlobalStyle`
     ); 
     --color-green-interval: linear-gradient(to bottom,  rgba(89, 191, 89, 1),
     rgba(51, 140, 255, 1)); 
+    --color-main-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --color-white-smoked: #f5f5f5;
+    --color-dark-grey:#444;
+    --color-lila: #7953f5;
   }
 
 
@@ -27,12 +31,14 @@ export default createGlobalStyle`
 
 body {
   margin: 0 auto;
-  background: white;
+  background: var(--color-white-smoked);
   font-size: 112.5%;
   font-family: 'Work Sans', 'Tahoma', sans-serif;
-  padding: 10px;
+  padding: 20px;
   max-width: 600px;
-  color: black;
+  color: var(--color-dark-grey);
+  display: grid;
+  gap: 20px;
 }
 
 

@@ -39,7 +39,9 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
         {name} <br />
       </Title>
       <Teaser>
-        <Icon glyph="clock" size={24} /> {totalDuration} Min <br />
+        <IconWrapper>
+          <Icon glyph="clock" size={24} /> {totalDuration} Min <br />
+        </IconWrapper>
         <Icon glyph="info" size={24} /> Level: Intermediate <br />
       </Teaser>
 
@@ -50,11 +52,11 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
           {isWorkoutSectionsVisible ? (
             <OverviewWrapper>
               {' '}
-              Hide overview <Icon glyph="up-caret" size={24} />
+              <Icon glyph="up-caret" size={24} /> Show overview
             </OverviewWrapper>
           ) : (
             <OverviewWrapper>
-              Show overview <Icon glyph="down-caret" size={24} />
+              <Icon glyph="down-caret" size={24} /> Hide overview
             </OverviewWrapper>
           )}
         </OverviewButton>
@@ -80,8 +82,8 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
         to="/music"
         onClick={() => onSelectWorkout(workout)}
       >
-        Select this workout
         <Icon glyph="enter" size={24} />
+        Select this workout
       </SelectButton>
     </Grid>
   )
@@ -91,24 +93,33 @@ const Grid = styled.section`
   display: grid;
   margin-left: 0;
   gap: 20px;
-  padding: 10px;
-  background: white;
-  box-shadow: 0 0 8px #1019331f;
-  border-radius: 0px 60px 60px 0px;
-  color: black;
+  padding: 20px;
+  background: var(--color-white-smoked);
+  box-shadow: 0 0 12px #1019331f;
+  border-radius: 0px 60px 0px 0px;
+  color: var(--dark-grey);
   width: 100%;
+  margin-top: 20px;
 `
 
 const Title = styled.h3`
   margin: 15px 5px 0 5px;
   text-align: justify;
   padding: 2px;
+  color: var(--dark-grey);
 `
 
 const Teaser = styled.div`
   text-align: left;
   padding: 5px;
-  display: inline-block;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: flex-start;
+`
+const IconWrapper = styled.div`
+  display: flex;
+  align-content: flex-start;
+  justify-content: space-evenly;
 `
 
 const Description = styled.div`
@@ -151,9 +162,9 @@ const CooldownSection = styled.section`
   border-radius: 5px;
 `
 const OverviewButton = styled(Button)`
-  width: 90%;
+  width: 80%;
 `
 
 const SelectButton = styled(Button)`
-  width: 90%;
+  width: 80%;
 `

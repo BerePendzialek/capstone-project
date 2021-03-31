@@ -19,7 +19,7 @@ export default function MusicPage({ onCreatePlaylist, selectedWorkout }) {
           onCreatePlaylist={onCreatePlaylist}
         />
 
-        <BackButton as={NavLink} to={{ pathname: '/' }}>
+        <BackButton as={NavLink} to={{ pathname: '/workout' }}>
           <Icon glyph="back" size={24} />
           Back
         </BackButton>
@@ -55,6 +55,7 @@ const Heading = styled.div`
   font-weight: 300;
   font-size: 20px;
   display: inline-block;
+  text-transform: uppercase;
 `
 
 const BackButton = styled(Button)`

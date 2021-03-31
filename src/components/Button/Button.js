@@ -6,11 +6,12 @@ export default styled.button`
   border-radius: 5px;
   text-decoration: none;
   text-transform: uppercase;
-  color: #ffa500;
-  background: white;
+  color: var(--color-white-smoked);
+  background: var(--color-dark-grey);
+
   cursor: pointer;
   font-size: 0.8em;
-  font-weight: 400;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -49,7 +49,7 @@ const Grid = styled.div`
 
 const Heading = styled.div`
   font-family: 'Tahoma';
-
   font-size: 20px;
   display: inline-block;
+  text-transform: uppercase;
 `

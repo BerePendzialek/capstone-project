@@ -62,4 +62,5 @@ const Heading = styled.div`
   font-weight: 300;
   font-size: 20px;
   display: inline-block;
+  text-transform: uppercase;
 `
