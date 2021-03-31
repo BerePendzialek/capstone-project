@@ -51,7 +51,6 @@ export default function FavoritesEntry({
 const EntryGrid = styled.section`
   display: grid;
   gap: 10px;
-  border: 2px solid gray;
 `
 
 const Title = styled.h4`

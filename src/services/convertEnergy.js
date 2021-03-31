@@ -1,9 +1,9 @@
 export default function convertEnergy(energy) {
   let energyCategory
   if (energy <= 0.699) {
-    energyCategory = 'Relax'
+    energyCategory = 'High'
   } else {
-    energyCategory = 'More Power'
+    energyCategory = 'Middle'
   }
   return energyCategory
 }

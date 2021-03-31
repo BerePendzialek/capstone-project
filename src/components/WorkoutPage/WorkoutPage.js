@@ -42,7 +42,7 @@ const Grid = styled.div`
   &::after {
     content: '';
     display: block;
-    height: 85px;
+    height: 58px;
     width: 100%;
   }
 `

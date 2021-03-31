@@ -13,6 +13,7 @@ const HeaderStyle = styled.div`
   place-items: center;
   letter-spacing: 1px;
   text-transform: uppercase;
+  padding: 10px 50px 8px;
 `
 
 const Header = props => <HeaderStyle {...props} />

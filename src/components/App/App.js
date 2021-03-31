@@ -22,10 +22,10 @@ export default function App() {
   const [warmupSongs, setWarmupSongs] = useState([])
   const [intervalsTSongs, setIntervalsTSongs] = useState([])
   const [cooldownSongs, setCooldownSongs] = useState([])
-  const [history, setHistory] = useState(loadFromLocal('workoutHistory') ?? [])
+  const [history, setHistory] = useState(loadFromLocal('playlistHistory') ?? [])
 
   useEffect(() => {
-    saveToLocal('workoutHistory', history)
+    saveToLocal('playlistHistory', history)
   }, [history])
 
   return (

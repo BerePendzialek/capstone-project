@@ -17,7 +17,7 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
       <Label>
         Energy
         <SelectInput required name="energy" data-testid="energy-select">
-          <option value="">... Please choose an option</option>
+          <option value="">Please choose an option... </option>
           {energyCategory.map(categoryItem => (
             <option data-testid={categoryItem}>{categoryItem}</option>
           ))}
@@ -27,15 +27,14 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
       <Label>
         Genre
         <SelectInput required name="genre" data-testid="genre-select">
-          <option value="">... Please choose an option</option>
+          <option value="">Please choose an option...</option>
           {genreCategory.map(categoryItem => (
             <option data-testid={categoryItem}>{categoryItem}</option>
           ))}
         </SelectInput>
       </Label>
       <PlaylistButton>
-        Get my Playlist! 
-        <Icon glyph="enter" size={24} />{' '}
+        <Icon glyph="enter" size={24} /> Get my Playlist! 
       </PlaylistButton>
     </Form>
   )
@@ -61,8 +60,8 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
 const Form = styled.form`
   display: grid;
   gap: 20px;
-  padding: 10px;
   width: 100%;
+  margin-top: 20px;
 `
 const Label = styled.label`
   display: grid;
@@ -78,11 +77,9 @@ const SelectInput = styled.select`
   width: 100%;
   border-radius: 5px;
   margin-top: 10px;
+  background: var(--color-white-smoked);
+  color: var(--color-grey);
 `
 const PlaylistButton = styled(Button)`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
 `

@@ -8,7 +8,6 @@ export default styled.button`
   text-transform: uppercase;
   color: var(--color-white-smoked);
   background: var(--color-dark-grey);
-
   cursor: pointer;
   font-size: 0.8em;
   font-weight: 600;

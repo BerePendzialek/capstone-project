@@ -22,13 +22,13 @@ const Grid = styled.section`
   display: flex;
   gap: 20px;
   border: 1px solid gray;
-
   font-size: 0.8em;
   width: 100%;
   height: 64px;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   overflow: hidden;
+  border-radius: 5px;
 `
 
 const ImageWrapper = styled.div`
@@ -50,7 +50,7 @@ const SongInfo = styled.div`
 `
 
 const SongName = styled.div`
-  color: #ee7203;
+  color: var(--color-lila);
 `
 
 const SongDuration = styled.div`

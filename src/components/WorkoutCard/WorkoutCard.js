@@ -52,11 +52,11 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
           {isWorkoutSectionsVisible ? (
             <OverviewWrapper>
               {' '}
-              <Icon glyph="up-caret" size={24} /> Show overview
+              <Icon glyph="up-caret" size={24} /> Hide overview
             </OverviewWrapper>
           ) : (
             <OverviewWrapper>
-              <Icon glyph="down-caret" size={24} /> Hide overview
+              <Icon glyph="down-caret" size={24} /> Show overview
             </OverviewWrapper>
           )}
         </OverviewButton>
@@ -91,20 +91,20 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
 
 const Grid = styled.section`
   display: grid;
-  margin-left: 0;
   gap: 20px;
   padding: 20px;
   background: var(--color-white-smoked);
-  box-shadow: 0 0 12px #1019331f;
+  border: 1px solid var(--color-grey);
   border-radius: 0px 60px 0px 0px;
-  color: var(--dark-grey);
+  color: var(--color-dark-grey);
   width: 100%;
   margin-top: 20px;
+  justify-content: center;
 `
 
 const Title = styled.h3`
   margin: 15px 5px 0 5px;
-  text-align: justify;
+
   padding: 2px;
   color: var(--dark-grey);
 `
@@ -162,9 +162,9 @@ const CooldownSection = styled.section`
   border-radius: 5px;
 `
 const OverviewButton = styled(Button)`
-  width: 80%;
+  width: 100%;
 `
 
 const SelectButton = styled(Button)`
-  width: 80%;
+  width: 100%;
 `

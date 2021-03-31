@@ -43,13 +43,13 @@ const Grid = styled.section`
   &::before {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
   }
   &::after {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
   }
   &::-webkit-scrollbar {

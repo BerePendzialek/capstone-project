@@ -22,6 +22,8 @@ export default createGlobalStyle`
     --color-white-smoked: #f5f5f5;
     --color-dark-grey:#444;
     --color-lila: #7953f5;
+    --color-white: #ffffff;
+    --color-aqua-blue: #0FFFFF;
   }
 
 
@@ -31,7 +33,6 @@ export default createGlobalStyle`
 
 body {
   margin: 0 auto;
-  background: var(--color-white-smoked);
   font-size: 112.5%;
   font-family: 'Work Sans', 'Tahoma', sans-serif;
   padding: 20px;
