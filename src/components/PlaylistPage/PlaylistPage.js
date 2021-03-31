@@ -6,11 +6,11 @@ import { NavLink } from 'react-router-dom'
 import Playlist from '../Playlist'
 
 export default function PlaylistPage({
-  playlist,
   warmupSongs,
   intervalsTSongs,
   cooldownSongs,
   selectedWorkout,
+  onSavePlaylist,
 }) {
   return (
     <section>
@@ -19,12 +19,12 @@ export default function PlaylistPage({
       <Grid>
         <Heading>Songs for your next workout:</Heading>
         <Playlist
-          playlist={playlist}
           warmupSongs={warmupSongs}
           intervalsTSongs={intervalsTSongs}
           cooldownSongs={cooldownSongs}
           selectedWorkout={selectedWorkout}
         />
+        <Button onClick={onSavePlaylist}>Save Playlist</Button>
         Playlist duration can exceed or be under the workout duration <br />
         <BackButton as={NavLink} to={{ pathname: '/music' }}>
           <Icon glyph="back" size={24} />

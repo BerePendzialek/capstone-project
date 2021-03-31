@@ -1,23 +1,33 @@
-import Icon from 'supercons'
 import styled from 'styled-components/macro'
 import Header from '../Header'
+import FavoritesEntry from '../FavoriesEntry/FavoritesEntry'
 
-export default function FavoritesPage() {
+export default function FavoritesPage({ history }) {
   return (
-
     <section>
       <HeaderStyled>Favorites</HeaderStyled>
       <Grid>
-        <Heading>
-          {' '}
-          Soon you´ll be able to save your favorite playlists
-          <Icon glyph="like" size={24} />
-        </Heading>
+        <Heading> Your favorite playlists</Heading>
+
+        {history.map(
+          ({
+            selectedWorkout,
+            warmupSongs,
+            intervalsTSongs,
+            cooldownSongs,
+            id,
+          }) => (
+            <FavoritesEntry
+              key={id}
+              selectedWorkout={selectedWorkout}
+              warmupSongs={warmupSongs}
+              intervalsTSongs={intervalsTSongs}
+              cooldownSongs={cooldownSongs}
+            />
+          )
+        )}
       </Grid>
     </section>
-
- 
-
   )
 }
 

@@ -7,19 +7,16 @@ import {
 } from '../WorkoutCard/ShowFormatFromSections'
 import { selectColor, selectColorByInterval } from '../../services/selectColor'
 
-export default function Playlist({
+export default function FavoritesEntry({
+  selectedWorkout,
   warmupSongs,
   intervalsTSongs,
   cooldownSongs,
-  selectedWorkout,
 }) {
   const { name, warmup, intervalsT, cooldown } = selectedWorkout
   return (
-    <PlaylistGrid>
-      <Title>
-        Your selected workout:
-        <br /> {name}
-      </Title>{' '}
+    <EntryGrid>
+      <Title>Your selected workout: {name}</Title>{' '}
       <WarmupSection background={selectColor(warmup.powerHigh)}>
         <ShowFormatWarmup warmup={warmup} />
       </WarmupSection>
@@ -47,22 +44,24 @@ export default function Playlist({
           <SongCard songInfo={songInfo} />
         ))}
       </SectionWrapper>
-    </PlaylistGrid>
+    </EntryGrid>
   )
 }
 
-const PlaylistGrid = styled.section`
+const EntryGrid = styled.section`
   display: grid;
-`
-
-const SectionWrapper = styled.div`
-  display: grid;
+  gap: 10px;
+  border: 2px solid gray;
 `
 
 const Title = styled.h4`
   margin: 15px 5px 0 5px;
   text-align: justify;
   padding: 2px;
+`
+
+const SectionWrapper = styled.div`
+  display: grid;
 `
 
 const WarmupSection = styled.section`
