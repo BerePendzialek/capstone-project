@@ -41,8 +41,8 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
       <Teaser>
         <IconWrapper>
           <Icon glyph="clock" size={24} /> {totalDuration} Min <br />
+          <Icon glyph="info" size={24} /> Intermediate <br />
         </IconWrapper>
-        <Icon glyph="info" size={24} /> Level: Intermediate <br />
       </Teaser>
 
       <Wrapper>
@@ -86,26 +86,25 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
 const Grid = styled.section`
   display: grid;
   gap: 20px;
-  padding: 10px;
+  padding: 15px;
   background: var(--color-white-smoked);
   border: 1px solid var(--color-lila-light);
   border-radius: 0px 60px 0px 0px;
   color: var(--color-dark-grey);
-  width: 100%;
+  width: 335px;
   margin-top: 20px;
   justify-content: center;
 `
 
 const Title = styled.h3`
-  margin: 15px 5px 0 5px;
-  padding: 2px;
+  margin: 15px 0 0;
+  /* padding: 2px; */
   color: var(--dark-grey);
-  width: 100%;
 `
 
 const Teaser = styled.div`
   text-align: left;
-  padding: 5px;
+  /* padding: 5px; */
   display: flex;
   justify-content: space-between;
   align-content: flex-start;
@@ -119,7 +118,7 @@ const IconWrapper = styled.div`
 const Description = styled.div`
   text-align: left;
   padding: 5px;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px;
 `
 
 const Wrapper = styled.section`
@@ -156,9 +155,10 @@ const CooldownSection = styled.section`
   border-radius: 5px;
 `
 const OverviewButton = styled(Button)`
-  width: 100%;
+  width: 305px;
 `
 
 const SelectButton = styled(Button)`
   width: 100%;
+  margin-bottom: 20px;
 `

@@ -188,7 +188,6 @@ export default function App() {
 
 const AppLayout = styled.div`
   display: grid;
-  padding: 2px;
   gap: 10px;
   overflow-y: scroll;
 `

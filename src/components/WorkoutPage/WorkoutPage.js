@@ -30,7 +30,6 @@ const HeaderStyled = styled(Header)`
 
 const Grid = styled.div`
   display: grid;
-  padding: 2px;
   gap: 10px;
   overflow-y: scroll;
   &::before {

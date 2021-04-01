@@ -39,8 +39,7 @@ body {
   padding: 20px;
   max-width: 600px;
   color: var(--color-dark-grey);
-  display: grid;
-  gap: 20px;
+  
   background: var(--color-white-smoked);
 }
 

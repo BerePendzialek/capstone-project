@@ -10,10 +10,7 @@ export default function HomePage() {
       <HeaderStyled>ZwiftLy</HeaderStyled>
       <Grid>
         <p>
-          Welcome! <br />
-          <br />
-          A playlist <br />
-          for Zwift workouts <br /> awaits you <br />
+          Your Playlist <br /> for Zwift workouts <br />
         </p>
       </Grid>
       <NextButton as={NavLink} to={{ pathname: '/workout' }}>
@@ -44,11 +41,11 @@ const HeaderStyled = styled(Header)`
   color: var(--color-white);
   letter-spacing: 1.5px;
   font-weight: 800;
-  font-size: 220%;
+  font-size: 350%;
 `
 const Grid = styled.section`
   display: grid;
-  gap: 160px;
+  gap: 240px;
   overflow-y: scroll;
   place-items: center;
   width: 100%;
@@ -70,7 +67,7 @@ const Grid = styled.section`
 
   p {
     text-align: center;
-    color: var(--color-lila);
+    color: var(--color-white);
     font-weight: 600;
     text-transform: uppercase;
     line-height: 1.2;
@@ -84,12 +81,12 @@ const NextButton = styled.button`
   place-items: center;
   background: var(--color-white-smoked);
   border-radius: 5px;
-  border: 0.5px solid var(--color-grey);
+
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   padding: 10px;
-  color: var(--color-lila);
+  color: #57a4f5;
   font-size: 0.9em;
   font-weight: 600;
   cursor: pointer;
