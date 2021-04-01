@@ -2,18 +2,17 @@ import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
 
 import Header from '../Header'
-import Zwift from '../../assets/zwift.png'
+import Zwift from '../../assets/zwift_2.png'
 
 export default function HomePage() {
   return (
     <HomeWrapper>
       <HeaderStyled>ZwiftLy</HeaderStyled>
-
       <Grid>
         <p>
           Welcome! <br />
           <br />
-          A tailor-made playlist <br />
+          A playlist <br />
           for Zwift workouts <br /> awaits you <br />
         </p>
       </Grid>
@@ -59,12 +58,12 @@ const Grid = styled.section`
     height: 250px;
     width: 100%;
   }
-  &::after {
+  /* &::after {
     content: '';
     display: block;
     height: 58px;
     width: 100%;
-  }
+  } */
   &::-webkit-scrollbar {
     display: none;
   }
@@ -80,11 +79,8 @@ const Grid = styled.section`
 `
 
 const NextButton = styled.button`
-  width: 65%;
+  width: 70%;
   bottom: 58px;
-  position: fixed;
-  left: 65px;
-  right: 65px;
   place-items: center;
   background: var(--color-white-smoked);
   border-radius: 5px;
@@ -97,4 +93,7 @@ const NextButton = styled.button`
   font-size: 0.9em;
   font-weight: 600;
   cursor: pointer;
+  right: 50px;
+  left: 55px;
+  position: fixed;
 `
