@@ -10,6 +10,7 @@ const HeaderStyle = styled.div`
   border-radius: 0 0 70px 70px;
   font-size: 1.6em;
   font-weight: 400;
+  font-family: 'Work Sans';
   place-items: center;
   letter-spacing: 1px;
   text-transform: uppercase;

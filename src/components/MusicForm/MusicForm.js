@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import convertEnergy from '../../services/convertEnergy'
 import data from '../tracksShort.json'
 import Button from '../Button'
-import Icon from 'supercons'
+
 import { useHistory } from 'react-router-dom'
 
 export default function MusicForm({ onCreatePlaylist, workout }) {
@@ -33,9 +33,7 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
           ))}
         </SelectInput>
       </Label>
-      <PlaylistButton>
-        <Icon glyph="enter" size={24} /> Get my Playlist! 
-      </PlaylistButton>
+      <PlaylistButton>Get my Playlist! </PlaylistButton>
     </Form>
   )
 
@@ -73,7 +71,7 @@ const SelectInput = styled.select`
   font-family: inherit;
   padding: 10px;
   padding-top: 5px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   width: 100%;
   border-radius: 5px;
   margin-top: 10px;

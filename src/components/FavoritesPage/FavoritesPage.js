@@ -52,13 +52,10 @@ const Grid = styled.section`
     height: 48px;
     width: 100%;
   }
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `
 
 const Heading = styled.div`
-  font-family: 'Tahoma';
+  font-family: 'Work Sans';
   font-weight: 300;
   font-size: 20px;
   display: inline-block;

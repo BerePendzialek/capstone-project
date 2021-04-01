@@ -22,7 +22,7 @@ export default function PlaylistPage({
           cooldownSongs={cooldownSongs}
           selectedWorkout={selectedWorkout}
         />
-        Playlist duration can exceed or be under the workout duration <br />
+
         <Button onClick={onSavePlaylist}>Save Playlist</Button>
       </Grid>
     </section>
@@ -54,7 +54,7 @@ const Grid = styled.section`
 `
 
 const Heading = styled.div`
-  font-family: 'Tahoma';
+  font-family: 'Work Sans';
   font-size: 20px;
   display: inline-block;
   text-transform: uppercase;

@@ -1,62 +1,62 @@
 import styled from 'styled-components/macro'
 import { NavLink } from 'react-router-dom'
-import Icon from 'supercons'
 import Button from '../Button'
+import Header from '../Header'
 
 export default function HomePage() {
   return (
-    <Wrapper>
+    <section>
+      <HeaderStyled>ZwiftLy</HeaderStyled>
+
       <Grid>
-        <Logo>ZwiftLy</Logo>
-        <Content>
-          <p>
-            Get your tailor-made playlist for Zwift workouts <br></br> and start
-            boosting your performance{' '}
-          </p>
-          <NextButton as={NavLink} to={{ pathname: '/workout' }}>
-            Next
-            <Icon glyph="enter" size={24} />
-          </NextButton>
-        </Content>
+        <p>
+          Get your tailor-made playlist for <br /> Zwift workouts and start{' '}
+          <br />
+          boosting your performance{' '}
+        </p>
+        <NextButton as={NavLink} to={{ pathname: '/workout' }}>
+          Get started!
+        </NextButton>
       </Grid>
-    </Wrapper>
+    </section>
   )
 }
 
-const Wrapper = styled.section`
-  background: var(--color-main-gradient);
-  height: 100vh;
+const HeaderStyled = styled(Header)`
+  position: fixed;
+  top: 0;
   left: 0;
-  //url('./zwift.png') no-repeat !important;
-`
-const Grid = styled.div`
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  height: 100vh;
-  padding: 0 44px;
-  place-content: center;
-`
-
-const Logo = styled.div`
-  border-radius: 0;
-  font-size: 1.5em;
-  top: 80px;
-  left: 0;
-  height: 10px;
+  height: 220px;
   text-align: center;
-  place-self: center;
-  width: 90%;
+  text-transform: none;
 `
-const Content = styled.div`
-  justify-self: center;
-  p {
-    color: white;
-    font-size: 0.9;
-    font-weight: 300;
-    text-align: center;
-    margin-top: 24px;
+const Grid = styled.section`
+  display: grid;
+  gap: 20px;
+  overflow-y: scroll;
+  place-items: center;
+  &::before {
+    content: '';
+    display: block;
+    height: 220px;
+    width: 100%;
+  }
+  &::after {
+    content: '';
+    display: block;
+    height: 58px;
+    width: 100%;
+  }
+  &::-webkit-scrollbar {
+    display: none;
   }
 `
+
 const NextButton = styled(Button)`
-  width: 30%;
+  width: 80%;
+  bottom: 58px;
+  position: fixed;
+  right: 0;
+  left: 20px;
+  place-items: center;
 `

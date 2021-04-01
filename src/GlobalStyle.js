@@ -34,12 +34,13 @@ export default createGlobalStyle`
 body {
   margin: 0 auto;
   font-size: 112.5%;
-  font-family: 'Work Sans', 'Tahoma', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   padding: 20px;
   max-width: 600px;
   color: var(--color-dark-grey);
   display: grid;
   gap: 20px;
+  background: var(--color-white-smoked);
 }
 
 

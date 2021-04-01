@@ -50,14 +50,9 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
           onClick={() => setIsWorkoutSectionsVisible(!isWorkoutSectionsVisible)}
         >
           {isWorkoutSectionsVisible ? (
-            <OverviewWrapper>
-              {' '}
-              <Icon glyph="up-caret" size={24} /> Hide overview
-            </OverviewWrapper>
+            <OverviewWrapper> Hide overview</OverviewWrapper>
           ) : (
-            <OverviewWrapper>
-              <Icon glyph="down-caret" size={24} /> Show overview
-            </OverviewWrapper>
+            <OverviewWrapper>Show overview</OverviewWrapper>
           )}
         </OverviewButton>
 
@@ -82,7 +77,6 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
         to="/music"
         onClick={() => onSelectWorkout(workout)}
       >
-        <Icon glyph="enter" size={24} />
         Select this workout
       </SelectButton>
     </Grid>
@@ -92,7 +86,7 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
 const Grid = styled.section`
   display: grid;
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
   background: var(--color-white-smoked);
   border: 1px solid var(--color-grey);
   border-radius: 0px 60px 0px 0px;
@@ -104,16 +98,16 @@ const Grid = styled.section`
 
 const Title = styled.h3`
   margin: 15px 5px 0 5px;
-
   padding: 2px;
   color: var(--dark-grey);
+  width: 100%;
 `
 
 const Teaser = styled.div`
   text-align: left;
   padding: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-content: flex-start;
 `
 const IconWrapper = styled.div`

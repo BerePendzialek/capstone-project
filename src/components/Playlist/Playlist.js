@@ -42,6 +42,7 @@ export default function Playlist({
           <SongCard songInfo={songInfo} />
         ))}
       </SectionWrapper>
+      <p>Playlist duration can exceed or be under the workout duration</p>
     </PlaylistGrid>
   )
 }
@@ -49,13 +50,17 @@ export default function Playlist({
 const PlaylistGrid = styled.section`
   display: grid;
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
   background: var(--color-white-smoked);
   border: 1px solid var(--color-grey);
   border-radius: 5px;
   width: 100%;
   margin-top: 20px;
   color: var(--color-dark-grey);
+  p {
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
 `
 
 const SectionWrapper = styled.div`

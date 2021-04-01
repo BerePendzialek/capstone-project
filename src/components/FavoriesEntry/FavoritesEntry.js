@@ -16,21 +16,20 @@ export default function FavoritesEntry({
   const { name, warmup, intervalsT, cooldown } = selectedWorkout
   return (
     <EntryGrid>
-      <Title>Your selected workout: {name}</Title>{' '}
+      <Title>{name}</Title>
       <WarmupSection background={selectColor(warmup.powerHigh)}>
         <ShowFormatWarmup warmup={warmup} />
       </WarmupSection>
       <SectionWrapper>
-        <p>Warmup songs:</p>
         {warmupSongs.map(songInfo => (
           <SongCard songInfo={songInfo} />
         ))}
       </SectionWrapper>
+
       <IntervalsTSection background={selectColorByInterval(intervalsT.onPower)}>
         <ShowFormatIntervalsT intervalsT={intervalsT} />
       </IntervalsTSection>
       <SectionWrapper>
-        <p>Interval songs:</p>
         {intervalsTSongs.map(songInfo => (
           <SongCard songInfo={songInfo} />
         ))}
@@ -39,7 +38,6 @@ export default function FavoritesEntry({
         <ShowFormatCooldown cooldown={cooldown} />
       </CooldownSection>
       <SectionWrapper>
-        <p>Cooldown songs:</p>
         {cooldownSongs.map(songInfo => (
           <SongCard songInfo={songInfo} />
         ))}
@@ -50,7 +48,14 @@ export default function FavoritesEntry({
 
 const EntryGrid = styled.section`
   display: grid;
-  gap: 10px;
+  gap: 20px;
+  padding: 10px;
+  background: var(--color-white-smoked);
+  border: 1px solid var(--color-grey);
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 20px;
+  color: var(--color-dark-grey);
 `
 
 const Title = styled.h4`
@@ -68,6 +73,7 @@ const WarmupSection = styled.section`
   background: ${props => props.background};
   padding: 5px;
   border-radius: 5px;
+  font-size: 0.9em;
 `
 
 const IntervalsTSection = styled.section`
@@ -76,6 +82,7 @@ const IntervalsTSection = styled.section`
   padding: 5px;
   margin-top: 2px;
   border-radius: 5px;
+  font-size: 0.9em;
 `
 
 const CooldownSection = styled.section`
@@ -83,6 +90,6 @@ const CooldownSection = styled.section`
   background: ${props => props.background};
   padding: 5px;
   margin-top: 2px;
-  margin-bottom: 25px;
   border-radius: 5px;
+  font-size: 0.9em;
 `
