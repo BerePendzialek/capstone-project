@@ -6,19 +6,6 @@ export default function Navigation() {
   return (
     <Bar>
       <NavButton
-        aria-label="home"
-        as={NavLink}
-        exact
-        to="/"
-        style={{ color: 'var(--color-white)' }}
-        activeStyle={{
-          color: 'var(--color-aqua-blue)',
-        }}
-      >
-        <Icon glyph="home" size={24} />
-        Home
-      </NavButton>
-      <NavButton
         aria-label="workouts"
         as={NavLink}
         exact
@@ -30,6 +17,19 @@ export default function Navigation() {
       >
         <Icon glyph="bolt" size={24} />
         Workouts
+      </NavButton>
+      <NavButton
+        aria-label="home"
+        as={NavLink}
+        exact
+        to="/"
+        style={{ color: 'var(--color-white)' }}
+        activeStyle={{
+          color: 'var(--color-aqua-blue)',
+        }}
+      >
+        <Icon glyph="home" size={24} />
+        Home
       </NavButton>
       <NavButton
         aria-label="favorites"
@@ -53,9 +53,9 @@ const Bar = styled.div`
   background-image: var(--color-main-gradient);
   box-shadow: 0 0 2px #1019331f;
   display: grid;
-  gap: 30px;
+  gap: 5px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr 1fr; */
   border-radius: 15px 15px 0 0;
   padding: 10px 50px 10px;
   color: white;
@@ -65,14 +65,17 @@ const Bar = styled.div`
   height: 58px;
   font-weight: 400;
   letter-spacing: 1px;
+  place-content: center;
+  align-items: center;
 `
 
 const NavButton = styled.button`
   outline: none;
-  font-size: 0.8em;
+  font-size: 0.7em;
   text-decoration: none;
   color: white;
   text-transform: uppercase;
   text-align: center;
   justify-items: center;
+  display: grid;
 `

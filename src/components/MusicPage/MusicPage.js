@@ -40,6 +40,9 @@ const Grid = styled.section`
     height: 58px;
     width: 100%;
   }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 const Heading = styled.div`
   font-family: 'Work Sans';

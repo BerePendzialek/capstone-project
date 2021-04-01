@@ -51,7 +51,7 @@ const EntryGrid = styled.section`
   gap: 20px;
   padding: 10px;
   background: var(--color-white-smoked);
-  border: 1px solid var(--color-grey);
+  border: 1px solid var(--color-lila-light);
   border-radius: 5px;
   width: 100%;
   margin-top: 20px;

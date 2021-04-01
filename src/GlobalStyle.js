@@ -24,6 +24,7 @@ export default createGlobalStyle`
     --color-lila: #7953f5;
     --color-white: #ffffff;
     --color-aqua-blue: #0FFFFF;
+    --color-lila-light: #a297c3;
   }
 
 

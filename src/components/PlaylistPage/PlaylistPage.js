@@ -23,7 +23,7 @@ export default function PlaylistPage({
           selectedWorkout={selectedWorkout}
         />
 
-        <Button onClick={onSavePlaylist}>Save Playlist</Button>
+        <Button onClick={onSavePlaylist}>Save this Playlist</Button>
       </Grid>
     </section>
   )
@@ -50,6 +50,9 @@ const Grid = styled.section`
     display: block;
     height: 58px;
     width: 100%;
+  }
+  &::-webkit-scrollbar {
+    display: none;
   }
 `
 
