@@ -15,7 +15,7 @@ export default function PlaylistPage({
       <HeaderStyled>Playlist</HeaderStyled>
 
       <Grid>
-        <Heading>Songs for your next workout:</Heading>
+        <Heading>Songs for your workout:</Heading>
         <Playlist
           warmupSongs={warmupSongs}
           intervalsTSongs={intervalsTSongs}
