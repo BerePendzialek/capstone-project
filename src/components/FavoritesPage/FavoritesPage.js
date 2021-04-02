@@ -52,6 +52,9 @@ const Grid = styled.section`
     height: 48px;
     width: 100%;
   }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 const Heading = styled.div`

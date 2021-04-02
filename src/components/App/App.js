@@ -190,6 +190,7 @@ const AppLayout = styled.div`
   display: grid;
   gap: 10px;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 `
 const Footer = styled.footer`
   bottom: 10px;
