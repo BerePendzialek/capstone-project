@@ -4,7 +4,7 @@ import {
   ShowFormatWarmup,
   ShowFormatIntervalsT,
   ShowFormatCooldown,
-} from '../WorkoutCard/ShowFormatFromSections'
+} from '../../services/ShowFormatFromSections'
 import { selectColor, selectColorByInterval } from '../../services/selectColor'
 
 export default function FavoritesEntry({

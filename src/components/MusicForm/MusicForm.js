@@ -15,7 +15,7 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
   return (
     <Form data-testid="form" onSubmit={handleSubmit}>
       <Label>
-        Energy
+        Energy Level
         <SelectInput required name="energy" data-testid="energy-select">
           <option value="">Please choose an option... </option>
           {energyCategory.map(categoryItem => (
@@ -65,7 +65,6 @@ const Label = styled.label`
   display: grid;
   width: 100%;
 `
-
 const SelectInput = styled.select`
   appearance: none;
   font-family: inherit;
@@ -77,6 +76,7 @@ const SelectInput = styled.select`
   margin-top: 10px;
   background: var(--color-white-smoked);
   color: var(--color-grey);
+  margin-bottom: 20px;
 `
 const PlaylistButton = styled(Button)`
   width: 100%;

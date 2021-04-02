@@ -39,11 +39,8 @@ body {
   padding: 20px;
   max-width: 600px;
   color: var(--color-dark-grey);
-  
   background: var(--color-white-smoked);
 }
-
-
 
 input, button {
     font-size: inherit;
@@ -54,5 +51,4 @@ font-size: 1em;
 [hidden] {
   display: none !important;
 }
-
 `

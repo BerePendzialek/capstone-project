@@ -55,14 +55,12 @@ const Bar = styled.div`
   display: grid;
   gap: 5px;
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr 1fr; */
-  border-radius: 15px 15px 0 0;
   padding: 10px 50px 10px;
   color: white;
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 58px;
+  height: 48px;
   font-weight: 400;
   letter-spacing: 1px;
   place-content: center;

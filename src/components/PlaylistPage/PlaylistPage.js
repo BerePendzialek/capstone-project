@@ -15,7 +15,7 @@ export default function PlaylistPage({
       <HeaderStyled>Playlist</HeaderStyled>
 
       <Grid>
-        <Heading>Songs for your workout:</Heading>
+        <Heading>Songs for your workout</Heading>
         <Playlist
           warmupSongs={warmupSongs}
           intervalsTSongs={intervalsTSongs}
@@ -42,17 +42,14 @@ const Grid = styled.section`
   &::before {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
   }
   &::after {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
-  }
-  &::-webkit-scrollbar {
-    display: none;
   }
 `
 

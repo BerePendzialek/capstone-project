@@ -7,7 +7,7 @@ import {
   ShowFormatWarmup,
   ShowFormatIntervalsT,
   ShowFormatCooldown,
-} from './ShowFormatFromSections'
+} from '../../services/ShowFormatFromSections'
 
 import Button from '../Button'
 import Icon from 'supercons'
@@ -38,21 +38,26 @@ export default function WorkoutCard({ workout, onSelectWorkout }) {
       <Title>
         {name} <br />
       </Title>
-      <Teaser>
-        <IconWrapper>
-          <Icon glyph="clock" size={24} /> {totalDuration} Min <br />
-          <Icon glyph="info" size={24} /> Intermediate <br />
-        </IconWrapper>
-      </Teaser>
+
+      <IconWrapper>
+        <Icon glyph="clock" size={20} /> {totalDuration} Min <br />
+        <Icon glyph="info" size={20} /> Intermediate <br />
+      </IconWrapper>
 
       <Wrapper>
         <OverviewButton
           onClick={() => setIsWorkoutSectionsVisible(!isWorkoutSectionsVisible)}
         >
           {isWorkoutSectionsVisible ? (
-            <OverviewWrapper> Hide overview</OverviewWrapper>
+            <OverviewWrapper>
+              {' '}
+              Hide overview <Icon glyph="up-caret" size={20} />
+            </OverviewWrapper>
           ) : (
-            <OverviewWrapper>Show overview</OverviewWrapper>
+            <OverviewWrapper>
+              {' '}
+              Show overview <Icon glyph="down-caret" size={20} />
+            </OverviewWrapper>
           )}
         </OverviewButton>
 
@@ -98,21 +103,13 @@ const Grid = styled.section`
 
 const Title = styled.h3`
   margin: 15px 0 0;
-  /* padding: 2px; */
   color: var(--dark-grey);
 `
 
-const Teaser = styled.div`
-  text-align: left;
-  /* padding: 5px; */
-  display: flex;
-  justify-content: space-between;
-  align-content: flex-start;
-`
 const IconWrapper = styled.div`
-  display: flex;
-  align-content: flex-start;
-  justify-content: space-evenly;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 8fr;
 `
 
 const Description = styled.div`
@@ -128,7 +125,7 @@ const Wrapper = styled.section`
 const OverviewWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 
 const WarmupSection = styled.section`
@@ -156,9 +153,17 @@ const CooldownSection = styled.section`
 `
 const OverviewButton = styled(Button)`
   width: 305px;
+  border: none;
+  border-top: 0.5px solid var(--color-grey);
+  border-bottom: 0.5px solid var(--color-grey);
+  border-radius: 0;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--color-dark-grey);
 `
 
 const SelectButton = styled(Button)`
   width: 100%;
   margin-bottom: 20px;
+  text-align: center;
 `

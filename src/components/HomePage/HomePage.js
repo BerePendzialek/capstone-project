@@ -55,15 +55,6 @@ const Grid = styled.section`
     height: 250px;
     width: 100%;
   }
-  /* &::after {
-    content: '';
-    display: block;
-    height: 58px;
-    width: 100%;
-  } */
-  &::-webkit-scrollbar {
-    display: none;
-  }
 
   p {
     text-align: center;
@@ -81,7 +72,6 @@ const NextButton = styled.button`
   place-items: center;
   background: var(--color-white-smoked);
   border-radius: 5px;
-
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;

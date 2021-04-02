@@ -38,7 +38,7 @@ const HeaderStyled = styled(Header)`
 `
 const Grid = styled.section`
   display: grid;
-  gap: 20px;
+  gap: 10px;
   overflow-y: scroll;
   &::before {
     content: '';
@@ -51,9 +51,6 @@ const Grid = styled.section`
     display: block;
     height: 48px;
     width: 100%;
-  }
-  &::-webkit-scrollbar {
-    display: none;
   }
 `
 

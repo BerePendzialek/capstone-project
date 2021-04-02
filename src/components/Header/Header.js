@@ -5,9 +5,8 @@ const HeaderStyle = styled.div`
   display: grid;
   background-image: var(--color-main-gradient);
   color: white;
-  height: 58px;
+  height: 48px;
   width: 100%;
-  border-radius: 0 0 70px 70px;
   font-size: 1.6em;
   font-weight: 400;
   font-family: 'Work Sans';

@@ -8,7 +8,7 @@ export default function MusicPage({ onCreatePlaylist, selectedWorkout }) {
       <HeaderStyled>Music</HeaderStyled>
 
       <Grid>
-        <Heading> Select your music:</Heading>
+        <Heading> Any musical wishes?</Heading>
 
         <MusicForm
           workout={selectedWorkout}
@@ -37,11 +37,8 @@ const Grid = styled.section`
   &::after {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
-  }
-  &::-webkit-scrollbar {
-    display: none;
   }
 `
 const Heading = styled.div`

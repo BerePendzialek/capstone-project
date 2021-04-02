@@ -8,7 +8,7 @@ export default function WorkoutPage({ results, onSelectWorkout }) {
     <section>
       <HeaderStyled>Workout</HeaderStyled>
       <Grid>
-        <Heading> Select your workout:</Heading>
+        <Heading> What are you training? </Heading>
 
         {results.map(workout => (
           <WorkoutCard
@@ -43,9 +43,6 @@ const Grid = styled.div`
     display: block;
     height: 58px;
     width: 100%;
-  }
-  &::-webkit-scrollbar {
-    display: none;
   }
 `
 
