@@ -7,7 +7,7 @@ import {
   ShowFormatWarmup,
   ShowFormatIntervalsT,
   ShowFormatCooldown,
-} from './ShowFormatFromSections'
+} from '../../services/ShowFormatFromSections'
 
 import Button from '../Button'
 import Icon from 'supercons'
@@ -19,7 +19,7 @@ WorkoutCard.propTypes = {
   totalDuration: PropTypes.number,
 }
 
-export default function WorkoutCard({ workout }) {
+export default function WorkoutCard({ workout, onSelectWorkout }) {
   const {
     name,
     description,
@@ -38,10 +38,11 @@ export default function WorkoutCard({ workout }) {
       <Title>
         {name} <br />
       </Title>
-      <Teaser>
-        <Icon glyph="clock" size={24} /> {totalDuration} Min <br />
-        <Icon glyph="info" size={24} /> Level: Intermediate <br />
-      </Teaser>
+
+      <IconWrapper>
+        <Icon glyph="clock" size={20} /> {totalDuration} Min <br />
+        <Icon glyph="info" size={20} /> Intermediate <br />
+      </IconWrapper>
 
       <Wrapper>
         <OverviewButton
@@ -50,11 +51,12 @@ export default function WorkoutCard({ workout }) {
           {isWorkoutSectionsVisible ? (
             <OverviewWrapper>
               {' '}
-              Hide overview <Icon glyph="up-caret" size={24} />
+              Hide overview <Icon glyph="up-caret" size={20} />
             </OverviewWrapper>
           ) : (
             <OverviewWrapper>
-              Show overview <Icon glyph="down-caret" size={24} />
+              {' '}
+              Show overview <Icon glyph="down-caret" size={20} />
             </OverviewWrapper>
           )}
         </OverviewButton>
@@ -75,9 +77,12 @@ export default function WorkoutCard({ workout }) {
         </div>
       </Wrapper>
 
-      <SelectButton as={NavLink} to={{ pathname: '/music', workout: workout }}>
+      <SelectButton
+        as={NavLink}
+        to="/music"
+        onClick={() => onSelectWorkout(workout)}
+      >
         Select this workout
-        <Icon glyph="enter" size={24} />
       </SelectButton>
     </Grid>
   )
@@ -85,32 +90,32 @@ export default function WorkoutCard({ workout }) {
 
 const Grid = styled.section`
   display: grid;
-  margin-left: 0;
   gap: 20px;
-  padding: 10px;
-  background: white;
-  box-shadow: 0 0 8px #1019331f;
-  border-radius: 0px 60px 60px 0px;
-  color: black;
-  width: 100%;
+  padding: 15px;
+  background: var(--color-white-smoked);
+  border: 1px solid var(--color-lila-light);
+  border-radius: 0px 60px 0px 0px;
+  color: var(--color-dark-grey);
+  width: 335px;
+  margin-top: 20px;
+  justify-content: center;
 `
 
 const Title = styled.h3`
-  margin: 15px 5px 0 5px;
-  text-align: justify;
-  padding: 2px;
+  margin: 15px 0 0;
+  color: var(--dark-grey);
 `
 
-const Teaser = styled.div`
-  text-align: left;
-  padding: 5px;
-  display: inline-block;
+const IconWrapper = styled.div`
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 8fr;
 `
 
 const Description = styled.div`
   text-align: left;
   padding: 5px;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px;
 `
 
 const Wrapper = styled.section`
@@ -120,7 +125,7 @@ const Wrapper = styled.section`
 const OverviewWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 
 const WarmupSection = styled.section`
@@ -147,9 +152,18 @@ const CooldownSection = styled.section`
   border-radius: 5px;
 `
 const OverviewButton = styled(Button)`
-  width: 90%;
+  width: 305px;
+  border: none;
+  border-top: 0.5px solid var(--color-grey);
+  border-bottom: 0.5px solid var(--color-grey);
+  border-radius: 0;
+  font-size: 0.8em;
+  font-weight: 400;
+  color: var(--color-dark-grey);
 `
 
 const SelectButton = styled(Button)`
-  width: 90%;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
 `

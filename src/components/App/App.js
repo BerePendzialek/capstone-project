@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { Route, Switch } from 'react-router-dom'
@@ -13,14 +13,20 @@ import { results } from '../staticWorkoutList.json'
 import Navigation from '../Navigation/Navigation'
 import HomePage from '../HomePage/HomePage'
 import FavoritesPage from '../FavoritesPage'
+import { v4 as uuidv4 } from 'uuid'
+import { loadFromLocal, saveToLocal } from '../../lib/localStorage'
 
 export default function App() {
   const { push } = useHistory()
-
+  const [selectedWorkout, setSelectedWorkout] = useState({})
   const [warmupSongs, setWarmupSongs] = useState([])
   const [intervalsTSongs, setIntervalsTSongs] = useState([])
   const [cooldownSongs, setCooldownSongs] = useState([])
-  const [playlist, setPlaylist] = useState([])
+  const [history, setHistory] = useState(loadFromLocal('playlistHistory') ?? [])
+
+  useEffect(() => {
+    saveToLocal('playlistHistory', history)
+  }, [history])
 
   return (
     <AppLayout>
@@ -29,25 +35,30 @@ export default function App() {
           <HomePage />
         </Route>
         <Route path="/workout">
-          <WorkoutPage results={results} />
+          <WorkoutPage results={results} onSelectWorkout={selectWorkout} />
         </Route>
         <Route
           path="/music"
           render={props => (
-            <MusicPage {...props} onCreatePlaylist={createPlaylist} />
+            <MusicPage
+              {...props}
+              onCreatePlaylist={createPlaylist}
+              selectedWorkout={selectedWorkout}
+            />
           )}
         />
 
         <Route path="/playlist">
           <PlaylistPage
-            playlist={playlist}
             warmupSongs={warmupSongs}
             intervalsTSongs={intervalsTSongs}
             cooldownSongs={cooldownSongs}
+            selectedWorkout={selectedWorkout}
+            onSavePlaylist={savePlaylist}
           />
         </Route>
-        <Route path="/favorites">
-          <FavoritesPage />
+        <Route exact path="/favorites">
+          <FavoritesPage history={history} />
         </Route>
       </Switch>
       <Footer>
@@ -57,6 +68,11 @@ export default function App() {
       </Footer>
     </AppLayout>
   )
+
+  function selectWorkout(workout) {
+    const selectedWorkout = results.find(result => result.id === workout.id)
+    setSelectedWorkout(selectedWorkout)
+  }
 
   function createPlaylist(values, workout) {
     const newWorkout = {
@@ -151,16 +167,30 @@ export default function App() {
     setWarmupSongs(warmupSongsTotal)
     setIntervalsTSongs(intervalsTSongsTotal)
     setCooldownSongs(cooldownSongsTotal)
-    setPlaylist()
+
     push('/playlist')
+  }
+
+  function savePlaylist() {
+    setHistory([
+      {
+        selectedWorkout,
+        warmupSongs,
+        intervalsTSongs,
+        cooldownSongs,
+        id: uuidv4,
+      },
+      ...history,
+    ])
+    push('/favorites')
   }
 }
 
 const AppLayout = styled.div`
   display: grid;
-  padding: 2px;
   gap: 10px;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 `
 const Footer = styled.footer`
   bottom: 10px;

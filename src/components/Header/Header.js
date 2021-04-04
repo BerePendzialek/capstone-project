@@ -3,16 +3,17 @@ import PropTypes from 'prop-types'
 
 const HeaderStyle = styled.div`
   display: grid;
-  background: linear-gradient(200deg, #739ebb 0%, #ffa500 60%);
-  color: #5e176a;
-  height: 58px;
+  background-image: var(--color-main-gradient);
+  color: white;
+  height: 48px;
   width: 100%;
-  border-radius: 0 0 70px 70px;
   font-size: 1.6em;
-  font-weight: 400px;
-  letter-spacing: 0.05em;
+  font-weight: 400;
+  font-family: 'Work Sans';
   place-items: center;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  padding: 10px 50px 8px;
 `
 
 const Header = props => <HeaderStyle {...props} />

@@ -1,33 +1,29 @@
 import styled from 'styled-components/macro'
 import Header from '../Header'
 import Button from '../Button'
-import Icon from 'supercons'
-import { NavLink } from 'react-router-dom'
 import Playlist from '../Playlist'
 
 export default function PlaylistPage({
-  playlist,
   warmupSongs,
   intervalsTSongs,
   cooldownSongs,
+  selectedWorkout,
+  onSavePlaylist,
 }) {
   return (
     <section>
       <HeaderStyled>Playlist</HeaderStyled>
 
       <Grid>
-        <Heading>Songs for your next workout:</Heading>
+        <Heading>Songs for your workout</Heading>
         <Playlist
-          playlist={playlist}
           warmupSongs={warmupSongs}
           intervalsTSongs={intervalsTSongs}
           cooldownSongs={cooldownSongs}
+          selectedWorkout={selectedWorkout}
         />
-        Playlist duration can exceed or be under the workout duration <br />
-        <BackButton as={NavLink} to={{ pathname: '/music' }}>
-          <Icon glyph="back" size={24} />
-          Back
-        </BackButton>
+
+        <Button onClick={onSavePlaylist}>Save this Playlist</Button>
       </Grid>
     </section>
   )
@@ -41,18 +37,18 @@ const HeaderStyled = styled(Header)`
 
 const Grid = styled.section`
   display: grid;
-  gap: 20px;
+  gap: 10px;
   overflow-y: scroll;
   &::before {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
   }
   &::after {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
   }
   &::-webkit-scrollbar {
@@ -61,13 +57,8 @@ const Grid = styled.section`
 `
 
 const Heading = styled.div`
-  font-family: 'Tahoma';
-  font-weight: 300;
+  font-family: 'Work Sans';
   font-size: 20px;
   display: inline-block;
-`
-
-const BackButton = styled(Button)`
-  width: 25%;
-  border-radius: 5px;
+  text-transform: uppercase;
 `

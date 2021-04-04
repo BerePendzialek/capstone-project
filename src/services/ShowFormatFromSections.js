@@ -4,8 +4,7 @@ function ShowFormatWarmup({ warmup }) {
   const { duration, powerLow, powerHigh, cadence } = warmup
   return (
     <div>
-      {duration}min from {powerLow} to
-      {powerHigh}W at {cadence}rpm
+      {duration}min from {powerLow} to {powerHigh}W at {cadence}rpm
     </div>
   )
 }
@@ -25,7 +24,7 @@ function ShowFormatIntervalsT({ intervalsT }) {
     <div>
       {repeat}x {onDuration}min @{cadence}rpm, {onPower}W,
       <br />
-      {offDuration}min @ {cadenceResting}
+      {offDuration}min @{cadenceResting}
       rpm, {offPower}W
     </div>
   )

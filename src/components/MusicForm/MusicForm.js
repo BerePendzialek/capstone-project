@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import convertEnergy from '../../services/convertEnergy'
 import data from '../tracksShort.json'
 import Button from '../Button'
-import Icon from 'supercons'
+
 import { useHistory } from 'react-router-dom'
 
 export default function MusicForm({ onCreatePlaylist, workout }) {
@@ -15,9 +15,9 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
   return (
     <Form data-testid="form" onSubmit={handleSubmit}>
       <Label>
-        Energy
+        Energy Level
         <SelectInput required name="energy" data-testid="energy-select">
-          <option value="">... Please choose an option</option>
+          <option value="">Please choose an option... </option>
           {energyCategory.map(categoryItem => (
             <option data-testid={categoryItem}>{categoryItem}</option>
           ))}
@@ -27,16 +27,13 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
       <Label>
         Genre
         <SelectInput required name="genre" data-testid="genre-select">
-          <option value="">... Please choose an option</option>
+          <option value="">Please choose an option...</option>
           {genreCategory.map(categoryItem => (
             <option data-testid={categoryItem}>{categoryItem}</option>
           ))}
         </SelectInput>
       </Label>
-      <PlaylistButton>
-        Get my Playlist! 
-        <Icon glyph="enter" size={24} />{' '}
-      </PlaylistButton>
+      <PlaylistButton>Get my Playlist! </PlaylistButton>
     </Form>
   )
 
@@ -61,28 +58,27 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
 const Form = styled.form`
   display: grid;
   gap: 20px;
-  padding: 10px;
   width: 100%;
+  margin-top: 20px;
 `
 const Label = styled.label`
   display: grid;
   width: 100%;
 `
-
 const SelectInput = styled.select`
   appearance: none;
   font-family: inherit;
   padding: 10px;
   padding-top: 5px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   width: 100%;
   border-radius: 5px;
   margin-top: 10px;
+  background: var(--color-white-smoked);
+  color: var(--color-grey);
+  margin-bottom: 20px;
 `
 const PlaylistButton = styled(Button)`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 5px;
+  margin-top: 20px;
 `

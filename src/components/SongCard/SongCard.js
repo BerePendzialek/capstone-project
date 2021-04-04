@@ -21,14 +21,14 @@ export default function SongCard({ songInfo }) {
 const Grid = styled.section`
   display: flex;
   gap: 20px;
-  border: 1px solid gray;
-
+  border: 1px solid var(--color-lila-light);
   font-size: 0.8em;
   width: 100%;
-  height: 64px;
+  height: 75px;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   overflow: hidden;
+  border-radius: 5px;
 `
 
 const ImageWrapper = styled.div`
@@ -36,23 +36,23 @@ const ImageWrapper = styled.div`
   height: 100%;
   vertical-align: middle;
   overflow: hidden;
-  padding: 0px;
+  padding: 5px;
 
   img {
     overflow: hidden;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
   }
 `
 
 const SongInfo = styled.div`
   width: 70%;
-  padding: 5px;
+  padding: 10px;
 `
 
 const SongName = styled.div`
-  color: #ee7203;
+  color: var(--color-lila);
 `
 
 const SongDuration = styled.div`
-  color: #7a8495;
+  color: var(--color-dark-grey);
 `

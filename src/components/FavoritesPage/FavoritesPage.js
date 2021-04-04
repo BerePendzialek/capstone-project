@@ -1,23 +1,33 @@
-import Icon from 'supercons'
 import styled from 'styled-components/macro'
 import Header from '../Header'
+import FavoritesEntry from '../FavoriesEntry/FavoritesEntry'
 
-export default function FavoritesPage() {
+export default function FavoritesPage({ history }) {
   return (
-
     <section>
       <HeaderStyled>Favorites</HeaderStyled>
       <Grid>
-        <Heading>
-          {' '}
-          Soon you´ll be able to save your favorite playlists
-          <Icon glyph="like" size={24} />
-        </Heading>
+        <Heading> Your favorite playlists</Heading>
+
+        {history.map(
+          ({
+            selectedWorkout,
+            warmupSongs,
+            intervalsTSongs,
+            cooldownSongs,
+            id,
+          }) => (
+            <FavoritesEntry
+              key={id}
+              selectedWorkout={selectedWorkout}
+              warmupSongs={warmupSongs}
+              intervalsTSongs={intervalsTSongs}
+              cooldownSongs={cooldownSongs}
+            />
+          )
+        )}
       </Grid>
     </section>
-
- 
-
   )
 }
 
@@ -28,18 +38,18 @@ const HeaderStyled = styled(Header)`
 `
 const Grid = styled.section`
   display: grid;
-  gap: 20px;
+  gap: 10px;
   overflow-y: scroll;
   &::before {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
   }
   &::after {
     content: '';
     display: block;
-    height: 58px;
+    height: 48px;
     width: 100%;
   }
   &::-webkit-scrollbar {
@@ -48,8 +58,9 @@ const Grid = styled.section`
 `
 
 const Heading = styled.div`
-  font-family: 'Tahoma';
+  font-family: 'Work Sans';
   font-weight: 300;
   font-size: 20px;
   display: inline-block;
+  text-transform: uppercase;
 `
