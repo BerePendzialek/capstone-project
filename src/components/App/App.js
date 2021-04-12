@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { Route, Switch } from 'react-router-dom'
@@ -14,7 +14,7 @@ import Navigation from '../Navigation/Navigation'
 import HomePage from '../HomePage/HomePage'
 import FavoritesPage from '../FavoritesPage'
 import { v4 as uuidv4 } from 'uuid'
-import { loadFromLocal, saveToLocal } from '../../lib/localStorage'
+import useLocalStorage from '../../hooks/useLocalStorage'
 
 export default function App() {
   const { push } = useHistory()
@@ -22,11 +22,7 @@ export default function App() {
   const [warmupSongs, setWarmupSongs] = useState([])
   const [intervalsTSongs, setIntervalsTSongs] = useState([])
   const [cooldownSongs, setCooldownSongs] = useState([])
-  const [history, setHistory] = useState(loadFromLocal('playlistHistory') ?? [])
-
-  useEffect(() => {
-    saveToLocal('playlistHistory', history)
-  }, [history])
+  const [history, setHistory] = useLocalStorage('playlistHistory', [])
 
   return (
     <AppLayout>
@@ -37,16 +33,12 @@ export default function App() {
         <Route path="/workout">
           <WorkoutPage results={results} onSelectWorkout={selectWorkout} />
         </Route>
-        <Route
-          path="/music"
-          render={props => (
-            <MusicPage
-              {...props}
-              onCreatePlaylist={createPlaylist}
-              selectedWorkout={selectedWorkout}
-            />
-          )}
-        />
+        <Route path="/music">
+          <MusicPage
+            onCreatePlaylist={createPlaylist}
+            selectedWorkout={selectedWorkout}
+          />
+        </Route>
 
         <Route path="/playlist">
           <PlaylistPage
@@ -91,6 +83,8 @@ export default function App() {
       },
     }
 
+    /// Warmup //
+
     const allSongsForWarmup = data.filter(
       song =>
         roundedTempo(song.tempo) >= rangeMin(newWorkout.warmup.cadence) &&
@@ -98,9 +92,16 @@ export default function App() {
         song.genre === values.genre
     )
 
+    // const shuffledWarmupSongs = shuffledSongs(allSongsForWarmup)
+
     const shuffledWarmupSongs = allSongsForWarmup.sort(
       () => 0.5 - Math.random()
     )
+
+    // const warmupSongsTotal = extractSongsWithinTime(
+    //   shuffledWarmupSongs,
+    //   workout.warmup.duration_ms
+    // )
 
     let counterW = 0
     const warmupSongsTotal = shuffledWarmupSongs.reduce((acc, cur) => {
@@ -114,6 +115,8 @@ export default function App() {
       }
       return acc
     }, [])
+
+    ///// Intervals ////
 
     const allSongsForIntervalsT = data.filter(
       song =>
@@ -184,6 +187,26 @@ export default function App() {
     ])
     push('/favorites')
   }
+
+  // function shuffledSongs(allSongs) {
+  //   allSongs.sort(() => 0.5 - Math.random())
+  // }
+
+  // function extractSongsWithinTime(songs, maxDuration) {
+  //   const MAX_DURATION = maxDuration
+  //   let counterW = 0
+
+  //   songs.reduce((acc, cur) => {
+  //     if (counterW <= MAX_DURATION) {
+  //       const nextTimeSum = counterW + cur.duration_ms
+  //       if (nextTimeSum <= MAX_DURATION) {
+  //         counterW = counterW + cur.duration_ms
+  //         acc.push(cur)
+  //       }
+  //     }
+  //     return acc
+  //   }, [])
+  // }
 }
 
 const AppLayout = styled.div`
