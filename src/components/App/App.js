@@ -14,6 +14,8 @@ import Navigation from '../Navigation/Navigation'
 import HomePage from '../HomePage/HomePage'
 import FavoritesPage from '../FavoritesPage'
 import { v4 as uuidv4 } from 'uuid'
+import shuffleSongs from '../../services/shuffleSongs'
+import extractSongsWithinTime from '../../services/extractSongsWithinTime'
 import useLocalStorage from '../../hooks/useLocalStorage'
 
 export default function App() {
@@ -83,40 +85,17 @@ export default function App() {
       },
     }
 
-    /// Warmup //
-
     const allSongsForWarmup = data.filter(
       song =>
         roundedTempo(song.tempo) >= rangeMin(newWorkout.warmup.cadence) &&
         roundedTempo(song.tempo) <= rangeMax(newWorkout.warmup.cadence) &&
         song.genre === values.genre
     )
-
-    // const shuffledWarmupSongs = shuffledSongs(allSongsForWarmup)
-
-    const shuffledWarmupSongs = allSongsForWarmup.sort(
-      () => 0.5 - Math.random()
+    const shuffledWarmupSongs = shuffleSongs(allSongsForWarmup)
+    const warmupSongsTotal = extractSongsWithinTime(
+      shuffledWarmupSongs,
+      workout.warmup.duration_ms
     )
-
-    // const warmupSongsTotal = extractSongsWithinTime(
-    //   shuffledWarmupSongs,
-    //   workout.warmup.duration_ms
-    // )
-
-    let counterW = 0
-    const warmupSongsTotal = shuffledWarmupSongs.reduce((acc, cur) => {
-      const warmup_duration = workout.warmup.duration_ms
-      if (counterW <= warmup_duration) {
-        const nextTimeSum = counterW + cur.duration_ms
-        if (nextTimeSum <= warmup_duration) {
-          counterW = counterW + cur.duration_ms
-          acc.push(cur)
-        }
-      }
-      return acc
-    }, [])
-
-    ///// Intervals ////
 
     const allSongsForIntervalsT = data.filter(
       song =>
@@ -124,24 +103,11 @@ export default function App() {
         roundedTempo(song.tempo) <= rangeMax(newWorkout.intervalsT.cadence) &&
         song.genre === values.genre
     )
-
-    const shuffledIntervalsTSongs = allSongsForIntervalsT.sort(
-      () => 0.5 - Math.random()
+    const shuffledIntervalsTSongs = shuffleSongs(allSongsForIntervalsT)
+    const intervalsTSongsTotal = extractSongsWithinTime(
+      shuffledIntervalsTSongs,
+      workout.intervalsT.total_interval_duration_ms
     )
-
-    let counterI = 0
-
-    const intervalsTSongsTotal = shuffledIntervalsTSongs.reduce((acc, cur) => {
-      const intervalsT_duration = workout.intervalsT.total_interval_duration_ms
-      if (counterI <= intervalsT_duration) {
-        const nextTimeSum = counterI + cur.duration_ms
-        if (nextTimeSum <= intervalsT_duration) {
-          counterI = counterI + cur.duration_ms
-          acc.push(cur)
-        }
-      }
-      return acc
-    }, [])
 
     const allSongsForCooldown = data.filter(
       song =>
@@ -149,23 +115,11 @@ export default function App() {
         roundedTempo(song.tempo) <= rangeMax(newWorkout.cooldown.cadence) &&
         song.genre === values.genre
     )
-
-    const shuffledCooldownSongs = allSongsForCooldown.sort(
-      () => 0.5 - Math.random()
+    const shuffledCooldownSongs = shuffleSongs(allSongsForCooldown)
+    const cooldownSongsTotal = extractSongsWithinTime(
+      shuffledCooldownSongs,
+      workout.cooldown.duration_ms
     )
-
-    let counterC = 0
-    const cooldownSongsTotal = shuffledCooldownSongs.reduce((acc, cur) => {
-      const cooldown_duration = workout.cooldown.duration_ms
-      if (counterC <= cooldown_duration) {
-        const nextTimeSum = counterC + cur.duration_ms
-        if (nextTimeSum <= cooldown_duration) {
-          counterC = counterC + cur.duration_ms
-          acc.push(cur)
-        }
-      }
-      return acc
-    }, [])
 
     setWarmupSongs(warmupSongsTotal)
     setIntervalsTSongs(intervalsTSongsTotal)
@@ -187,26 +141,6 @@ export default function App() {
     ])
     push('/favorites')
   }
-
-  // function shuffledSongs(allSongs) {
-  //   allSongs.sort(() => 0.5 - Math.random())
-  // }
-
-  // function extractSongsWithinTime(songs, maxDuration) {
-  //   const MAX_DURATION = maxDuration
-  //   let counterW = 0
-
-  //   songs.reduce((acc, cur) => {
-  //     if (counterW <= MAX_DURATION) {
-  //       const nextTimeSum = counterW + cur.duration_ms
-  //       if (nextTimeSum <= MAX_DURATION) {
-  //         counterW = counterW + cur.duration_ms
-  //         acc.push(cur)
-  //       }
-  //     }
-  //     return acc
-  //   }, [])
-  // }
 }
 
 const AppLayout = styled.div`
