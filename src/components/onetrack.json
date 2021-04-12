@@ -1,4 +1,5 @@
-"id": 
+{
+    "id": 
     "artist_name": 
     "images": 
     "album_name": 
@@ -10,3 +11,5 @@
     "tempo": 
     "duration_ms": 
     "genre": "Pop"
+}
+    
