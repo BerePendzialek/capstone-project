@@ -17,6 +17,7 @@ import { v4 as uuidv4 } from 'uuid'
 import shuffleSongs from '../../services/shuffleSongs'
 import extractSongsWithinTime from '../../services/extractSongsWithinTime'
 import useLocalStorage from '../../hooks/useLocalStorage'
+//import filterAllSongsForSection from '../../services/filterAllSongsForSection'
 
 export default function App() {
   const { push } = useHistory()
@@ -91,6 +92,13 @@ export default function App() {
         roundedTempo(song.tempo) <= rangeMax(newWorkout.warmup.cadence) &&
         song.genre === values.genre
     )
+
+    //  const allSongsForWarmup = filterAllSongsForSection(
+    //   data,
+    //   newWorkout.warmup.cadence,
+    //   values.genre
+    // )
+
     const shuffledWarmupSongs = shuffleSongs(allSongsForWarmup)
     const warmupSongsTotal = extractSongsWithinTime(
       shuffledWarmupSongs,
