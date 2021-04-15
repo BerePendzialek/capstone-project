@@ -9,7 +9,5 @@ test('renders the provisory heading of the app', () => {
     </MemoryRouter>
   )
   //render(<App />)
-  expect(
-    screen.getByText(/welcome to this playlist generator/i)
-  ).toBeInTheDocument()
+  expect(screen.getByText(/ZwiftLy/i)).toBeInTheDocument()
 })

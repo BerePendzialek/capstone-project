@@ -11,9 +11,9 @@ describe('MusicForm', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByLabelText('Energy')).toBeInTheDocument()
+    expect(screen.getByLabelText('Energy Level')).toBeInTheDocument()
     expect(screen.getByLabelText('Genre')).toBeInTheDocument()
-    expect(screen.getByRole('link')).toBeInTheDocument()
+    expect(screen.getByRole('button')).toBeInTheDocument()
   })
 
   it('renders two required input fields', () => {
@@ -23,7 +23,7 @@ describe('MusicForm', () => {
       </MemoryRouter>
     )
 
-    expect(screen.getByLabelText('Energy')).toBeRequired()
+    expect(screen.getByLabelText('Energy Level')).toBeRequired()
     expect(screen.getByLabelText('Genre')).toBeRequired()
   })
 
@@ -34,9 +34,18 @@ describe('MusicForm', () => {
         (<MusicForm onCreatePlaylist={callback} />)
       </MemoryRouter>
     )
-    userEvent.selectOptions(screen.getByTestId('energy-select'), ['Relax'])
-    expect(screen.getByTestId('Relax').selected).toBe(true)
+    userEvent.selectOptions(screen.getByTestId('energy-select'), ['High'])
+    expect(screen.getByTestId('High').selected).toBe(true)
   })
 
-  it.todo('calls onSubmit with form data')
+  it('calls onCreatePlaylist on form submit', () => {
+    const callback = jest.fn()
+    render(
+      <MemoryRouter initialEntries={['/music']}>
+        (<MusicForm onCreatePlaylist={callback} />)
+      </MemoryRouter>
+    )
+    userEvent.click(screen.getByRole('button'))
+    expect(callback).toHaveBeenCalled()
+  })
 })

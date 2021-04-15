@@ -29,11 +29,13 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
         <SelectInput required name="genre" data-testid="genre-select">
           <option value="">Please choose an option...</option>
           {genreCategory.map(categoryItem => (
-            <option data-testid={categoryItem}>{categoryItem}</option>
+            <option key={data.id} data-testid={categoryItem}>
+              {categoryItem}
+            </option>
           ))}
         </SelectInput>
       </Label>
-      <PlaylistButton>Get my Playlist! </PlaylistButton>
+      <PlaylistButton data-testid="button">Get my Playlist! </PlaylistButton>
     </Form>
   )
 
