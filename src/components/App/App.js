@@ -6,9 +6,7 @@ import WorkoutPage from '../WorkoutPage'
 import MusicPage from '../MusicPage'
 import PlaylistPage from '../PlaylistPage'
 import data from '../tracksShort.json'
-import { rangeMin, rangeMax } from '../../services/cadenceRange'
 import convertCadenceTempo from '../../services/convertCadenceTempo'
-import roundedTempo from '../../services/roundedTempo'
 import { results } from '../staticWorkoutList.json'
 import Navigation from '../Navigation/Navigation'
 import HomePage from '../HomePage/HomePage'
@@ -17,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid'
 import shuffleSongs from '../../services/shuffleSongs'
 import extractSongsWithinTime from '../../services/extractSongsWithinTime'
 import useLocalStorage from '../../hooks/useLocalStorage'
-//import filterAllSongsForSection from '../../services/filterAllSongsForSection'
+import filterAllSongsForSection from '../../services/filterAllSongsForSection'
 
 export default function App() {
   const { push } = useHistory()
@@ -86,30 +84,21 @@ export default function App() {
       },
     }
 
-    const allSongsForWarmup = data.filter(
-      song =>
-        roundedTempo(song.tempo) >= rangeMin(newWorkout.warmup.cadence) &&
-        roundedTempo(song.tempo) <= rangeMax(newWorkout.warmup.cadence) &&
-        song.genre === values.genre
+    const allSongsForWarmup = filterAllSongsForSection(
+      data,
+      newWorkout.warmup.cadence,
+      values
     )
-
-    //  const allSongsForWarmup = filterAllSongsForSection(
-    //   data,
-    //   newWorkout.warmup.cadence,
-    //   values.genre
-    // )
-
     const shuffledWarmupSongs = shuffleSongs(allSongsForWarmup)
     const warmupSongsTotal = extractSongsWithinTime(
       shuffledWarmupSongs,
       workout.warmup.duration_ms
     )
 
-    const allSongsForIntervalsT = data.filter(
-      song =>
-        roundedTempo(song.tempo) >= rangeMin(newWorkout.intervalsT.cadence) &&
-        roundedTempo(song.tempo) <= rangeMax(newWorkout.intervalsT.cadence) &&
-        song.genre === values.genre
+    const allSongsForIntervalsT = filterAllSongsForSection(
+      data,
+      newWorkout.intervalsT.cadence,
+      values
     )
     const shuffledIntervalsTSongs = shuffleSongs(allSongsForIntervalsT)
     const intervalsTSongsTotal = extractSongsWithinTime(
@@ -117,11 +106,10 @@ export default function App() {
       workout.intervalsT.total_interval_duration_ms
     )
 
-    const allSongsForCooldown = data.filter(
-      song =>
-        roundedTempo(song.tempo) >= rangeMin(newWorkout.cooldown.cadence) &&
-        roundedTempo(song.tempo) <= rangeMax(newWorkout.cooldown.cadence) &&
-        song.genre === values.genre
+    const allSongsForCooldown = filterAllSongsForSection(
+      data,
+      newWorkout.cooldown.cadence,
+      values
     )
     const shuffledCooldownSongs = shuffleSongs(allSongsForCooldown)
     const cooldownSongsTotal = extractSongsWithinTime(
