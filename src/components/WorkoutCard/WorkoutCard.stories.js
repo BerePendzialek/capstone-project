@@ -1,4 +1,5 @@
 import WorkoutCard from './WorkoutCard'
+import { action } from '@storybook/addon-actions'
 
 export default {
   title: 'Components/WorkoutCard',
@@ -36,4 +37,9 @@ const workout = {
   },
 }
 
-export const PrimaryWorkoutCard = () => <WorkoutCard workout={workout} />
+const Template = args => <WorkoutCard workout={workout} {...args} />
+export const PrimaryWorkoutCard = Template.bind({})
+
+PrimaryWorkoutCard.args = {
+  onSelectWorkout: action('selectWorkout'),
+}
