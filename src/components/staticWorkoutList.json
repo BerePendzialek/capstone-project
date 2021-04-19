@@ -2,42 +2,8 @@
   "results": [
     {
       "id": 1,
-      "name": "On FTP-Light",
-      "description": "It will give great bang for buck. Training at around 90 percent of your threshhold (aka the Sweet Spot) is useful because you can spend quite a bit of time there without building up undue amounts of training stress. You can do this workout as much as you'd like and watch your FTP rise over time.",
-      "totalDuration": 38,
-      "warmup": {
-        "duration": 10,
-        "powerLow": 60,
-        "powerHigh": 120,
-        "pace": 0,
-        "cadence": 90,
-        "duration_ms": 600000
-      },
-      "intervalsT": {
-        "repeat": 2,
-        "onDuration": 5,
-        "offDuration": 4,
-        "onPower": 180,
-        "offPower": 110,
-        "pace": 0,
-        "cadence": 100,
-        "cadenceResting": 90,
-        "total_interval_duration_ms": 1080000
-      },
-
-      "cooldown": {
-        "duration": 10,
-        "powerLow": 120,
-        "powerHigh": 50,
-        "pace": 0,
-        "cadence": 85,
-        "duration_ms": 600000
-      }
-    },
-    {
-      "id": 2,
       "name": "Sweet Spot Training (SST)",
-      "description": "It will give great bang for buck. Training at around 90 percent of your threshhold (aka the Sweet Spot) is useful because you can spend quite a bit of time there without building up undue amounts of training stress. You can do this workout as much as you'd like and watch your FTP rise over time.",
+      "description": "It will give great bang for buck. Training at around 90 percent of your threshhold (aka the Sweet Spot) is useful because you can spend quite a bit of time there without building up undue amounts of training stress. You can do this workout as much as you'd like and watch your FTP rise over time",
       "totalDuration": 50,
       "warmup": {
         "duration": 5,
@@ -69,9 +35,43 @@
       }
     },
     {
+      "id": 2,
+      "name": "On FTP-Light",
+      "description": "A light version of a FTP classic workout",
+      "totalDuration": 38,
+      "warmup": {
+        "duration": 10,
+        "powerLow": 60,
+        "powerHigh": 120,
+        "pace": 0,
+        "cadence": 90,
+        "duration_ms": 600000
+      },
+      "intervalsT": {
+        "repeat": 2,
+        "onDuration": 5,
+        "offDuration": 4,
+        "onPower": 180,
+        "offPower": 110,
+        "pace": 0,
+        "cadence": 100,
+        "cadenceResting": 90,
+        "total_interval_duration_ms": 1080000
+      },
+
+      "cooldown": {
+        "duration": 10,
+        "powerLow": 120,
+        "powerHigh": 50,
+        "pace": 0,
+        "cadence": 85,
+        "duration_ms": 600000
+      }
+    },
+    {
       "id": 3,
       "name": "Speed Skills",
-      "description": "Try your highest cadence",
+      "description": "Try your highest cadence. Remember: no pain, no gain!",
       "totalDuration": 40,
       "warmup": {
         "duration": 5,
@@ -105,7 +105,7 @@
     {
       "id": 4,
       "name": "Short and slow intervals",
-      "description": "Give it a try to these slow cadence intervals.",
+      "description": "Give it a try to these slow cadence intervals",
       "totalDuration": 28,
       "warmup": {
         "duration": 5,

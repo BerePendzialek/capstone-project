@@ -6,6 +6,7 @@ import {
   ShowFormatCooldown,
 } from '../../services/ShowFormatFromSections'
 import { selectColor, selectColorByInterval } from '../../services/selectColor'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function Playlist({
   warmupSongs,
@@ -22,7 +23,7 @@ export default function Playlist({
       </WarmupSection>
       <SectionWrapper>
         {warmupSongs.map(songInfo => (
-          <SongCard songInfo={songInfo} />
+          <SongCard key={uuidv4()} songInfo={songInfo} />
         ))}
       </SectionWrapper>
 
@@ -31,7 +32,7 @@ export default function Playlist({
       </IntervalsTSection>
       <SectionWrapper>
         {intervalsTSongs.map(songInfo => (
-          <SongCard songInfo={songInfo} />
+          <SongCard key={uuidv4()} songInfo={songInfo} />
         ))}
       </SectionWrapper>
       <CooldownSection background={selectColor(cooldown.powerHigh)}>
@@ -39,7 +40,7 @@ export default function Playlist({
       </CooldownSection>
       <SectionWrapper>
         {cooldownSongs.map(songInfo => (
-          <SongCard songInfo={songInfo} />
+          <SongCard key={uuidv4()} songInfo={songInfo} />
         ))}
       </SectionWrapper>
       <p>Playlist duration can exceed or be under the workout duration</p>

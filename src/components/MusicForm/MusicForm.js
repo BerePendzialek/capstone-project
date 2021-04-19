@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import convertEnergy from '../../services/convertEnergy'
 import data from '../tracksShort.json'
 import Button from '../Button'
+import { v4 as uuidv4 } from 'uuid'
 
 import { useHistory } from 'react-router-dom'
 
@@ -19,7 +20,9 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
         <SelectInput required name="energy" data-testid="energy-select">
           <option value="">Please choose an option... </option>
           {energyCategory.map(categoryItem => (
-            <option data-testid={categoryItem}>{categoryItem}</option>
+            <option key={uuidv4()} data-testid={categoryItem}>
+              {categoryItem}
+            </option>
           ))}
         </SelectInput>
       </Label>
@@ -29,7 +32,7 @@ export default function MusicForm({ onCreatePlaylist, workout }) {
         <SelectInput required name="genre" data-testid="genre-select">
           <option value="">Please choose an option...</option>
           {genreCategory.map(categoryItem => (
-            <option key={data.id} data-testid={categoryItem}>
+            <option key={uuidv4()} data-testid={categoryItem}>
               {categoryItem}
             </option>
           ))}

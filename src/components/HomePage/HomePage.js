@@ -12,10 +12,10 @@ export default function HomePage() {
         <p>
           Your Playlist <br /> for Zwift workouts <br />
         </p>
+        <NextButton as={NavLink} to={{ pathname: '/workout' }}>
+          Get started!
+        </NextButton>
       </Grid>
-      <NextButton as={NavLink} to={{ pathname: '/workout' }}>
-        Get started!
-      </NextButton>
     </HomeWrapper>
   )
 }
@@ -80,7 +80,5 @@ const NextButton = styled.button`
   font-size: 0.9em;
   font-weight: 600;
   cursor: pointer;
-  right: 50px;
-  left: 55px;
   position: fixed;
 `
